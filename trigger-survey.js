@@ -62,6 +62,7 @@ const payload = {
   "$.loan_structure.original_amount": "12690000",
   "$.loan_structure.tenure": 12,
   "$.customer.professional.occupation_code": "PNSBPKAGTU",
+  "$.customer.personal.number_dependents": 2,
 };
 
 (async () => {
