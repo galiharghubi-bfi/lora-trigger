@@ -1,0 +1,67 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "Debug Schema Service",
+      "type": "go",
+      "request": "launch",
+      "mode": "auto",
+      "program": "${workspaceFolder}/lora-schema-service/cmd/http",
+      "args": ["-trimpath"],
+      "preLaunchTask": "Prepare lora-schema-service",
+      "envFile": "${workspaceRoot}/lora-schema-service/.env"
+    },
+    {
+      "name": "Debug Task Service",
+      "type": "go",
+      "request": "launch",
+      "mode": "auto",
+      "program": "${workspaceFolder}/lora-task-service/cmd/http",
+      "args": ["-trimpath"],
+      "preLaunchTask": "Prepare lora-task-service",
+      "envFile": "${workspaceRoot}/lora-task-service/.env"
+    },
+    {
+      "name": "Debug Gateway Service",
+      "type": "go",
+      "request": "launch",
+      "mode": "auto",
+      "program": "${workspaceFolder}/lora-gateway-service/cmd/http",
+      "args": ["-trimpath"],
+      "preLaunchTask": "Prepare lora-gateway-service",
+      "envFile": "${workspaceRoot}/lora-gateway-service/.env"
+    },
+    {
+      "name": "Debug Partnership NDF",
+      "type": "go",
+      "request": "launch",
+      "mode": "auto",
+      "program": "${workspaceFolder}/lora-partnership-ndf/cmd",
+      "args": ["-trimpath"],
+      "preLaunchTask": "Prepare lora-partnership-ndf",
+      "envFile": "${workspaceRoot}/lora-partnership-ndf/.env"
+    },
+    {
+      "name": "Debug Partnership Task NDF",
+      "type": "go",
+      "request": "launch",
+      "mode": "auto",
+      "program": "${workspaceFolder}/lora-partnership-task-ndf/cmd",
+      "args": ["-trimpath"],
+      "preLaunchTask": "Prepare lora-partnership-task-ndf",
+      "envFile": "${workspaceRoot}/lora-partnership-task-ndf/.env"
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Debug All (Schema First)",
+      "configurations": [
+        "Debug Schema Service",
+        "Debug Gateway Service",
+        "Debug Partnership NDF",
+        "Debug Partnership Task NDF",
+        "Debug Task Service"
+      ]
+    }
+  ]
+}

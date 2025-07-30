@@ -1,0 +1,286 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run Schema Service",
+      "type": "shell",
+      "command": "bash",
+      "options": {
+        "cwd": "${workspaceFolder}/lora-schema-service"
+      },
+      "args": [
+        "-c",
+        "make vendor && set -o allexport && source .env && set +o allexport && exec go run ./cmd/http -trimpath"
+      ],
+      "isBackground": true,
+      "problemMatcher": {
+        "pattern": [
+          {
+            "regexp": ".",
+            "file": 1,
+            "location": 2,
+            "message": 3
+          }
+        ],
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": ".*", // match any line at start
+          "endsPattern": "Starting HTTP server|Listening on|Server started|Ready|Running" // Replace with your app's log message when ready
+        }
+      }
+    },
+    {
+      "label": "Run Gateway Service",
+      "type": "shell",
+      "command": "bash",
+      "options": {
+        "cwd": "${workspaceFolder}/lora-gateway-service"
+      },
+      "args": [
+        "-c",
+        "make vendor && set -o allexport && source .env && set +o allexport && exec go run ./cmd/http -trimpath"
+      ],
+      "isBackground": true,
+      "problemMatcher": {
+        "pattern": [
+          {
+            "regexp": ".",
+            "file": 1,
+            "location": 2,
+            "message": 3
+          }
+        ],
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": ".*", // match any line at start
+          "endsPattern": "Starting HTTP server|Listening on|Server started|Ready|Running" // Replace with your app's log message when ready
+        }
+      }
+    },
+    {
+      "label": "Run Task Service",
+      "type": "shell",
+      "command": "bash",
+      "options": {
+        "cwd": "${workspaceFolder}/lora-task-service"
+      },
+      "args": [
+        "-c",
+        "make vendor && templ generate && set -o allexport && source .env && set +o allexport && exec go run ./cmd/http -trimpath"
+      ],
+      "isBackground": true,
+      "problemMatcher": {
+        "pattern": [
+          {
+            "regexp": ".",
+            "file": 1,
+            "location": 2,
+            "message": 3
+          }
+        ],
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": ".*", // match any line at start
+          "endsPattern": "Starting HTTP server|Listening on|Server started|Ready|Running" // Replace with your app's log message when ready
+        }
+      }
+    },
+    {
+      "label": "Run Partnership NDF",
+      "type": "shell",
+      "command": "bash",
+      "options": {
+        "cwd": "${workspaceFolder}/lora-partnership-ndf"
+      },
+      "args": [
+        "-c",
+        "make vendor && set -o allexport && source .env && set +o allexport && exec go run ./cmd -trimpath"
+      ],
+      "isBackground": true,
+      "problemMatcher": {
+        "pattern": [
+          {
+            "regexp": ".",
+            "file": 1,
+            "location": 2,
+            "message": 3
+          }
+        ],
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": ".*", // match any line at start
+          "endsPattern": "starting worker|Listening on|Server started|Ready|Running" // Replace with your app's log message when ready
+        }
+      }
+    },
+    {
+      "label": "Run Partnership Task NDF",
+      "type": "shell",
+      "command": "bash",
+      "options": {
+        "cwd": "${workspaceFolder}/lora-partnership-task-ndf"
+      },
+      "args": [
+        "-c",
+        "make vendor && set -o allexport && source .env && set +o allexport && exec go run ./cmd -trimpath"
+      ],
+      "isBackground": true,
+      "problemMatcher": {
+        "pattern": [
+          {
+            "regexp": ".",
+            "file": 1,
+            "location": 2,
+            "message": 3
+          }
+        ],
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": ".*", // match any line at start
+          "endsPattern": "starting worker|Listening on|Server started|Ready|Running" // Replace with your app's log message when ready
+        }
+      }
+    },
+    {
+      "label": "Run Backoffice FE",
+      "type": "shell",
+      "command": "bash",
+      "options": {
+        "cwd": "${workspaceFolder}/lora-backoffice-fe"
+      },
+      "args": ["-c", "pnpm i && pnpm start"],
+      "isBackground": true,
+      "problemMatcher": {
+        "pattern": [
+          {
+            "regexp": ".",
+            "file": 1,
+            "location": 2,
+            "message": 3
+          }
+        ],
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": ".*", // match any line at start
+          "endsPattern": "starting worker|Listening on|Server started|Ready|Running" // Replace with your app's log message when ready
+        }
+      }
+    },
+    {
+      "label": "Generate Schema Process Worker",
+      "type": "shell",
+      "command": "bash",
+      "options": {
+        "cwd": "${workspaceFolder}/lora-schema-service"
+      },
+      "args": [
+        "-c",
+        "lora-schemagen -d -s \"http://localhost:8080/json-schema/business/document/dp-ndf-v0_0_1.schema.json?bundled=1\" -t \"${workspaceFolder}/lora-partnership-ndf/internal/process/document\""
+      ],
+      "isBackground": true
+    },
+    {
+      "label": "Generate Schema Task Worker",
+      "type": "shell",
+      "command": "bash",
+      "options": {
+        "cwd": "${workspaceFolder}/lora-schema-service"
+      },
+      "args": [
+        "-c",
+        "lora-schemagen -d -s \"http://localhost:8080/json-schema/business/document/dp-ndf-v0_0_1.schema.json?bundled=1\" -t \"${workspaceFolder}/lora-partnership-task-ndf/internal/process/common\""
+      ],
+      "isBackground": true
+    },
+    {
+      "label": "Run Worker Schemas Generator",
+      "dependsOn": [
+        "Generate Schema Process Worker",
+        "Generate Schema Task Worker"
+      ],
+      "dependsOrder": "sequence",
+      "problemMatcher": [],
+      "type": "shell",
+      "command": "echo All schemas generated."
+    },
+    {
+      "label": "Start Step 1: Run Schema",
+      "dependsOn": ["Run Schema Service"],
+      "dependsOrder": "sequence"
+    },
+    {
+      "label": "Start Step 2: Run Gateway",
+      "dependsOn": ["Start Step 1: Run Schema", "Run Gateway Service"],
+      "dependsOrder": "sequence"
+    },
+    {
+      "label": "Start Step 3: Run Rest",
+      "dependsOn": [
+        "Run Task Service",
+        "Run Partnership NDF",
+        "Run Partnership Task NDF",
+        "Run Backoffice FE"
+      ],
+      "dependsOrder": "parallel" // all run as soon as Gateway is ready
+    },
+    {
+      "label": "Run All Services",
+      "dependsOn": [
+        "Start Step 1: Run Schema",
+        "Start Step 2: Run Gateway",
+        "Start Step 3: Run Rest"
+      ],
+      "dependsOrder": "sequence",
+      "type": "shell",
+      "command": "echo All services started.",
+      "problemMatcher": [],
+      "group": "build"
+    },
+    {
+      "label": "Prepare lora-schema-service",
+      "type": "shell",
+      "command": "make vendor",
+      "options": {
+        "cwd": "${workspaceFolder}/lora-schema-service"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Prepare lora-gateway-service",
+      "type": "shell",
+      "command": "make vendor",
+      "options": {
+        "cwd": "${workspaceFolder}/lora-gateway-service"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Prepare lora-task-service",
+      "type": "shell",
+      "command": "bash",
+      "args": ["-c", "make vendor && templ generate"],
+      "options": {
+        "cwd": "${workspaceFolder}/lora-task-service"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Prepare lora-partnership-ndf",
+      "type": "shell",
+      "command": "make vendor",
+      "options": {
+        "cwd": "${workspaceFolder}/lora-partnership-ndf"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Prepare lora-partnership-task-ndf",
+      "type": "shell",
+      "command": "make vendor",
+      "options": {
+        "cwd": "${workspaceFolder}/lora-partnership-task-ndf"
+      },
+      "problemMatcher": []
+    }
+  ]
+}
