@@ -1,11 +1,23 @@
+
 # Trigger Task
+
 Triggering SURVEY task as easy as breathing.
 
+  
+
 ## Installation
+
 Install trigger survey with npm to using faker-js
+
 ```bash
-    cd lora-trigger
-    npm i
+cd  lora-trigger
+npm  i
 ```
-## Triggering Survey
-`node trigger-request.js`
+
+# List Trigger
+## Survey
+### NDF2W
+`./lora-trigger survey ndf2w`
+
+### NDF4W
+`./lora-trigger survey ndf4w`

@@ -2,11 +2,13 @@
   "devDependencies": {
     "@faker-js/faker": "^9.9.0"
   },
-  "name": "mq-request",
+  "name": "lora-trigger",
   "version": "1.0.0",
-  "main": "mq-request.js",
+  "main": "trigger-survey.js",
   "scripts": {
-    "survey": "node trigger-survey.js"
+    "survey": "node triggers/trigger-survey.js",
+    "start": "node index.js",
+    "build": "bun build --compile --target=bun-darwin-arm64 ./index.js --minify --outfile lora-trigger"
   },
   "author": "",
   "type": "module",
