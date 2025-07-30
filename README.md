@@ -1,7 +1,7 @@
 
 # Trigger Task
 
-Triggering SURVEY task as easy as breathing.
+Triggering LORA task as easy as breathing.
 
   
 
@@ -21,3 +21,7 @@ npm  i
 
 ### NDF4W
 `./lora-trigger survey ndf4w`
+
+## Underwriting
+### Credit Analysis
+`./lora-trigger underwriting ca`

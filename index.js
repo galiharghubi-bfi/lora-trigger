@@ -1,15 +1,15 @@
 import { Ndf4w, Ndf2w } from "./triggers/survey/index.js";
 import { Ca } from "./triggers/underwriting/index.js";
 (async () => {
-  const triggerType = process.argv[2];
-  const productType = process.argv[3];
-  if (!triggerType || (triggerType === "survey" && !productType)) {
-    console.log("Invalid trigger type or product type");
+  const taskType = process.argv[2];
+  const triggerType = process.argv[3];
+  if (!taskType || (taskType === "survey" && !triggerType)) {
+    console.log("Invalid task type or trigger type");
     return;
   }
-  switch (triggerType) {
+  switch (taskType) {
     case "survey":
-      switch (productType) {
+      switch (triggerType) {
         case "ndf2w":
           console.log("✔ Triggering survey, product type: ndf2w");
           await Ndf2w();
@@ -19,16 +19,23 @@ import { Ca } from "./triggers/underwriting/index.js";
           await Ndf4w();
           break;
         default:
-          console.log("Invalid product type");
+          console.log("Invalid trigger type");
           break;
       }
       break;
     case "underwriting":
-      console.log("✔ Triggering underwriting, product type: ca");
-      await Ca();
+      switch (triggerType) {
+        case "ca":
+          console.log("✔ Triggering underwriting, product type: ca");
+          await Ca();
+          break;
+        default:
+          console.log("Invalid trigger type");
+          break;
+      }
       break;
     default:
-      console.log("Invalid trigger type");
+      console.log("Invalid task type");
       break;
   }
 })();
