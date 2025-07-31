@@ -31,7 +31,7 @@ const payload = {
   "$.loan_structure.risk_level": "HIGH",
   "$.loan_structure.product_id": 1,
   "$.process.survey_task.survey_branch_id": "401",
-  "$.process.survey_task.surveyor_employee_id": "070951",
+  "$.process.survey_task.surveyor_employee_id": "000000",
   "$.process.operations_task.processing_branch_id": "401",
   "$.submission_date": "2025-04-07T18:00:00Z",
   "$.customer.contact.mobile_number": "+6281234567891",
