@@ -96,6 +96,30 @@ const payload = {
     "31156555-2489-4708-bf19-e8f57e4fb390",
   "$.documents.business_legality.document_id":
     "31156555-2489-4708-bf19-e8f57e4fb390",
+  "$.process.credit_checking.neighborhood.source_1.information_source":
+    "NEIGHBOR",
+  "$.process.credit_checking.neighborhood.source_1.informant_name": "Kim Jisoo",
+  "$.process.credit_checking.neighborhood.source_1.informant_mobile_number":
+    "+6281234567890",
+  "$.process.credit_checking.neighborhood.source_1.occupation_code":
+    "BURARTASRT",
+  "$.customer.professional.business_suitability": true,
+  "$.process.credit_checking.neighborhood.source_1.family_reputation":
+    "POSITIF",
+  "$.process.credit_checking.neighborhood.source_1.debtor_spouse_uses_asset_more_than_once": true,
+  "$.process.credit_checking.neighborhood.source_1.unit_seen_at_residence_more_than_once": true,
+  "$.process.credit_checking.neighborhood.source_1.consumer_often_at_home": true,
+  "$.process.credit_checking.neighborhood.source_1.consumer_affiliate_with_organization": false,
+  "$.asset.bpkb_ownership": "2",
+  "$.process.credit_checking.neighborhood.source_1.house_suitability": true,
+  "$.asset.bpkb_ownership_period": "FROM_1_TO_6_MONTH",
+  "$.process.credit_checking.neighborhood.source_1.other_information":
+    "Jualan bakso di siang hari, jualan ketoprak di malam hari.",
+  "$.customer.emergency_contact.name": "Jennie Kim",
+  "$.customer.emergency_contact.relation_with_customer": "FAMILY",
+  "$.customer.emergency_contact.street_address":
+    "Jalan Pahlawan Seratus No. 1000, Serpong",
+  "$.customer.emergency_contact.mobile_number": "+6281234567890",
 };
 
 export const Ca = async () => {
