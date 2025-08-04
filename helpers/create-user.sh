@@ -5,6 +5,8 @@ ROLES=(
     "admin_survey"
     "ops_level_1"
     "head_vd"
+    "credit_analyst"
+    "vd"
 )
 
 # Set starting index
@@ -12,7 +14,7 @@ INDEX=0
 
 # Create a user for each role with incrementing index
 for ROLE in "${ROLES[@]}"; do
-    echo "Creating user with role: $ROLE (index: ${INDEX})"
+    echo "Creating user with role: $ROLE (index: 00000${INDEX})"
     curl --location 'http://127.0.0.1:8082/mgmt/people' \
     --header 'Content-Type: application/json' \
     --header 'User-Agent: insomnia/10.3.0' \
