@@ -49,10 +49,10 @@ export const sendMq = async (workflowId, videoUrl) => {
       resources: [
         {
           resource_uuid: "3a794b35-6d6a-459b-89fa-b96fa589fd1a",
-          resource_identifiers: "000000",
+          resource_identifiers: "000004",
           pre_travel_duration_minutes: 30,
           post_travel_duration_minutes: 30,
-          resource_type_code: "ADMIN_SURVEY",
+          resource_type_code: "VD",
           attribute_1: "test",
           attribute_2: "lipsum",
           attribute_3: "lipsum",
