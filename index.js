@@ -26,7 +26,7 @@ import { Ca } from "./triggers/underwriting/index.js";
     case "underwriting":
       switch (triggerType) {
         case "ca":
-          console.log("✔ Triggering underwriting, product type: ca");
+          console.log("✔ Triggering underwriting, trigger type: ca");
           await Ca();
           break;
         default:
