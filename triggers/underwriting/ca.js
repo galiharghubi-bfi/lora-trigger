@@ -124,6 +124,11 @@ const payload = {
   "$.customer.emergency_contact.street_address":
     "Jalan Pahlawan Seratus No. 1000, Serpong",
   "$.customer.emergency_contact.mobile_number": "+6281234567890",
+  "$.branch.branch_id": "401",
+  "$.process.survey_task.survey_branch_name": "MEDAN",
+  "$.channel.partner_internal_name": "partner-goto",
+  "$.channel.soa_id": "28",
+  "$.channel.partner_id": "907d075e-5cef-4179-940e-794946b6eb33",
 };
 
 export const Ca = async () => {

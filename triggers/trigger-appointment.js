@@ -52,7 +52,7 @@ export const sendMq = async (workflowId, videoUrl) => {
           resource_identifiers: "000004",
           pre_travel_duration_minutes: 30,
           post_travel_duration_minutes: 30,
-          resource_type_code: "VD",
+          resource_type_code: "ADMIN_SURVEY",
           attribute_1: "test",
           attribute_2: "lipsum",
           attribute_3: "lipsum",
