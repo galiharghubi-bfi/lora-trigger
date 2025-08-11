@@ -69,7 +69,7 @@ const payload = {
     "Detail Kendaraan untuk Usaha",
   "$.process.returning.customer_type": "RO_EXP",
   "$.loan_structure.monthly_installment": 2900000,
-  "$.loan_structure.amount": 10000000,
+  "$.loan_structure.provisional_amount": 10000000,
   "$.customer.domicile.ownership_code": "KL",
   "$.customer.domicile.address.street_address": "Ini alamat yaaaa 192810",
   "$.customer.domicile.stay_since": 2023,
