@@ -116,6 +116,30 @@ const payload = {
     "ed668a54-93ec-4f36-a888-f84007baf190",
   "$.documents.customer_receipt_2.document_id":
     "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.payment_receipt.document_id":
+    "ed668a54-93ec-4f36-a888-f84007baf190",
+    "$.documents.bpkb_page_1.document_id":
+    "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.bpkb_page_2.document_id":
+    "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.bpkb_page_3.document_id":
+    "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.bpkb_page_4.document_id":
+    "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.bpkb_page_5.document_id":
+    "ed668a54-93ec-4f36-a888-f84007baf190",
+    "$.documents.vehicle_inspection.document_id":
+    "ed668a54-93ec-4f36-a888-f84007baf190",
+    "$.documents.invoice.document_id":
+    "ed668a54-93ec-4f36-a888-f84007baf190",
+    "$.documents.ktp_bpkb.document_id":
+    "ed668a54-93ec-4f36-a888-f84007baf190",
+    "$.documents.chassis_number.document_id":
+    "ed668a54-93ec-4f36-a888-f84007baf190",
+    "$.documents.tax_notice.document_id":
+    "ed668a54-93ec-4f36-a888-f84007baf190",
+    "$.documents.release_letter.document_id":
+    "ed668a54-93ec-4f36-a888-f84007baf190",
   "$.documents.income_proof.document_id":
     "31156555-2489-4708-bf19-e8f57e4fb390",
   "$.documents.business_photo.document_id":
