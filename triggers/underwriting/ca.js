@@ -92,6 +92,30 @@ const payload = {
     "ed668a54-93ec-4f36-a888-f84007baf190",
   "$.documents.asset.asset_rear.document_id":
     "23828c5e-7c35-4ef1-aea6-72b9305deda7",
+  "$.documents.asset.asset_front_left_side.document_id":
+    "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.asset.asset_rear_right_side.document_id":
+    "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.asset.asset_rear_left_side.document_id":
+    "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.asset.asset_front_right_side.document_id":
+    "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.asset.asset_interior_center_sid.document_id":
+    "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.asset.asset_left_side.document_id":
+    "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.asset.asset_right_side.document_id":
+    "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.asset.engine_number.document_id":
+    "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.asset.selfie_with_vehicle.document_id":
+    "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.asset.speedometer.document_id":
+    "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.bpkb_receipt_2.document_id":
+    "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.customer_receipt_2.document_id":
+    "ed668a54-93ec-4f36-a888-f84007baf190",
   "$.documents.income_proof.document_id":
     "31156555-2489-4708-bf19-e8f57e4fb390",
   "$.documents.business_photo.document_id":
