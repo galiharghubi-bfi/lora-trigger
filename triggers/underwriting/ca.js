@@ -136,6 +136,8 @@ const payload = {
     "ed668a54-93ec-4f36-a888-f84007baf190",
   "$.documents.chassis_number.document_id":
     "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.stnk.document_id":
+    "ed668a54-93ec-4f36-a888-f84007baf190",
   "$.documents.tax_notice.document_id":
     "ed668a54-93ec-4f36-a888-f84007baf190",
   "$.documents.release_letter.document_id":
