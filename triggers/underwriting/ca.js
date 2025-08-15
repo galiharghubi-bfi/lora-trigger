@@ -52,6 +52,8 @@ const payload = {
   "$.documents.kk.document_id": "dc9991b3-a826-481d-bc19-1bdccf555f75",
   "$.documents.selfie.document_id": "17d25972-e99f-4ec0-91d9-540a7090cdb2",
   "$.documents.spouse_ktp.document_id": "2e564529-d5b4-407b-adfe-a725d903bb3b",
+  "$.documents.asset.selfie_with_vehicle.document_id":
+    "49d35413-13d9-4156-bc4e-14978875448c",
   "$.documents.interview.document_id": "4f7a5a7e-32f7-46a9-8c4e-f409bd7e0163",
   "$.documents.npwp.document_id": "4ba5fb49-5cf8-4513-b3be-6eb2664f9b66",
   "$.documents.marriage_certificate.document_id":
