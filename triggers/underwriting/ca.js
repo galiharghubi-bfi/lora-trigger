@@ -28,8 +28,8 @@ const payload = {
   "$.asset.license_plate": licensePlate,
   "$.customer.ktp.nik": "3173334212960003",
   "$.customer.ktp.name": `${cleansedName(
-    faker.person.firstName
-  )} ${cleansedName(faker.person.lastName)}`,
+    faker.person.firstName()
+  )} ${cleansedName(faker.person.lastName())}`,
   "$.loan_structure.risk_level": "HIGH",
   "$.loan_structure.product_id": 1,
   "$.process.survey_task.survey_branch_id": "402",
@@ -43,9 +43,9 @@ const payload = {
   "$.customer.professional.npwp": "123123123123123",
   "$.customer.personal.marital_status_code": "M",
   "$.spouse.ktp.nik": "3173334212960003",
-  "$.spouse.ktp.name": `${cleansedName(faker.person.firstName)} ${cleansedName(
-    faker.person.lastName
-  )}`,
+  "$.spouse.ktp.name": `${cleansedName(
+    faker.person.firstName()
+  )} ${cleansedName(faker.person.lastName())}`,
   "$.spouse.mobile_number": "+6281234567890",
   "$.customer.personal.number_dependents": 2,
   "$.documents.ktp.document_id": "9888d558-8480-4dbe-95fd-07e2dadbede3",
