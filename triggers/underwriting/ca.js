@@ -37,7 +37,7 @@ const payload = {
   "$.process.operations_task.processing_branch_id": "401",
   "$.submission_date": "2025-04-07T18:00:00Z",
   "$.customer.contact.mobile_number": "+6281234567891",
-  "$.customer.ktp.birth_date": "1974-12-03",
+  "$.customer.ktp.birth_date": "1980-12-03",
   "$.customer.ktp.birth_place": "jakarta",
   "$.customer.ktp.gender": "F",
   "$.customer.professional.npwp": "123123123123123",
@@ -78,13 +78,17 @@ const payload = {
   "$.documents.house_ownership.document_id":
     "c507e104-36c1-49d6-8d7d-4931fee86559",
   "$.documents.house.document_id": "5142ab92-82b1-49b1-a4dc-4d175ba2a75f",
-  "$.asset.asset_code": "DAIHATSU.AYLA.D10AT",
-  "$.asset.manufacturing_year": 2021,
+  "$.asset.asset_code": "MITSUBISHI.XPANDER.CROSS15MT",
+  "$.asset.manufacturing_year": 2024,
+  "$.process.stnk_ocr_result.manufacturing_year": "2021",
   "$.asset.asset_usage": "COMMERCIAL",
   "$.process.asset_pricing.price": 150000000,
+  "$.process.bpkb_ocr_result.vehicle_brand": "MITSUBISHI",
+  "$.process.stnk_ocr_result.vehicle_brand": "MITSUBISHI",
   "$.loan_structure.ltv": 0.7929,
   "$.loan_structure.tenure": 6,
   "$.loan_structure.interest_rate": 0.0312,
+  "$.loan_structure.ntf_amount":198000000,
   "$.loan_structure.product_offering": 1,
   "$.asset.bpkb_ownership": "1",
   "$.asset.bpkb_owner_name": "Adhitya",
@@ -164,7 +168,6 @@ const payload = {
   "$.process.credit_checking.neighborhood.source_1.unit_seen_at_residence_more_than_once": true,
   "$.process.credit_checking.neighborhood.source_1.consumer_often_at_home": true,
   "$.process.credit_checking.neighborhood.source_1.consumer_affiliate_with_organization": false,
-  "$.asset.bpkb_ownership": "2",
   "$.process.credit_checking.neighborhood.source_1.house_suitability": true,
   "$.asset.bpkb_ownership_period": "FROM_1_TO_6_MONTH",
   "$.process.credit_checking.neighborhood.source_1.other_information":
@@ -174,11 +177,12 @@ const payload = {
   "$.customer.emergency_contact.street_address":
     "Jalan Pahlawan Seratus No. 1000, Serpong",
   "$.customer.emergency_contact.mobile_number": "+6281234567890",
-  "$.branch.branch_id": "401",
-  "$.process.survey_task.survey_branch_name": "MEDAN",
+  "$.branch.branch_id": "404",
+  "$.process.survey_task.survey_branch_name": "JAMBI",
   "$.channel.partner_internal_name": "partner-goto",
   "$.channel.soa_id": "28",
   "$.channel.partner_id": "907d075e-5cef-4179-940e-794946b6eb33",
+  "$.customer.domicile.address.sub_district_code": "15.07.02.2008",
 };
 
 export const Ca = async () => {
