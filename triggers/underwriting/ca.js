@@ -52,8 +52,6 @@ const payload = {
   "$.documents.kk.document_id": "dc9991b3-a826-481d-bc19-1bdccf555f75",
   "$.documents.selfie.document_id": "17d25972-e99f-4ec0-91d9-540a7090cdb2",
   "$.documents.spouse_ktp.document_id": "2e564529-d5b4-407b-adfe-a725d903bb3b",
-  "$.documents.asset.selfie_with_vehicle.document_id":
-    "49d35413-13d9-4156-bc4e-14978875448c",
   "$.documents.interview.document_id": "4f7a5a7e-32f7-46a9-8c4e-f409bd7e0163",
   "$.documents.npwp.document_id": "4ba5fb49-5cf8-4513-b3be-6eb2664f9b66",
   "$.documents.marriage_certificate.document_id":
@@ -82,11 +80,8 @@ const payload = {
   "$.documents.house.document_id": "5142ab92-82b1-49b1-a4dc-4d175ba2a75f",
   "$.asset.asset_code": "MITSUBISHI.XPANDER.CROSS15MT",
   "$.asset.manufacturing_year": 2024,
-  "$.process.stnk_ocr_result.manufacturing_year": "2021",
   "$.asset.asset_usage": "COMMERCIAL",
   "$.process.asset_pricing.price": 150000000,
-  "$.process.bpkb_ocr_result.vehicle_brand": "MITSUBISHI",
-  "$.process.stnk_ocr_result.vehicle_brand": "MITSUBISHI",
   "$.loan_structure.ltv": 0.7929,
   "$.loan_structure.tenure": 6,
   "$.loan_structure.interest_rate": 0.0312,
@@ -179,8 +174,8 @@ const payload = {
   "$.customer.emergency_contact.street_address":
     "Jalan Pahlawan Seratus No. 1000, Serpong",
   "$.customer.emergency_contact.mobile_number": "+6281234567890",
-  "$.branch.branch_id": "404",
-  "$.process.survey_task.survey_branch_name": "JAMBI",
+  "$.branch.branch_id": "401",
+  "$.process.survey_task.survey_branch_name": "MEDAN",
   "$.channel.partner_internal_name": "partner-goto",
   "$.channel.soa_id": "28",
   "$.channel.partner_id": "907d075e-5cef-4179-940e-794946b6eb33",
