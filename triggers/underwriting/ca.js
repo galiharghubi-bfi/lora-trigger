@@ -24,7 +24,7 @@ const generateLicensePlate = () => {
 const licensePlate = generateLicensePlate();
 // const licensePlate = "LZ5835AZZ";
 const payload = {
-  "$.status.application": "pre_approved",
+  "$.status.application": "approved",
   "$.asset.license_plate": licensePlate,
   "$.customer.ktp.nik": "3173334212960003",
   "$.customer.ktp.name": `${cleansedName(
@@ -32,9 +32,9 @@ const payload = {
   )} ${cleansedName(faker.person.lastName())}`,
   "$.loan_structure.risk_level": "HIGH",
   "$.loan_structure.product_id": 1,
-  "$.process.survey_task.survey_branch_id": "402",
+  "$.process.survey_task.survey_branch_id": "401",
   "$.process.survey_task.surveyor_employee_id": "000004",
-  "$.process.operations_task.processing_branch_id": "402",
+  "$.process.operations_task.processing_branch_id": "401",
   "$.submission_date": "2025-04-07T18:00:00Z",
   "$.customer.contact.mobile_number": "+6281234567891",
   "$.customer.ktp.birth_date": "1974-12-03",
@@ -52,6 +52,8 @@ const payload = {
   "$.documents.kk.document_id": "dc9991b3-a826-481d-bc19-1bdccf555f75",
   "$.documents.selfie.document_id": "17d25972-e99f-4ec0-91d9-540a7090cdb2",
   "$.documents.spouse_ktp.document_id": "2e564529-d5b4-407b-adfe-a725d903bb3b",
+  "$.documents.asset.selfie_with_vehicle.document_id":
+    "49d35413-13d9-4156-bc4e-14978875448c",
   "$.documents.interview.document_id": "4f7a5a7e-32f7-46a9-8c4e-f409bd7e0163",
   "$.documents.npwp.document_id": "4ba5fb49-5cf8-4513-b3be-6eb2664f9b66",
   "$.documents.marriage_certificate.document_id":
@@ -68,12 +70,12 @@ const payload = {
   "$.loan_structure.purpose.finance_purpose_details":
     "Detail Kendaraan untuk Usaha",
   "$.loan_structure.purpose_of_financing": "PRODUCTIVE_LONG",
-  "$.process.returning.customer_type": "RO_ACTIVE",
+  "$.process.returning.customer_type": "RO_EXP",
   "$.loan_structure.monthly_installment": 2900000,
-  "$.loan_structure.provisional_amount": 1000000,
+  "$.loan_structure.provisional_amount": 10000000,
   "$.customer.domicile.ownership_code": "KL",
-  "$.customer.domicile.address.street_address": "816 Bergstrom Valley",
-  "$.customer.domicile.stay_since": "2023",
+  "$.customer.domicile.address.street_address": "Ini alamat yaaaa 192810",
+  "$.customer.domicile.stay_since": 2023,
   "$.customer.domicile.bkr_form": "RK_LISTRIK",
   "$.customer.domicile.name_on_bkr": "SUPARMAN",
   "$.documents.house_ownership.document_id":
@@ -94,15 +96,16 @@ const payload = {
     "ed668a54-93ec-4f36-a888-f84007baf190",
   "$.documents.asset.asset_rear.document_id":
     "23828c5e-7c35-4ef1-aea6-72b9305deda7",
-
+  "$.documents.income_proof.document_id":
+    "31156555-2489-4708-bf19-e8f57e4fb390",
   "$.documents.business_legality.document_id":
-    "2a2094a0-c5ad-473f-bbe7-4ad8d531ba2f",
+    "31156555-2489-4708-bf19-e8f57e4fb390",
   "$.documents.income_proof.document_id":
     "74618387-68f3-44fd-9e46-c04d646f15e5",
   "$.documents.business_photo.document_id":
-    "96a6b314-fa8b-45b2-87ab-45cba34421c4",
+    "31156555-2489-4708-bf19-e8f57e4fb390",
   "$.documents.business_location.document_id":
-    "01ed0371-12f2-4e80-822a-49096ac3ae6d",
+    "31156555-2489-4708-bf19-e8f57e4fb390",
   "$.customer.professional.occupation_type_code": "M",
   "$.customer.professional.occupation_code": "BURARTASRT",
   "$.customer.professional.company_name": "Boyer - Lehner",
@@ -117,7 +120,6 @@ const payload = {
   "$.customer.emergency_contact.street_address": "Jln Mayang sari IV no 12",
   "$.customer.emergency_contact.mobile_number": "+6281202948172",
   "$.customer.domicile.bkr_period": "2023-01-01",
-
   "$.process.credit_checking.neighborhood.source_1.information_source":
     "NEIGHBOR",
   "$.process.credit_checking.neighborhood.source_1.informant_name": "Kim Jisoo",
@@ -132,14 +134,22 @@ const payload = {
   "$.process.credit_checking.neighborhood.source_1.unit_seen_at_residence_more_than_once": true,
   "$.process.credit_checking.neighborhood.source_1.consumer_often_at_home": true,
   "$.process.credit_checking.neighborhood.source_1.consumer_affiliate_with_organization": false,
-
+  "$.asset.bpkb_ownership": "2",
   "$.process.credit_checking.neighborhood.source_1.house_suitability": true,
   "$.asset.bpkb_ownership_period": "FROM_1_TO_6_MONTH",
   "$.process.credit_checking.neighborhood.source_1.other_information":
     "Jualan bakso di siang hari, jualan ketoprak di malam hari.",
-
+  "$.customer.emergency_contact.name": "Jennie Kim",
+  "$.customer.emergency_contact.relation_with_customer": "FAMILY",
+  "$.customer.emergency_contact.street_address":
+    "Jalan Pahlawan Seratus No. 1000, Serpong",
+  "$.customer.emergency_contact.mobile_number": "+6281234567890",
+  "$.branch.branch_id": "401",
+  "$.process.survey_task.survey_branch_name": "MEDAN",
   "$.documents.asset_document_status": "IN_TRANSIT_CUSTOMER_TO_BRANCH",
-
+  "$.channel.partner_internal_name": "partner-goto",
+  "$.channel.soa_id": "28",
+  "$.channel.partner_id": "907d075e-5cef-4179-940e-794946b6eb33",
   "$.asset.bpkb_address": "Perum Taman Bojongsari No.58",
   "$.asset.bpkb_invoice_number": "19069692004JK9012027",
   "$.asset.bpkb_number": "P234567890",
@@ -150,15 +160,7 @@ const payload = {
   "$.documents.bpkb_page_2.document_id": "b6bee008-eb52-406b-be14-54d041025bb8",
   "$.documents.bpkb_page_3.document_id": "b6bee008-eb52-406b-be14-54d041025bb8",
   "$.documents.bpkb_page_4.document_id": "b6bee008-eb52-406b-be14-54d041025bb8",
-
   "$.documents.bpkb_invoice.document_id":
-    "b6bee008-eb52-406b-be14-54d041025bb8",
-
-  "$.channel.soa_id": "18",
-  "$.channel.partner_id": "b6bee008-eb52-406b-be14-54d041025bb8",
-  "$.channel.partner_internal_name": "partner-name-lower-kebab-case",
-  "$.branch.branch_id": "412",
-  "$.documents.asset.selfie_with_vehicle.document_id":
     "b6bee008-eb52-406b-be14-54d041025bb8",
 };
 
