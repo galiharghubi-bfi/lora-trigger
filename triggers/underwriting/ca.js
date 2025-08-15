@@ -25,7 +25,7 @@ const licensePlate = generateLicensePlate();
 // const licensePlate = "LZ5835AZZ";
 const payload = {
   "$.status.application": "approved",
-  "$.asset.license_plate": licensePlate,
+  "$.asset.license_plate": `${licensePlate}`,
   "$.customer.ktp.nik": "3173334212960003",
   "$.customer.ktp.name": `${cleansedName(
     faker.person.firstName()
@@ -81,6 +81,7 @@ const payload = {
   "$.loan_structure.purpose.finance_purpose": "3",
   "$.loan_structure.purpose.finance_purpose_details":
     "Detail Kendaraan untuk Usaha",
+  "$.loan_structure.purpose_of_financing": "PRODUCTIVE_LONG",
   "$.process.returning.customer_type": "RO_EXP",
   "$.loan_structure.monthly_installment": 2900000,
   "$.loan_structure.provisional_amount": 10000000,
@@ -99,7 +100,7 @@ const payload = {
   "$.loan_structure.ltv": 0.7929,
   "$.loan_structure.tenure": 6,
   "$.loan_structure.interest_rate": 0.0312,
-  "$.loan_structure.ntf_amount":198000000,
+  "$.loan_structure.ntf_amount": 198000000,
   "$.loan_structure.product_offering": 1,
   "$.asset.bpkb_ownership": "1",
   "$.asset.bpkb_owner_name": "Adhitya",
@@ -133,28 +134,19 @@ const payload = {
     "ed668a54-93ec-4f36-a888-f84007baf190",
   "$.documents.payment_receipt.document_id":
     "ed668a54-93ec-4f36-a888-f84007baf190",
-    "$.documents.bpkb_page_1.document_id":
-    "ed668a54-93ec-4f36-a888-f84007baf190",
-  "$.documents.bpkb_page_2.document_id":
-    "ed668a54-93ec-4f36-a888-f84007baf190",
-  "$.documents.bpkb_page_3.document_id":
-    "ed668a54-93ec-4f36-a888-f84007baf190",
-  "$.documents.bpkb_page_4.document_id":
-    "ed668a54-93ec-4f36-a888-f84007baf190",
-  "$.documents.bpkb_page_5.document_id":
-    "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.bpkb_page_1.document_id": "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.bpkb_page_2.document_id": "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.bpkb_page_3.document_id": "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.bpkb_page_4.document_id": "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.bpkb_page_5.document_id": "ed668a54-93ec-4f36-a888-f84007baf190",
   "$.documents.vehicle_inspection.document_id":
     "ed668a54-93ec-4f36-a888-f84007baf190",
-  "$.documents.invoice.document_id":
-    "ed668a54-93ec-4f36-a888-f84007baf190",
-  "$.documents.ktp_bpkb.document_id":
-    "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.invoice.document_id": "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.ktp_bpkb.document_id": "ed668a54-93ec-4f36-a888-f84007baf190",
   "$.documents.chassis_number.document_id":
     "ed668a54-93ec-4f36-a888-f84007baf190",
-  "$.documents.stnk.document_id":
-    "ed668a54-93ec-4f36-a888-f84007baf190",
-  "$.documents.tax_notice.document_id":
-    "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.stnk.document_id": "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.tax_notice.document_id": "ed668a54-93ec-4f36-a888-f84007baf190",
   "$.documents.release_letter.document_id":
     "ed668a54-93ec-4f36-a888-f84007baf190",
   "$.documents.income_proof.document_id":
@@ -194,6 +186,18 @@ const payload = {
   "$.channel.soa_id": "28",
   "$.channel.partner_id": "907d075e-5cef-4179-940e-794946b6eb33",
   "$.customer.domicile.address.sub_district_code": "15.07.02.2008",
+
+  "$.loan_structure.purpose_of_financing": "PRODUCTIVE_LONG",
+  "$.customer.professional.occupation_type_code": "M",
+  "$.customer.professional.occupation_code": "BURARTASRT",
+  "$.customer.professional.company_name": "Boyer - Lehner",
+  "$.customer.professional.company_address": "jln mangkubumi",
+  "$.customer.professional.company_phone": "+628127819287",
+  "$.customer.professional.economic_sector": "01",
+  "$.customer.professional.industry": "151110-1",
+  "$.customer.professional.employment_status": "PERMANENT_EMPLOYEE",
+  "$.customer.professional.business_since_year": 2020,
+  "$.customer.domicile.bkr_period": "2023-01-01",
 };
 
 export const Ca = async () => {
