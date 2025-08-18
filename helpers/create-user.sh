@@ -7,6 +7,11 @@ ROLES=(
     "head_vd"
     "credit_analyst"
     "vd"
+    "credit_analyst"
+    "network_management_head"
+    "network_management_head"
+    "marketing_deputy_director"
+    "marketing_deputy_director"
 )
 
 # Set starting index

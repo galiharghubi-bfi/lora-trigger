@@ -100,8 +100,6 @@ const payload = {
     "31156555-2489-4708-bf19-e8f57e4fb390",
   "$.documents.business_legality.document_id":
     "31156555-2489-4708-bf19-e8f57e4fb390",
-  "$.documents.income_proof.document_id":
-    "74618387-68f3-44fd-9e46-c04d646f15e5",
   "$.documents.business_photo.document_id":
     "31156555-2489-4708-bf19-e8f57e4fb390",
   "$.documents.business_location.document_id":
@@ -134,16 +132,10 @@ const payload = {
   "$.process.credit_checking.neighborhood.source_1.unit_seen_at_residence_more_than_once": true,
   "$.process.credit_checking.neighborhood.source_1.consumer_often_at_home": true,
   "$.process.credit_checking.neighborhood.source_1.consumer_affiliate_with_organization": false,
-  "$.asset.bpkb_ownership": "2",
   "$.process.credit_checking.neighborhood.source_1.house_suitability": true,
   "$.asset.bpkb_ownership_period": "FROM_1_TO_6_MONTH",
   "$.process.credit_checking.neighborhood.source_1.other_information":
     "Jualan bakso di siang hari, jualan ketoprak di malam hari.",
-  "$.customer.emergency_contact.name": "Jennie Kim",
-  "$.customer.emergency_contact.relation_with_customer": "FAMILY",
-  "$.customer.emergency_contact.street_address":
-    "Jalan Pahlawan Seratus No. 1000, Serpong",
-  "$.customer.emergency_contact.mobile_number": "+6281234567890",
   "$.branch.branch_id": "401",
   "$.process.survey_task.survey_branch_name": "MEDAN",
   "$.documents.asset_document_status": "IN_TRANSIT_CUSTOMER_TO_BRANCH",
