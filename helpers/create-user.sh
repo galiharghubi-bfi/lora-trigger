@@ -12,6 +12,8 @@ ROLES=(
     "network_management_head"
     "marketing_deputy_director"
     "marketing_deputy_director"
+    "network_sales_management_head"
+    "network_sales_management_head"
 )
 
 # Set starting index
