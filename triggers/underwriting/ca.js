@@ -1,7 +1,6 @@
-import { StartApplication } from "../start-application.js";
-import baseConfig from "../../config.js";
 import { faker } from "@faker-js/faker";
-import { sendMq } from "../trigger-appointment.js";
+import baseConfig from "../../config.js";
+import { StartApplication } from "../start-application.js";
 import { cleansedName } from "../utils/cleanse.js";
 const generateLicensePlate = () => {
   function randomInt(min, max) {
@@ -47,6 +46,8 @@ const payload = {
     faker.person.firstName()
   )} ${cleansedName(faker.person.lastName())}`,
   "$.spouse.mobile_number": "+6281234567890",
+  "$.process.survey_task.bpkb_submission.submission_method": "BRANCH_DROPOFF",
+  "$.survey_appointment.survey_location_type": "branch",
   "$.customer.personal.number_dependents": 2,
   "$.documents.ktp.document_id": "9888d558-8480-4dbe-95fd-07e2dadbede3",
   "$.documents.kk.document_id": "dc9991b3-a826-481d-bc19-1bdccf555f75",
