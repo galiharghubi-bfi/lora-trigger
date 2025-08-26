@@ -37,7 +37,7 @@ const payload = {
   "$.process.operations_task.processing_branch_id": "401",
   "$.submission_date": "2025-04-07T18:00:00Z",
   "$.customer.contact.mobile_number": "+6281234567891",
-  "$.customer.ktp.birth_date": "1974-12-03",
+  "$.customer.ktp.birth_date": "1980-12-03",
   "$.customer.ktp.birth_place": "jakarta",
   "$.customer.ktp.gender": "F",
   "$.customer.professional.npwp": "123123123123123",
@@ -73,6 +73,7 @@ const payload = {
   "$.process.returning.customer_type": "RO_EXP",
   "$.loan_structure.monthly_installment": 2900000,
   "$.loan_structure.provisional_amount": 10000000,
+  "$.loan_structure.original_amount": 18000000,
   "$.customer.domicile.ownership_code": "KL",
   "$.customer.domicile.address.street_address": "Ini alamat yaaaa 192810",
   "$.customer.domicile.stay_since": 2023,
@@ -85,10 +86,22 @@ const payload = {
   "$.asset.manufacturing_year": 2021,
   "$.asset.asset_usage": "COMMERCIAL",
   "$.process.asset_pricing.price": 150000000,
+  "$.loan_structure.max_funding": 140000000,
+  "$.loan_structure.admin_fee": 100000,
+  "$.loan_structure.asset_insurance_premium": 100000,
+  "$.loan_structure.life_insurance_premium": 100000,
+  "$.loan_structure.capitalized_ntf_amount": 100000,
+  "$.loan_structure.funding_ratio": 80,
+  "$.loan_structure.provision_fee": 100000,
   "$.loan_structure.ltv": 0.7929,
   "$.loan_structure.tenure": 6,
   "$.loan_structure.interest_rate": 0.0312,
   "$.loan_structure.product_offering": 1,
+  "$.loan_structure.billing_date": "2025-08-21",
+  "$.customer.domicile.address.sub_district_code": "12.71.05.1002",
+  "$.process.vehicle_verification_score.s1.max_funding_ratio": 0.8,
+  "$.process.pd_model_overlay.s1.max_funding_ratio": 0.76,
+  "$.process.loan_estimation.max_funding_ratio": 0.6,
 
   "$.asset.bpkb_ownership": "1",
   "$.asset.bpkb_owner_name": "Adhitya",
@@ -148,12 +161,52 @@ const payload = {
   "$.asset.unit_color": "ABU ABU",
   "$.asset.chassis_number": "P1234567890129831",
   "$.asset.engine_number": "L15Z15605255",
-  "$.documents.bpkb_page_1.document_id": "b6bee008-eb52-406b-be14-54d041025bb8",
-  "$.documents.bpkb_page_2.document_id": "b6bee008-eb52-406b-be14-54d041025bb8",
-  "$.documents.bpkb_page_3.document_id": "b6bee008-eb52-406b-be14-54d041025bb8",
-  "$.documents.bpkb_page_4.document_id": "b6bee008-eb52-406b-be14-54d041025bb8",
+  "$.documents.bpkb_page_1.document_id": "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.bpkb_page_2.document_id": "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.bpkb_page_3.document_id": "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.bpkb_page_4.document_id": "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.bpkb_page_5.document_id": "ed668a54-93ec-4f36-a888-f84007baf190",
   "$.documents.bpkb_invoice.document_id":
-    "b6bee008-eb52-406b-be14-54d041025bb8",
+    "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.bpkb_receipt_2.document_id":
+    "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.customer_receipt_2.document_id":
+    "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.payment_receipt.document_id":
+    "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.invoice.document_id": "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.stnk.document_id": "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.customer.domicile.address.sub_district_code": "15.07.02.2008",
+  "$.documents.asset.asset_front_right_side.document_id":
+    "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.asset.asset_front_left_side.document_id":
+    "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.asset.asset_rear_right_side.document_id":
+    "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.asset.asset_rear_left_side.document_id":
+    "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.asset.asset_interior_center_sid.document_id":
+    "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.asset.asset_left_side.document_id":
+    "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.asset.asset_right_side.document_id":
+    "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.asset.engine_number.document_id":
+    "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.asset.speedometer.document_id":
+    "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.vehicle_inspection.document_id":
+    "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.ktp_bpkb.document_id": "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.chassis_number.document_id":
+    "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.tax_notice.document_id": "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.release_letter.document_id":
+    "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.channel.marketing_id": "2403NC0005",
+  "$.customer.emergency_contact.rt": "001",
+  "$.customer.emergency_contact.rw": "002",
+  "$.asset.bpkb_status": "on_hand",
 };
 
 export const Ca = async () => {
