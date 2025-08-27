@@ -160,7 +160,7 @@ const payload = {
   "$.asset.bpkb_invoice_number": "19069692004JK9012027",
   "$.asset.bpkb_number": "P234567890",
   "$.asset.unit_color": "ABU ABU",
-  "$.asset.chassis_number": "P1234567890129831",
+  "$.asset.chassis_number": "MKFKZE81SCJ115045",
   "$.asset.engine_number": "L15Z15605255",
   "$.documents.bpkb_page_1.document_id": "ed668a54-93ec-4f36-a888-f84007baf190",
   "$.documents.bpkb_page_2.document_id": "ed668a54-93ec-4f36-a888-f84007baf190",
@@ -208,8 +208,41 @@ const payload = {
   "$.customer.emergency_contact.rt": "001",
   "$.customer.emergency_contact.rw": "002",
   "$.asset.bpkb_status": "on_hand",
+  // "$.documents.bkr_house_rent_ownership.document_id":
+  //   "9888d558-8480-4dbe-95fd-07e2dadbede3",
+  // "$.documents.asset_payment_receipt.document_id":
+  //   "9888d558-8480-4dbe-95fd-07e2dadbede3",
+  // "$.documents.asset_payment_invoice.document_id":
+  //   "9888d558-8480-4dbe-95fd-07e2dadbede3",
+  // "$.documents.asset_payment_agreement.document_id":
+  //   "9888d558-8480-4dbe-95fd-07e2dadbede3",
+  // "$.documents.asset.in_front_of_bfi_office.document_id":
+  //   "9888d558-8480-4dbe-95fd-07e2dadbede3",
+  // "$.documents.asset_dump_truck_on_lift_position.document_id":
+  //   "9888d558-8480-4dbe-95fd-07e2dadbede3",
+  // "$.documents.asset_photo_bpkb_productive.document_id":
+  //   "9888d558-8480-4dbe-95fd-07e2dadbede3",
+  // "$.documents.proof_photo_consumer_still_working.document_id":
+  //   "9888d558-8480-4dbe-95fd-07e2dadbede3",
+  // "$.documents.active_spk.document_id": "9888d558-8480-4dbe-95fd-07e2dadbede3",
+  // "$.documents.proof_of_payment_for_other_contracts_that_are_still_in_arrears.document_id":
+  //   "9888d558-8480-4dbe-95fd-07e2dadbede3",
+  // "$.documents.signing_by_waarmerking_or_legalization.document_id":
+  //   "9888d558-8480-4dbe-95fd-07e2dadbede3",
+  // "$.documents.cross_collateral_and_default_all_active_contracts.document_id":
+  //   "9888d558-8480-4dbe-95fd-07e2dadbede3",
+  "$.customer.professional.is_profession_valid": true,
+  "$.customer.professional.company_sub_district_code": "15.07.02.2008",
+  "$.survey_appointment.preferred_timezone": "Asia/Jakarta",
+  "$.documents.employment_evidence.document_id":
+    "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.business_legality.document_id":
+    "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.business_photo.document_id":
+    "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.business_location.document_id":
+    "ed668a54-93ec-4f36-a888-f84007baf190",
 };
-
 export const Ca = async () => {
   const { workflowId, start } = await StartApplication();
   try {

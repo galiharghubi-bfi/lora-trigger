@@ -39,7 +39,7 @@ const payload = {
   "$.customer.bank_information.account_name": "MULTIFINANCE ANAK BANGSA GOTO",
   "$.customer.bank_information.account_number": "0010988888",
   "$.customer.bank_information.bank_id": 47,
-  "$.customer.contact.mobile_number": "+6282178593737",
+  "$.customer.contact.mobile_number": "",
   "$.customer.domicile.address.street_address": "Jl. Jakarta Raya",
   "$.customer.domicile.address.sub_district_code": "12.71.05.1002",
   "$.customer.domicile.ownership_code": "SD",
