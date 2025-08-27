@@ -103,7 +103,7 @@ const payload = {
   "$.process.vehicle_verification_score.s1.max_funding_ratio": 0.8,
   "$.process.pd_model_overlay.s1.max_funding_ratio": 0.76,
   "$.process.loan_estimation.max_funding_ratio": 0.6,
-
+  "$.process.credit_checking.neighborhood.source_1.business_suitability": true,
   "$.asset.bpkb_ownership": "1",
   "$.asset.bpkb_owner_name": "Adhitya",
   "$.documents.asset.asset_front.document_id":
