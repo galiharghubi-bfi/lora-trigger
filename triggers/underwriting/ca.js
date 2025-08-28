@@ -139,7 +139,7 @@ const payload = {
     "+6281234567890",
   "$.process.credit_checking.neighborhood.source_1.occupation_code":
     "BURARTASRT",
-  "$.customer.professional.business_suitability": true,
+  "$.process.credit_checking.neighborhood.source_1.business_suitability": true,
   "$.process.credit_checking.neighborhood.source_1.family_reputation":
     "POSITIF",
   "$.process.credit_checking.neighborhood.source_1.debtor_spouse_uses_asset_more_than_once": true,
@@ -150,6 +150,43 @@ const payload = {
   "$.asset.bpkb_ownership_period": "FROM_1_TO_6_MONTH",
   "$.process.credit_checking.neighborhood.source_1.other_information":
     "Jualan bakso di siang hari, jualan ketoprak di malam hari.",
+  "$.process.credit_checking.neighborhood.source_2.information_source":
+    "NEIGHBOR",
+  "$.process.credit_checking.neighborhood.source_2.informant_name": "Kim Jisoo",
+  "$.process.credit_checking.neighborhood.source_2.informant_mobile_number":
+    "+6281234567890",
+  "$.process.credit_checking.neighborhood.source_2.occupation_code":
+    "BURARTASRT",
+  "$.process.credit_checking.neighborhood.source_2.business_suitability": true,
+  "$.process.credit_checking.neighborhood.source_2.family_reputation":
+    "POSITIF",
+  "$.process.credit_checking.neighborhood.source_2.debtor_spouse_uses_asset_more_than_once": true,
+  "$.process.credit_checking.neighborhood.source_2.unit_seen_at_residence_more_than_once": true,
+  "$.process.credit_checking.neighborhood.source_2.consumer_often_at_home": true,
+  "$.process.credit_checking.neighborhood.source_2.consumer_affiliate_with_organization": false,
+  "$.process.credit_checking.neighborhood.source_2.house_suitability": true,
+  "$.asset.bpkb_ownership_period": "FROM_1_TO_6_MONTH",
+  "$.process.credit_checking.neighborhood.source_2.other_information":
+    "Jualan bakso di siang hari, jualan ketoprak di malam hari.",
+    "$.process.credit_checking.neighborhood.source_3.information_source":
+    "NEIGHBOR",
+  "$.process.credit_checking.neighborhood.source_3.informant_name": "Kim Jisoo",
+  "$.process.credit_checking.neighborhood.source_3.informant_mobile_number":
+    "+6281234567890",
+  "$.process.credit_checking.neighborhood.source_3.occupation_code":
+    "BURARTASRT",
+  "$.process.credit_checking.neighborhood.source_3.business_suitability": true,
+  "$.process.credit_checking.neighborhood.source_3.family_reputation":
+    "POSITIF",
+  "$.process.credit_checking.neighborhood.source_3.debtor_spouse_uses_asset_more_than_once": true,
+  "$.process.credit_checking.neighborhood.source_3.unit_seen_at_residence_more_than_once": true,
+  "$.process.credit_checking.neighborhood.source_3.consumer_often_at_home": true,
+  "$.process.credit_checking.neighborhood.source_3.consumer_affiliate_with_organization": false,
+  "$.process.credit_checking.neighborhood.source_3.house_suitability": true,
+  "$.asset.bpkb_ownership_period": "FROM_1_TO_6_MONTH",
+  "$.process.credit_checking.neighborhood.source_3.other_information":
+    "Jualan bakso di siang hari, jualan ketoprak di malam hari.",
+  
   "$.branch.branch_id": "401",
   "$.process.survey_task.survey_branch_name": "MEDAN",
   "$.documents.asset_document_status": "IN_TRANSIT_CUSTOMER_TO_BRANCH",
@@ -178,6 +215,8 @@ const payload = {
   "$.documents.invoice.document_id": "ed668a54-93ec-4f36-a888-f84007baf190",
   "$.documents.stnk.document_id": "ed668a54-93ec-4f36-a888-f84007baf190",
   "$.customer.domicile.address.sub_district_code": "15.07.02.2008",
+  "$.customer.domicile.address.rt": "001",
+  "$.customer.domicile.address.rw": "001",
   "$.documents.asset.asset_front_right_side.document_id":
     "ed668a54-93ec-4f36-a888-f84007baf190",
   "$.documents.asset.asset_front_left_side.document_id":
