@@ -282,6 +282,87 @@ const payload = {
     "ed668a54-93ec-4f36-a888-f84007baf190",
   // additional data for follow up bpkb
   "$.survey_appointment.survey_type": "REGULAR",
+  "$.documents.guarantor_identity_card.document_id":
+    "9888d558-8480-4dbe-95fd-07e2dadbede3",
+  "$.documents.guarantor_identity_card_2.document_id":
+    "9888d558-8480-4dbe-95fd-07e2dadbede3",
+  "$.documents.guarantor_identity_card_3.document_id":
+    "9888d558-8480-4dbe-95fd-07e2dadbede3",
+  "$.documents.guarantor_house_ownership.document_id":
+    "c507e104-36c1-49d6-8d7d-4931fee86559",
+  "$.documents.guarantor_house_ownership_2.document_id":
+    "c507e104-36c1-49d6-8d7d-4931fee86559",
+  "$.documents.guarantor_house_ownership_3.document_id":
+    "c507e104-36c1-49d6-8d7d-4931fee86559",
+  "$.documents.guarantor_additional_document.document_id":
+    "c507e104-36c1-49d6-8d7d-4931fee86559",
+  "$.documents.guarantor_additional_document_2.document_id":
+    "c507e104-36c1-49d6-8d7d-4931fee86559",
+  "$.documents.guarantor_additional_document_3.document_id":
+    "c507e104-36c1-49d6-8d7d-4931fee86559",
+  "$.documents.guarantor_family_card.document_id":
+    "c507e104-36c1-49d6-8d7d-4931fee86559",
+  "$.documents.guarantor_family_card_2.document_id":
+    "c507e104-36c1-49d6-8d7d-4931fee86559",
+  "$.documents.guarantor_family_card_3.document_id":
+    "c507e104-36c1-49d6-8d7d-4931fee86559",
+  "$.guarantor.nik": "3173334212960003",
+  "$.guarantor.name": "Joko Subianto",
+  "$.guarantor.birth_place": "Magelang",
+  "$.guarantor.birth_date": "1999-02-02",
+  "$.guarantor.gender": "M",
+  "$.guarantor.street_address": "Jalan Satu Dua Tiga",
+  "$.guarantor.sub_district_code": "12.71.05.1002",
+  "$.guarantor.rt": "001",
+  "$.guarantor.rw": "002",
+  "$.guarantor.mobile_number": "+6281234567890",
+  "$.guarantor.marital_status_code": "S",
+  "$.guarantor.monthly_income": "2000000",
+  "$.guarantor.relation_with_customer_code": "CH",
+  "$.guarantor.occupation_type_code": "B",
+  "$.guarantor.occupation_code": "BURARTASRT",
+  "$.guarantor.domicile.street_address": "Jalan Empat Lima Enam",
+  "$.guarantor.domicile.sub_district_code": "12.71.05.1004",
+  "$.guarantor.domicile.rt": "001",
+  "$.guarantor.domicile.rw": "002",
+  "$.guarantor_2.nik": "3173334212960003",
+  "$.guarantor_2.name": "Joko Subianto",
+  "$.guarantor_2.birth_place": "Magelang",
+  "$.guarantor_2.birth_date": "1999-02-02",
+  "$.guarantor_2.gender": "M",
+  "$.guarantor_2.street_address": "Jalan Satu Dua Tiga",
+  "$.guarantor_2.sub_district_code": "12.71.05.1002",
+  "$.guarantor_2.rt": "001",
+  "$.guarantor_2.rw": "002",
+  "$.guarantor_2.mobile_number": "+6281234567890",
+  "$.guarantor_2.marital_status_code": "S",
+  "$.guarantor_2.monthly_income": "2000000",
+  "$.guarantor_2.relation_with_customer_code": "CH",
+  "$.guarantor_2.occupation_type_code": "B",
+  "$.guarantor_2.occupation_code": "BURARTASRT",
+  "$.guarantor_2.domicile.street_address": "Jalan Empat Lima Enam",
+  "$.guarantor_2.domicile.sub_district_code": "12.71.05.1004",
+  "$.guarantor_2.domicile.rt": "001",
+  "$.guarantor_2.domicile.rw": "002",
+  "$.guarantor_3.nik": "3173334212960003",
+  "$.guarantor_3.name": "Joko Subianto",
+  "$.guarantor_3.birth_place": "Magelang",
+  "$.guarantor_3.birth_date": "1999-02-02",
+  "$.guarantor_3.gender": "M",
+  "$.guarantor_3.street_address": "Jalan Satu Dua Tiga",
+  "$.guarantor_3.sub_district_code": "12.71.05.1002",
+  "$.guarantor_3.rt": "001",
+  "$.guarantor_3.rw": "002",
+  "$.guarantor_3.mobile_number": "+6281234567890",
+  "$.guarantor_3.marital_status_code": "S",
+  "$.guarantor_3.monthly_income": "2000000",
+  "$.guarantor_3.relation_with_customer_code": "CH",
+  "$.guarantor_3.occupation_type_code": "B",
+  "$.guarantor_3.occupation_code": "BURARTASRT",
+  "$.guarantor_3.domicile.street_address": "Jalan Empat Lima Enam",
+  "$.guarantor_3.domicile.sub_district_code": "12.71.05.1004",
+  "$.guarantor_3.domicile.rt": "001",
+  "$.guarantor_3.domicile.rw": "002",
 };
 export const Ca = async () => {
   const { workflowId, start } = await StartApplication();
