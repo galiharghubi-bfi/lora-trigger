@@ -23,7 +23,7 @@ const generateLicensePlate = () => {
 const licensePlate = generateLicensePlate();
 // const licensePlate = "LZ5835AZZ";
 const payload = {
-  "$.status.application": "approved",
+  "$.status.application": "pre_approved",
   "$.asset.license_plate": licensePlate,
   "$.customer.ktp.nik": "3173334212960003",
   "$.customer.ktp.name": `${cleansedName(
@@ -99,7 +99,7 @@ const payload = {
   "$.loan_structure.interest_rate": 0.0312,
   "$.loan_structure.product_offering": 1,
   "$.loan_structure.billing_date": "2025-08-21",
-  "$.customer.domicile.address.sub_district_code": "12.71.05.1002",
+  "$.customer.professional.business_suitability": true,
   "$.process.vehicle_verification_score.s1.max_funding_ratio": 0.8,
   "$.process.pd_model_overlay.s1.max_funding_ratio": 0.76,
   "$.process.loan_estimation.max_funding_ratio": 0.6,
@@ -168,7 +168,7 @@ const payload = {
   "$.asset.bpkb_ownership_period": "FROM_1_TO_6_MONTH",
   "$.process.credit_checking.neighborhood.source_2.other_information":
     "Jualan bakso di siang hari, jualan ketoprak di malam hari.",
-    "$.process.credit_checking.neighborhood.source_3.information_source":
+  "$.process.credit_checking.neighborhood.source_3.information_source":
     "NEIGHBOR",
   "$.process.credit_checking.neighborhood.source_3.informant_name": "Kim Jisoo",
   "$.process.credit_checking.neighborhood.source_3.informant_mobile_number":
@@ -186,9 +186,8 @@ const payload = {
   "$.asset.bpkb_ownership_period": "FROM_1_TO_6_MONTH",
   "$.process.credit_checking.neighborhood.source_3.other_information":
     "Jualan bakso di siang hari, jualan ketoprak di malam hari.",
-  
+
   "$.branch.branch_id": "401",
-  "$.process.survey_task.survey_branch_name": "MEDAN",
   "$.documents.asset_document_status": "IN_TRANSIT_CUSTOMER_TO_BRANCH",
   "$.channel.partner_internal_name": "partner-goto",
   "$.channel.soa_id": "28",
@@ -281,6 +280,8 @@ const payload = {
     "ed668a54-93ec-4f36-a888-f84007baf190",
   "$.documents.business_location.document_id":
     "ed668a54-93ec-4f36-a888-f84007baf190",
+  // additional data for follow up bpkb
+  "$.survey_appointment.survey_type": "REGULAR",
 };
 export const Ca = async () => {
   const { workflowId, start } = await StartApplication();
