@@ -363,6 +363,7 @@ const payload = {
   "$.guarantor_3.domicile.sub_district_code": "12.71.05.1004",
   "$.guarantor_3.domicile.rt": "001",
   "$.guarantor_3.domicile.rw": "002",
+  "$.process.survey_task.bpkb_submission.verificator_notes": "oke",
 };
 export const Ca = async () => {
   const { workflowId, start } = await StartApplication();
