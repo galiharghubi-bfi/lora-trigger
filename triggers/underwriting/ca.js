@@ -338,6 +338,7 @@ const payload = {
   "$.guarantor_2.marital_status_code": "S",
   "$.guarantor_2.monthly_income": "2000000",
   "$.guarantor_2.relation_with_customer_code": "CH",
+  "$.guarantor_2.occupation": "lorem ipsum",
   "$.guarantor_2.occupation_type_code": "B",
   "$.guarantor_2.occupation_code": "BURARTASRT",
   "$.guarantor_2.domicile.street_address": "Jalan Empat Lima Enam",
@@ -363,6 +364,12 @@ const payload = {
   "$.guarantor_3.domicile.sub_district_code": "12.71.05.1004",
   "$.guarantor_3.domicile.rt": "001",
   "$.guarantor_3.domicile.rw": "002",
+  "$.guarantor.citizenship": "WNI",
+  "$.guarantor_2.citizenship": "WNI",
+  "$.guarantor_3.citizenship": "WNI",
+  "$.guarantor.guarantor_type": "Perusahaan",
+  "$.guarantor_2.guarantor_type": "Perusahaan",
+  "$.guarantor_3.guarantor_type": "Perusahaan",
   "$.process.survey_task.bpkb_submission.verificator_notes": "oke",
 };
 export const Ca = async () => {
