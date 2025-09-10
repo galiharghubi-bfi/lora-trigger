@@ -383,14 +383,6 @@ export const Ca = async () => {
       },
       body: JSON.stringify(payload),
     });
-    const res = await fetch(`${baseConfig.lts_base_url}/rtc/web/url`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    const videoUrl = await res.json();
-    console.log(`✔ Video URL: ${videoUrl.url}`);
     console.log(`✔ Task generated with workflowId: ${workflowId}`);
     console.log(`✔ License plate: ${payload["$.asset.license_plate"]}`);
     console.log(`✔ Customer name: ${payload["$.customer.ktp.name"]}`);
