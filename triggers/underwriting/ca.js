@@ -73,7 +73,7 @@ const payload = {
   "$.loan_structure.purpose_of_financing": "PRODUCTIVE_LONG",
   "$.process.returning.customer_type": "RO_EXP",
   "$.loan_structure.monthly_installment": 2900000,
-  "$.loan_structure.provisional_amount": 10000000,
+  "$.loan_structure.provisional_amount": 650000000,
   "$.loan_structure.original_amount": 18000000,
   "$.customer.domicile.ownership_code": "KL",
   "$.customer.domicile.address.street_address": "Ini alamat yaaaa 192810",
@@ -367,9 +367,9 @@ const payload = {
   "$.guarantor.citizenship": "WNI",
   "$.guarantor_2.citizenship": "WNI",
   "$.guarantor_3.citizenship": "WNI",
-  "$.guarantor.guarantor_type": "Perusahaan",
-  "$.guarantor_2.guarantor_type": "Perusahaan",
-  "$.guarantor_3.guarantor_type": "Perusahaan",
+  "$.guarantor.type": "Perusahaan",
+  "$.guarantor_2.type": "Perusahaan",
+  "$.guarantor_3.type": "Perusahaan",
   "$.process.survey_task.bpkb_submission.verificator_notes": "oke",
 };
 export const Ca = async () => {
