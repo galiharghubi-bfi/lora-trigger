@@ -9,11 +9,19 @@ ROLES=(
     "vd"
     "credit_analyst"
     "network_management_head"
-    "network_management_head"
-    "marketing_deputy_director"
     "marketing_deputy_director"
     "network_management_sales_head"
-    "network_management_sales_head"
+    "product_manager_retail"
+    "ca_factory_head"
+    "am_business"
+    "ndf_car_credit_factory"
+    "consumer_credit_head"
+    "corporate_credit_head"
+    "credit_Operation_head"
+    "marketing_deputy_director"
+    "chief_finance_officer"
+    "vice_president_director"
+    "commissioner"
 )
 
 # Set starting index
@@ -29,7 +37,7 @@ for ROLE in "${ROLES[@]}"; do
             \"user_id\": \"00000${INDEX}\",
             \"realm\": \"bfi_employees\",
             \"name\": \"Gus Aris\",
-            \"branch_id\": \"402\",
+            \"branch_id\": \"404\",
             \"partnership\": {
                     \"dp_role\": \"${ROLE}\",
                     \"dp_supervisor_id\": \"111111\",
