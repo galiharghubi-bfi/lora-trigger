@@ -371,6 +371,12 @@ const payload = {
   "$.guarantor_2.type": "Perusahaan",
   "$.guarantor_3.type": "Perusahaan",
   "$.process.survey_task.bpkb_submission.verificator_notes": "oke",
+  "$.guarantor.citizenship": "WNI",
+  "$.guarantor_2.citizenship": "WNI",
+  "$.guarantor_3.citizenship": "WNI",
+  "$.guarantor.type": "PERORANGAN",
+  "$.guarantor_2.type": "PERORANGAN",
+  "$.guarantor_3.type": "PERORANGAN",
 };
 export const Ca = async () => {
   const { workflowId, start } = await StartApplication();
