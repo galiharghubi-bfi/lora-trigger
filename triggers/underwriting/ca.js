@@ -367,9 +367,9 @@ const payload = {
   "$.guarantor.citizenship": "WNI",
   "$.guarantor_2.citizenship": "WNI",
   "$.guarantor_3.citizenship": "WNI",
-  "$.guarantor.type": "Perorangan",
-  "$.guarantor_2.type": "Perorangan",
-  "$.guarantor_3.type": "Perorangan",
+  "$.guarantor.type": "PERORANGAN",
+  "$.guarantor_2.type": "PERORANGAN",
+  "$.guarantor_3.type": "PERORANGAN",
 };
 export const Ca = async () => {
   const { workflowId, start } = await StartApplication();
