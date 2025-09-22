@@ -2,23 +2,7 @@ import { StartApplication } from "../start-application.js";
 import baseConfig from "../../config.js";
 import { faker } from "@faker-js/faker";
 import { sendMq } from "../trigger-appointment.js";
-const generateLicensePlate = () => {
-  function randomInt(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
-
-  function randomLetters(min, max) {
-    const length = randomInt(min, max);
-    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    return Array.from({ length }, () => chars[randomInt(0, 25)]).join("");
-  }
-
-  const part1 = randomLetters(1, 2);
-  const part2 = randomInt(1, 9999).toString();
-  const part3 = randomLetters(1, 3);
-
-  return `${part1}${part2}${part3}`;
-};
+import { generateLicensePlate } from "../utils/license_plate.js";
 
 const licensePlate = generateLicensePlate();
 // const licensePlate = "LZ5835AZZ";
@@ -39,7 +23,7 @@ const payload = {
   "$.customer.bank_information.account_name": "MULTIFINANCE ANAK BANGSA GOTO",
   "$.customer.bank_information.account_number": "0010988888",
   "$.customer.bank_information.bank_id": 47,
-  "$.customer.contact.mobile_number": "",
+  "$.customer.contact.mobile_number": "+6281234567899",
   "$.customer.domicile.address.street_address": "Jl. Jakarta Raya",
   "$.customer.domicile.address.sub_district_code": "12.71.05.1002",
   "$.customer.domicile.ownership_code": "SD",
