@@ -1,5 +1,6 @@
 import { Ndf4w, Ndf2w } from "./triggers/survey/index.js";
 import { Ca } from "./triggers/underwriting/index.js";
+import { Ops } from "./triggers/bpkbreview/index.js";
 (async () => {
   const taskType = process.argv[2];
   const triggerType = process.argv[3];
@@ -28,6 +29,17 @@ import { Ca } from "./triggers/underwriting/index.js";
         case "ca":
           console.log("✔ Triggering underwriting, trigger type: ca");
           await Ca();
+          break;
+        default:
+          console.log("Invalid trigger type");
+          break;
+      }
+      break;
+    case "bpkbreview":
+      switch (triggerType) {
+        case "ops":
+          console.log("✔ Triggering operation, trigger type: ops");
+          await Ops();
           break;
         default:
           console.log("Invalid trigger type");

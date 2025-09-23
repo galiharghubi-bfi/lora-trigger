@@ -2,26 +2,10 @@ import { faker } from "@faker-js/faker";
 import baseConfig from "../../config.js";
 import { StartApplication } from "../start-application.js";
 import { cleansedName } from "../utils/cleanse.js";
-const generateLicensePlate = () => {
-  function randomInt(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
-
-  function randomLetters(min, max) {
-    const length = randomInt(min, max);
-    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    return Array.from({ length }, () => chars[randomInt(0, 25)]).join("");
-  }
-
-  const part1 = randomLetters(1, 2);
-  const part2 = randomInt(1, 9999).toString();
-  const part3 = randomLetters(1, 3);
-
-  return `${part1}${part2}${part3}`;
-};
+import { generateLicensePlate } from "../utils/license_plate.js";
 
 const licensePlate = generateLicensePlate();
-// const licensePlate = "LZ5835AZZ";
+
 const payload = {
   "$.status.application": "pre_approved",
   "$.asset.license_plate": licensePlate,
@@ -35,7 +19,7 @@ const payload = {
   "$.process.survey_task.surveyor_employee_id": "000004",
   "$.process.operations_task.processing_branch_id": "401",
   "$.submission_date": "2025-04-07T18:00:00Z",
-  "$.customer.contact.mobile_number": "+6281234567891",
+  "$.customer.contact.mobile_number": "+6281234567899",
   "$.customer.ktp.birth_date": "1980-12-03",
   "$.customer.ktp.birth_place": "jakarta",
   "$.customer.ktp.gender": "F",
@@ -378,6 +362,7 @@ const payload = {
   "$.guarantor_2.type": "PERORANGAN",
   "$.guarantor_3.type": "PERORANGAN",
 };
+
 export const Ca = async () => {
   const { workflowId, start } = await StartApplication();
   try {
