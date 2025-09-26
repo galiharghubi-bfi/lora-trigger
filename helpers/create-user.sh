@@ -28,8 +28,8 @@ for ROLE in "${ROLES[@]}"; do
     --data "{
             \"user_id\": \"00000${INDEX}\",
             \"realm\": \"bfi_employees\",
-            \"name\": \"Gus Aris\",
-            \"branch_id\": \"402\",
+            \"name\": \"Gus Aris ${ROLE}\",
+            \"branch_id\": \"401\",
             \"partnership\": {
                     \"dp_role\": \"${ROLE}\",
                     \"dp_supervisor_id\": \"111111\",

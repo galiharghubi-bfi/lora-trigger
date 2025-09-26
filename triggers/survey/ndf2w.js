@@ -3,6 +3,7 @@ import baseConfig from "../../config.js";
 import { faker } from "@faker-js/faker";
 import { sendMq } from "../trigger-appointment.js";
 import { generateLicensePlate } from "../utils/license_plate.js";
+import { cleansedName } from "../utils/cleanse.js";
 
 const licensePlate = generateLicensePlate();
 // const licensePlate = "LZ5835AZZ";
@@ -30,7 +31,9 @@ const payload = {
   "$.customer.ktp.birth_date": "1997-04-24",
   "$.customer.ktp.birth_place": "MANOKWARI",
   "$.customer.ktp.gender": "M",
-  "$.customer.ktp.name": `${faker.person.firstName()} ${faker.person.lastName()}`,
+  "$.customer.ktp.name": `${cleansedName(
+    faker.person.firstName()
+  )} ${cleansedName(faker.person.lastName())}`,
   "$.customer.ktp.nik": "3328182404970002",
   "$.customer.ktp.street_address": "JALAN JALAN",
   "$.customer.ktp.sub_district_code": "32.01.36.2004",
@@ -49,7 +52,7 @@ const payload = {
   "$.customer.personal.number_dependents": 2,
 };
 
-export const Ndf2w = async () => {
+export const Ndf2w = async (actor) => {
   const { workflowId, start } = await StartApplication();
   try {
     await start;
@@ -70,9 +73,10 @@ export const Ndf2w = async () => {
     console.log(`✔ Video URL: ${videoUrl.url}`);
     console.log(`✔ Task generated with workflowId: ${workflowId}`);
     console.log(`✔ License plate: ${payload["$.asset.license_plate"]}`);
+    console.log(`✔ Actor: ${actor}`);
     console.log(`✔ Customer name: ${payload["$.customer.ktp.name"]}`);
     await new Promise((resolve) => setTimeout(resolve, 30000));
-    await sendMq(workflowId, videoUrl.url);
+    await sendMq(workflowId, videoUrl.url, actor);
   } catch (error) {
     console.error(error);
   }
