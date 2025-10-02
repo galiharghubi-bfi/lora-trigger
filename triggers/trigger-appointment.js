@@ -6,7 +6,7 @@ const password = baseConfig.mq_password;
 
 const queue = "q.lgs.scheduling.appointments.work";
 const start = new Date();
-start.setHours(18, 30, 0, 0);
+start.setHours(21, 30, 0, 0);
 
 const end = new Date(start.getTime() + 30 * 60 * 1000);
 // const end = new Date(start.getTime() + 24 * 60 * 60 * 1000);
@@ -49,10 +49,10 @@ export const sendMq = async (workflowId, videoUrl) => {
       resources: [
         {
           resource_uuid: "3a794b35-6d6a-459b-89fa-b96fa589fd1a",
-          // resource_identifiers: "000000",
-          // resource_type_code: "ADMIN_SURVEY",
-          resource_identifiers: "222222",
-          resource_type_code: "VERIFICATOR_DIGITAL",
+          resource_identifiers: "000000",
+          resource_type_code: "ADMIN_SURVEY",
+          // resource_identifiers: "222222",
+          // resource_type_code: "VERIFICATOR_DIGITAL",
           pre_travel_duration_minutes: 30,
           post_travel_duration_minutes: 30,
           attribute_1: "test",
