@@ -17,7 +17,7 @@ ROLES=(
     "ndf_car_credit_factory"
     "consumer_credit_head"
     "corporate_credit_head"
-    "credit_Operation_head"
+    "credit_operation_head"
     "marketing_deputy_director"
     "chief_finance_officer"
     "vice_president_director"
