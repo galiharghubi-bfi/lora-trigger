@@ -7,7 +7,7 @@ ROLES=(
     "head_vd"
     "credit_analyst"
     "vd"
-    "credit_analyst"
+    "ops_level_2"
     "network_management_head"
     "network_management_head"
     "marketing_deputy_director"
@@ -18,21 +18,24 @@ ROLES=(
 
 # Set starting index
 INDEX=0
+BRANCH_ID=401
+SUPERVISOR_ID=111111
 
 # Create a user for each role with incrementing index
 for ROLE in "${ROLES[@]}"; do
-    echo "Creating user with role: $ROLE (index: 00000${INDEX})"
+    USER_ID=$(printf '%06d' "$INDEX")
+    echo "Creating user with role: $ROLE (index: ${USER_ID})"
     curl --location 'http://127.0.0.1:8082/mgmt/people' \
     --header 'Content-Type: application/json' \
     --header 'User-Agent: insomnia/10.3.0' \
     --data "{
-            \"user_id\": \"00000${INDEX}\",
+            \"user_id\": \"${USER_ID}\",
             \"realm\": \"bfi_employees\",
-            \"name\": \"Gus Aris ${ROLE}\",
-            \"branch_id\": \"401\",
+            \"name\": \"${ROLE}\",
+            \"branch_id\": \"${BRANCH_ID}\",
             \"partnership\": {
                     \"dp_role\": \"${ROLE}\",
-                    \"dp_supervisor_id\": \"111111\",
+                    \"dp_supervisor_id\": \"${SUPERVISOR_ID}\",
                     \"active\": true
             }
     }"
