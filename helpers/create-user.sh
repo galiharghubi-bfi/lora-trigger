@@ -1,44 +1,49 @@
 #!/bin/bash
+set -euo pipefail
 
-# Define available roles
-ROLES=(
-    "admin_survey"
-    "ops_level_1"
-    "head_vd"
-    "credit_analyst"
-    "vd"
-    "ops_level_2"
-    "network_management_head"
-    "network_management_head"
-    "marketing_deputy_director"
-    "marketing_deputy_director"
-    "network_management_sales_head"
-    "network_management_sales_head"
-)
+# Get absolute path of this script
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+JSON_FILE="$SCRIPT_DIR/users.json"
+API_URL="http://127.0.0.1:8082/mgmt/people"
 
-# Set starting index
-INDEX=0
-BRANCH_ID=401
-SUPERVISOR_ID=111111
+# Check dependencies
+if ! command -v jq &>/dev/null; then
+    echo "❌ jq not installed. Install with: sudo apt install jq"
+    exit 1
+fi
 
-# Create a user for each role with incrementing index
-for ROLE in "${ROLES[@]}"; do
-    USER_ID=$(printf '%06d' "$INDEX")
-    echo "Creating user with role: $ROLE (index: ${USER_ID})"
-    curl --location 'http://127.0.0.1:8082/mgmt/people' \
-    --header 'Content-Type: application/json' \
-    --header 'User-Agent: insomnia/10.3.0' \
-    --data "{
-            \"user_id\": \"${USER_ID}\",
-            \"realm\": \"bfi_employees\",
-            \"name\": \"${ROLE}\",
-            \"branch_id\": \"${BRANCH_ID}\",
-            \"partnership\": {
-                    \"dp_role\": \"${ROLE}\",
-                    \"dp_supervisor_id\": \"${SUPERVISOR_ID}\",
-                    \"active\": true
-            }
-    }"
-    # Increment index for next user
-    INDEX=$((INDEX + 1))
+# Ensure users.json exists
+if [ ! -f "$JSON_FILE" ]; then
+    echo "❌ users.json not found at: $JSON_FILE"
+    exit 1
+fi
+
+COUNT=$(jq length "$JSON_FILE")
+echo "📦 Found $COUNT users to create (from $JSON_FILE)"
+echo "-------------------------------------------"
+
+# Loop through users
+for i in $(seq 0 $((COUNT - 1))); do
+    USER_ID=$(jq -r ".[$i].user_id" "$JSON_FILE")
+    ROLE=$(jq -r ".[$i].name" "$JSON_FILE")
+    PAYLOAD=$(jq -c ".[$i]" "$JSON_FILE")
+
+    echo "➡️  Creating user #$i (${USER_ID}) — role: ${ROLE}"
+
+    RESPONSE=$(curl --silent --show-error \
+        --location "$API_URL" \
+        --header 'Content-Type: application/json' \
+        --header 'User-Agent: create-user-script/1.0' \
+        --data "$PAYLOAD" \
+        --write-out "%{http_code}" \
+        --output /dev/null || echo "000")
+
+    if [[ "$RESPONSE" =~ ^2 ]]; then
+        echo "✅  Created ${ROLE} (${USER_ID})"
+    else
+        echo "⚠️  Failed (${RESPONSE}) for ${ROLE} (${USER_ID})"
+    fi
 done
+
+echo "-------------------------------------------"
+echo "🏁 Process complete — all users attempted."
