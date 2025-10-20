@@ -35,8 +35,8 @@ const payload = {
   "$.customer.ktp.city": "Bandung",
   "$.customer.ktp.district": "Gedebage",
   "$.customer.ktp.gender": "M",
-  "$.customer.ktp.name": `${faker.person.firstName()} ${faker.person.lastName()}`,
-  "$.customer.ktp.nik": "9101052404650002",
+  "$.customer.ktp.name": `${faker.name.firstName('male')} ${faker.name.lastName('male')}`,
+  "$.customer.ktp.nik": "3603281212930007",
   "$.customer.ktp.province": "Jawa Barat",
   "$.customer.ktp.street_address": "JALAN JALAN",
   "$.customer.ktp.sub_district": "Rancabolang (Rancabalong)",
@@ -58,6 +58,17 @@ const payload = {
   "$.loan_structure.tenure": 12,
   "$.process.user_consent_timestamp": "2025-07-10T07:25:31.688783604Z",
   "$.customer.professional.occupation_code": "PNSBPKAGTU",
+  "$.loan_structure.ltv": 0.894138,
+  "$.loan_structure.funding_ratio": 0.805039,
+  "$.loan_structure.max_funding": 61677000,
+  "$.loan_structure.interest_rate": 0.41,
+  "$.loan_structure.life_insurance_premium": 186000,
+  "$.loan_structure.asset_insurance_premium": 0,
+  "$.loan_structure.admin_fee": 327000,
+  "$.loan_structure.provision_fee": 461375,
+  "$.loan_structure.capitalized_ntf_amount": 11534375,
+  "$.loan_structure.monthly_installment": 712500,
+  "$.loan_structure.provisional_amount": 45000000
 };
 
 export const Ndf4w = async (actor) => {
