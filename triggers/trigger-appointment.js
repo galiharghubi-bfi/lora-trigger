@@ -6,7 +6,7 @@ const password = baseConfig.mq_password;
 
 const queue = "q.lgs.scheduling.appointments.work";
 const start = new Date();
-start.setHours(18, 30, 0, 0);
+start.setHours(23, 30, 0, 0);
 
 const end = new Date(start.getTime() + 30 * 60 * 1000);
 // const end = new Date(start.getTime() + 24 * 60 * 60 * 1000);
@@ -14,7 +14,17 @@ const end = new Date(start.getTime() + 30 * 60 * 1000);
 const appointment_time_target_start = start.toISOString();
 const appointment_time_target_end = end.toISOString();
 
-export const sendMq = async (workflowId, videoUrl) => {
+export const sendMq = async (workflowId, videoUrl, actor) => {
+  const defaultActor = {
+    resource_identifiers: "000000",
+    resource_type_code: "ADMIN_SURVEY",
+  };
+
+  if (actor === "vd") {
+    (defaultActor.resource_identifiers = "000004"),
+      (defaultActor.resource_type_code = "VERIFICATOR_DIGITAL");
+  }
+
   const payload = {
     appointment_full_detail: {
       appointment_uuid: crypto.randomUUID(),
@@ -48,11 +58,8 @@ export const sendMq = async (workflowId, videoUrl) => {
       rescheduled_to_appointment_uuid: "908275be-048a-4872-84e7-f7590b60e85a",
       resources: [
         {
+          ...defaultActor,
           resource_uuid: "3a794b35-6d6a-459b-89fa-b96fa589fd1a",
-          // resource_identifiers: "000000",
-          // resource_type_code: "ADMIN_SURVEY",
-          resource_identifiers: "222222",
-          resource_type_code: "VERIFICATOR_DIGITAL",
           pre_travel_duration_minutes: 30,
           post_travel_duration_minutes: 30,
           attribute_1: "test",

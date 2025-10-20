@@ -1,30 +1,13 @@
-import { StartApplication } from "../start-application.js";
-import baseConfig from "../../config.js";
 import { faker } from "@faker-js/faker";
-import { sendMq } from "../trigger-appointment.js";
+import baseConfig from "../../config.js";
+import { StartApplication } from "../start-application.js";
 import { cleansedName } from "../utils/cleanse.js";
-const generateLicensePlate = () => {
-  function randomInt(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
-
-  function randomLetters(min, max) {
-    const length = randomInt(min, max);
-    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    return Array.from({ length }, () => chars[randomInt(0, 25)]).join("");
-  }
-
-  const part1 = randomLetters(1, 2);
-  const part2 = randomInt(1, 9999).toString();
-  const part3 = randomLetters(1, 3);
-
-  return `${part1}${part2}${part3}`;
-};
+import { generateLicensePlate } from "../utils/license_plate.js";
 
 const licensePlate = generateLicensePlate();
-// const licensePlate = "LZ5835AZZ";
+
 const payload = {
-  "$.status.application": "approved",
+  "$.status.application": "pre_approved",
   "$.asset.license_plate": licensePlate,
   "$.customer.ktp.nik": "3173334212960003",
   "$.customer.ktp.name": `${cleansedName(
@@ -36,8 +19,8 @@ const payload = {
   "$.process.survey_task.surveyor_employee_id": "000004",
   "$.process.operations_task.processing_branch_id": "401",
   "$.submission_date": "2025-04-07T18:00:00Z",
-  "$.customer.contact.mobile_number": "+6281234567891",
-  "$.customer.ktp.birth_date": "1974-12-03",
+  "$.customer.contact.mobile_number": "+6281234567899",
+  "$.customer.ktp.birth_date": "1980-12-03",
   "$.customer.ktp.birth_place": "jakarta",
   "$.customer.ktp.gender": "F",
   "$.customer.professional.npwp": "123123123123123",
@@ -47,6 +30,8 @@ const payload = {
     faker.person.firstName()
   )} ${cleansedName(faker.person.lastName())}`,
   "$.spouse.mobile_number": "+6281234567890",
+  "$.process.survey_task.bpkb_submission.submission_method": "BRANCH_DROPOFF",
+  "$.survey_appointment.survey_location_type": "branch",
   "$.customer.personal.number_dependents": 2,
   "$.documents.ktp.document_id": "9888d558-8480-4dbe-95fd-07e2dadbede3",
   "$.documents.kk.document_id": "dc9991b3-a826-481d-bc19-1bdccf555f75",
@@ -66,13 +51,12 @@ const payload = {
     "7119ccfd-d256-4c8e-9ad5-c18387ac42e4",
   "$.documents.spouse_signature.document_id":
     "31156555-2489-4708-bf19-e8f57e4fb390",
-  "$.loan_structure.purpose.finance_purpose": "3",
-  "$.loan_structure.purpose.finance_purpose_details":
-    "Detail Kendaraan untuk Usaha",
+  "$.loan_structure.purpose.finance_purpose_id": "3",
   "$.loan_structure.purpose_of_financing": "PRODUCTIVE_LONG",
   "$.process.returning.customer_type": "RO_EXP",
   "$.loan_structure.monthly_installment": 2900000,
   "$.loan_structure.provisional_amount": 10000000,
+  "$.loan_structure.original_amount": 18000000,
   "$.customer.domicile.ownership_code": "KL",
   "$.customer.domicile.address.street_address": "Ini alamat yaaaa 192810",
   "$.customer.domicile.stay_since": 2023,
@@ -85,11 +69,23 @@ const payload = {
   "$.asset.manufacturing_year": 2021,
   "$.asset.asset_usage": "COMMERCIAL",
   "$.process.asset_pricing.price": 150000000,
+  "$.loan_structure.max_funding": 140000000,
+  "$.loan_structure.admin_fee": 100000,
+  "$.loan_structure.asset_insurance_premium": 100000,
+  "$.loan_structure.life_insurance_premium": 100000,
+  "$.loan_structure.capitalized_ntf_amount": 100000,
+  "$.loan_structure.funding_ratio": 80,
+  "$.loan_structure.provision_fee": 100000,
   "$.loan_structure.ltv": 0.7929,
   "$.loan_structure.tenure": 6,
   "$.loan_structure.interest_rate": 0.0312,
   "$.loan_structure.product_offering": 1,
-
+  "$.loan_structure.billing_date": "2025-08-21",
+  "$.customer.professional.business_suitability": true,
+  "$.process.vehicle_verification_score.s1.max_funding_ratio": 0.8,
+  "$.process.pd_model_overlay.s1.max_funding_ratio": 0.76,
+  "$.process.loan_estimation.max_funding_ratio": 0.6,
+  "$.process.credit_checking.neighborhood.source_1.business_suitability": true,
   "$.asset.bpkb_ownership": "1",
   "$.asset.bpkb_owner_name": "Adhitya",
   "$.documents.asset.asset_front.document_id":
@@ -125,7 +121,7 @@ const payload = {
     "+6281234567890",
   "$.process.credit_checking.neighborhood.source_1.occupation_code":
     "BURARTASRT",
-  "$.customer.professional.business_suitability": true,
+  "$.process.credit_checking.neighborhood.source_1.business_suitability": true,
   "$.process.credit_checking.neighborhood.source_1.family_reputation":
     "POSITIF",
   "$.process.credit_checking.neighborhood.source_1.debtor_spouse_uses_asset_more_than_once": true,
@@ -136,8 +132,44 @@ const payload = {
   "$.asset.bpkb_ownership_period": "FROM_1_TO_6_MONTH",
   "$.process.credit_checking.neighborhood.source_1.other_information":
     "Jualan bakso di siang hari, jualan ketoprak di malam hari.",
+  "$.process.credit_checking.neighborhood.source_2.information_source":
+    "NEIGHBOR",
+  "$.process.credit_checking.neighborhood.source_2.informant_name": "Kim Jisoo",
+  "$.process.credit_checking.neighborhood.source_2.informant_mobile_number":
+    "+6281234567890",
+  "$.process.credit_checking.neighborhood.source_2.occupation_code":
+    "BURARTASRT",
+  "$.process.credit_checking.neighborhood.source_2.business_suitability": true,
+  "$.process.credit_checking.neighborhood.source_2.family_reputation":
+    "POSITIF",
+  "$.process.credit_checking.neighborhood.source_2.debtor_spouse_uses_asset_more_than_once": true,
+  "$.process.credit_checking.neighborhood.source_2.unit_seen_at_residence_more_than_once": true,
+  "$.process.credit_checking.neighborhood.source_2.consumer_often_at_home": true,
+  "$.process.credit_checking.neighborhood.source_2.consumer_affiliate_with_organization": false,
+  "$.process.credit_checking.neighborhood.source_2.house_suitability": true,
+  "$.asset.bpkb_ownership_period": "FROM_1_TO_6_MONTH",
+  "$.process.credit_checking.neighborhood.source_2.other_information":
+    "Jualan bakso di siang hari, jualan ketoprak di malam hari.",
+  "$.process.credit_checking.neighborhood.source_3.information_source":
+    "NEIGHBOR",
+  "$.process.credit_checking.neighborhood.source_3.informant_name": "Kim Jisoo",
+  "$.process.credit_checking.neighborhood.source_3.informant_mobile_number":
+    "+6281234567890",
+  "$.process.credit_checking.neighborhood.source_3.occupation_code":
+    "BURARTASRT",
+  "$.process.credit_checking.neighborhood.source_3.business_suitability": true,
+  "$.process.credit_checking.neighborhood.source_3.family_reputation":
+    "POSITIF",
+  "$.process.credit_checking.neighborhood.source_3.debtor_spouse_uses_asset_more_than_once": true,
+  "$.process.credit_checking.neighborhood.source_3.unit_seen_at_residence_more_than_once": true,
+  "$.process.credit_checking.neighborhood.source_3.consumer_often_at_home": true,
+  "$.process.credit_checking.neighborhood.source_3.consumer_affiliate_with_organization": false,
+  "$.process.credit_checking.neighborhood.source_3.house_suitability": true,
+  "$.asset.bpkb_ownership_period": "FROM_1_TO_6_MONTH",
+  "$.process.credit_checking.neighborhood.source_3.other_information":
+    "Jualan bakso di siang hari, jualan ketoprak di malam hari.",
+
   "$.branch.branch_id": "401",
-  "$.process.survey_task.survey_branch_name": "MEDAN",
   "$.documents.asset_document_status": "IN_TRANSIT_CUSTOMER_TO_BRANCH",
   "$.channel.partner_internal_name": "partner-goto",
   "$.channel.soa_id": "28",
@@ -146,14 +178,180 @@ const payload = {
   "$.asset.bpkb_invoice_number": "19069692004JK9012027",
   "$.asset.bpkb_number": "P234567890",
   "$.asset.unit_color": "ABU ABU",
-  "$.asset.chassis_number": "P1234567890129831",
+  "$.asset.chassis_number": "MKFKZE81SCJ115045",
   "$.asset.engine_number": "L15Z15605255",
-  "$.documents.bpkb_page_1.document_id": "b6bee008-eb52-406b-be14-54d041025bb8",
-  "$.documents.bpkb_page_2.document_id": "b6bee008-eb52-406b-be14-54d041025bb8",
-  "$.documents.bpkb_page_3.document_id": "b6bee008-eb52-406b-be14-54d041025bb8",
-  "$.documents.bpkb_page_4.document_id": "b6bee008-eb52-406b-be14-54d041025bb8",
+  "$.documents.bpkb_page_1.document_id": "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.bpkb_page_2.document_id": "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.bpkb_page_3.document_id": "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.bpkb_page_4.document_id": "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.bpkb_page_5.document_id": "ed668a54-93ec-4f36-a888-f84007baf190",
   "$.documents.bpkb_invoice.document_id":
-    "b6bee008-eb52-406b-be14-54d041025bb8",
+    "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.bpkb_receipt_2.document_id":
+    "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.customer_receipt_2.document_id":
+    "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.payment_receipt.document_id":
+    "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.invoice.document_id": "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.stnk.document_id": "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.customer.domicile.address.sub_district_code": "15.07.02.2008",
+  "$.customer.domicile.address.rt": "001",
+  "$.customer.domicile.address.rw": "001",
+  "$.documents.asset.asset_front_right_side.document_id":
+    "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.asset.asset_front_left_side.document_id":
+    "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.asset.asset_rear_right_side.document_id":
+    "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.asset.asset_rear_left_side.document_id":
+    "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.asset.asset_interior_center_sid.document_id":
+    "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.asset.asset_left_side.document_id":
+    "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.asset.asset_right_side.document_id":
+    "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.asset.engine_number.document_id":
+    "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.asset.speedometer.document_id":
+    "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.vehicle_inspection.document_id":
+    "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.ktp_bpkb.document_id": "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.chassis_number.document_id":
+    "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.tax_notice.document_id": "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.release_letter.document_id":
+    "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.channel.marketing_id": "2403NC0005",
+  "$.customer.emergency_contact.rt": "001",
+  "$.customer.emergency_contact.rw": "002",
+  "$.asset.bpkb_status": "on_hand",
+  // "$.documents.bkr_house_rent_ownership.document_id":
+  //   "9888d558-8480-4dbe-95fd-07e2dadbede3",
+  // "$.documents.asset_payment_receipt.document_id":
+  //   "9888d558-8480-4dbe-95fd-07e2dadbede3",
+  // "$.documents.asset_payment_invoice.document_id":
+  //   "9888d558-8480-4dbe-95fd-07e2dadbede3",
+  // "$.documents.asset_payment_agreement.document_id":
+  //   "9888d558-8480-4dbe-95fd-07e2dadbede3",
+  // "$.documents.asset.in_front_of_bfi_office.document_id":
+  //   "9888d558-8480-4dbe-95fd-07e2dadbede3",
+  // "$.documents.asset_dump_truck_on_lift_position.document_id":
+  //   "9888d558-8480-4dbe-95fd-07e2dadbede3",
+  // "$.documents.asset_photo_bpkb_productive.document_id":
+  //   "9888d558-8480-4dbe-95fd-07e2dadbede3",
+  // "$.documents.proof_photo_consumer_still_working.document_id":
+  //   "9888d558-8480-4dbe-95fd-07e2dadbede3",
+  // "$.documents.active_spk.document_id": "9888d558-8480-4dbe-95fd-07e2dadbede3",
+  // "$.documents.proof_of_payment_for_other_contracts_that_are_still_in_arrears.document_id":
+  //   "9888d558-8480-4dbe-95fd-07e2dadbede3",
+  // "$.documents.signing_by_waarmerking_or_legalization.document_id":
+  //   "9888d558-8480-4dbe-95fd-07e2dadbede3",
+  // "$.documents.cross_collateral_and_default_all_active_contracts.document_id":
+  //   "9888d558-8480-4dbe-95fd-07e2dadbede3",
+  "$.customer.professional.is_profession_valid": true,
+  "$.customer.professional.company_sub_district_code": "15.07.02.2008",
+  "$.survey_appointment.preferred_timezone": "Asia/Jakarta",
+  "$.documents.employment_evidence.document_id":
+    "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.business_legality.document_id":
+    "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.business_photo.document_id":
+    "ed668a54-93ec-4f36-a888-f84007baf190",
+  "$.documents.business_location.document_id":
+    "ed668a54-93ec-4f36-a888-f84007baf190",
+  // additional data for follow up bpkb
+  "$.survey_appointment.survey_type": "REGULAR",
+  "$.documents.guarantor_identity_card.document_id":
+    "9888d558-8480-4dbe-95fd-07e2dadbede3",
+  "$.documents.guarantor_identity_card_2.document_id":
+    "9888d558-8480-4dbe-95fd-07e2dadbede3",
+  "$.documents.guarantor_identity_card_3.document_id":
+    "9888d558-8480-4dbe-95fd-07e2dadbede3",
+  "$.documents.guarantor_house_ownership.document_id":
+    "c507e104-36c1-49d6-8d7d-4931fee86559",
+  "$.documents.guarantor_house_ownership_2.document_id":
+    "c507e104-36c1-49d6-8d7d-4931fee86559",
+  "$.documents.guarantor_house_ownership_3.document_id":
+    "c507e104-36c1-49d6-8d7d-4931fee86559",
+  "$.documents.guarantor_additional_document.document_id":
+    "c507e104-36c1-49d6-8d7d-4931fee86559",
+  "$.documents.guarantor_additional_document_2.document_id":
+    "c507e104-36c1-49d6-8d7d-4931fee86559",
+  "$.documents.guarantor_additional_document_3.document_id":
+    "c507e104-36c1-49d6-8d7d-4931fee86559",
+  "$.documents.guarantor_family_card.document_id":
+    "c507e104-36c1-49d6-8d7d-4931fee86559",
+  "$.documents.guarantor_family_card_2.document_id":
+    "c507e104-36c1-49d6-8d7d-4931fee86559",
+  "$.documents.guarantor_family_card_3.document_id":
+    "c507e104-36c1-49d6-8d7d-4931fee86559",
+  "$.guarantor.nik": "3173334212960003",
+  "$.guarantor.name": "Joko Subianto",
+  "$.guarantor.birth_place": "Magelang",
+  "$.guarantor.birth_date": "1999-02-02",
+  "$.guarantor.gender": "M",
+  "$.guarantor.street_address": "Jalan Satu Dua Tiga",
+  "$.guarantor.sub_district_code": "12.71.05.1002",
+  "$.guarantor.rt": "001",
+  "$.guarantor.rw": "002",
+  "$.guarantor.mobile_number": "+6281234567890",
+  "$.guarantor.marital_status_code": "S",
+  "$.guarantor.monthly_income": "2000000",
+  "$.guarantor.relation_with_customer_code": "CH",
+  "$.guarantor.occupation_type_code": "B",
+  "$.guarantor.occupation_code": "BURARTASRT",
+  "$.guarantor.domicile.street_address": "Jalan Empat Lima Enam",
+  "$.guarantor.domicile.sub_district_code": "12.71.05.1004",
+  "$.guarantor.domicile.rt": "001",
+  "$.guarantor.domicile.rw": "002",
+  "$.guarantor_2.nik": "3173334212960003",
+  "$.guarantor_2.name": "Joko Subianto",
+  "$.guarantor_2.birth_place": "Magelang",
+  "$.guarantor_2.birth_date": "1999-02-02",
+  "$.guarantor_2.gender": "M",
+  "$.guarantor_2.street_address": "Jalan Satu Dua Tiga",
+  "$.guarantor_2.sub_district_code": "12.71.05.1002",
+  "$.guarantor_2.rt": "001",
+  "$.guarantor_2.rw": "002",
+  "$.guarantor_2.mobile_number": "+6281234567890",
+  "$.guarantor_2.marital_status_code": "S",
+  "$.guarantor_2.monthly_income": "2000000",
+  "$.guarantor_2.relation_with_customer_code": "CH",
+  "$.guarantor_2.occupation_type_code": "B",
+  "$.guarantor_2.occupation_code": "BURARTASRT",
+  "$.guarantor_2.domicile.street_address": "Jalan Empat Lima Enam",
+  "$.guarantor_2.domicile.sub_district_code": "12.71.05.1004",
+  "$.guarantor_2.domicile.rt": "001",
+  "$.guarantor_2.domicile.rw": "002",
+  "$.guarantor_3.nik": "3173334212960003",
+  "$.guarantor_3.name": "Joko Subianto",
+  "$.guarantor_3.birth_place": "Magelang",
+  "$.guarantor_3.birth_date": "1999-02-02",
+  "$.guarantor_3.gender": "M",
+  "$.guarantor_3.street_address": "Jalan Satu Dua Tiga",
+  "$.guarantor_3.sub_district_code": "12.71.05.1002",
+  "$.guarantor_3.rt": "001",
+  "$.guarantor_3.rw": "002",
+  "$.guarantor_3.mobile_number": "+6281234567890",
+  "$.guarantor_3.marital_status_code": "S",
+  "$.guarantor_3.monthly_income": "2000000",
+  "$.guarantor_3.relation_with_customer_code": "CH",
+  "$.guarantor_3.occupation_type_code": "B",
+  "$.guarantor_3.occupation_code": "BURARTASRT",
+  "$.guarantor_3.domicile.street_address": "Jalan Empat Lima Enam",
+  "$.guarantor_3.domicile.sub_district_code": "12.71.05.1004",
+  "$.guarantor_3.domicile.rt": "001",
+  "$.guarantor_3.domicile.rw": "002",
+  "$.process.survey_task.bpkb_submission.verificator_notes": "oke",
+  "$.guarantor.citizenship": "WNI",
+  "$.guarantor_2.citizenship": "WNI",
+  "$.guarantor_3.citizenship": "WNI",
+  "$.guarantor.type": "PERORANGAN",
+  "$.guarantor_2.type": "PERORANGAN",
+  "$.guarantor_3.type": "PERORANGAN",
 };
 
 export const Ca = async () => {
@@ -167,14 +365,6 @@ export const Ca = async () => {
       },
       body: JSON.stringify(payload),
     });
-    const res = await fetch(`${baseConfig.lts_base_url}/rtc/web/url`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    const videoUrl = await res.json();
-    console.log(`✔ Video URL: ${videoUrl.url}`);
     console.log(`✔ Task generated with workflowId: ${workflowId}`);
     console.log(`✔ License plate: ${payload["$.asset.license_plate"]}`);
     console.log(`✔ Customer name: ${payload["$.customer.ktp.name"]}`);

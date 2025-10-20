@@ -7,7 +7,7 @@
   "main": "trigger-survey.js",
   "scripts": {
     "survey": "node triggers/trigger-survey.js",
-    "start": "node index.js",
+    "start": "bun index.js",
     "build": "bun build --compile --target=bun-darwin-arm64 ./index.js --minify --outfile lora-trigger"
   },
   "author": "",

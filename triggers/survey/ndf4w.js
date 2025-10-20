@@ -71,7 +71,7 @@ const payload = {
   "$.loan_structure.provisional_amount": 45000000
 };
 
-export const Ndf4w = async () => {
+export const Ndf4w = async (actor) => {
   const { workflowId, start } = await StartApplication();
   try {
     await start;
@@ -92,9 +92,10 @@ export const Ndf4w = async () => {
     console.log(`✔ Video URL: ${videoUrl.url}`);
     console.log(`✔ Task generated with workflowId: ${workflowId}`);
     console.log(`✔ License plate: ${payload["$.asset.license_plate"]}`);
+    console.log(`✔ Actor: ${actor}`);
     console.log(`✔ Customer name: ${payload["$.customer.ktp.name"]}`);
     await new Promise((resolve) => setTimeout(resolve, 30000));
-    await sendMq(workflowId, videoUrl.url);
+    await sendMq(workflowId, videoUrl.url, actor);
   } catch (error) {
     console.error(error);
   }

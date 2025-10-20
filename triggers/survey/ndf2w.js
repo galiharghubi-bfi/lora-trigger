@@ -2,23 +2,8 @@ import { StartApplication } from "../start-application.js";
 import baseConfig from "../../config.js";
 import { faker } from "@faker-js/faker";
 import { sendMq } from "../trigger-appointment.js";
-const generateLicensePlate = () => {
-  function randomInt(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
-
-  function randomLetters(min, max) {
-    const length = randomInt(min, max);
-    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    return Array.from({ length }, () => chars[randomInt(0, 25)]).join("");
-  }
-
-  const part1 = randomLetters(1, 2);
-  const part2 = randomInt(1, 9999).toString();
-  const part3 = randomLetters(1, 3);
-
-  return `${part1}${part2}${part3}`;
-};
+import { generateLicensePlate } from "../utils/license_plate.js";
+import { cleansedName } from "../utils/cleanse.js";
 
 const licensePlate = generateLicensePlate();
 
@@ -51,7 +36,7 @@ const payload = {
 	"$.customer.ktp.city": "Bandung",
 	"$.customer.ktp.district": "Gedebage",
 	"$.customer.ktp.gender": "F",
-	"$.customer.ktp.name": `${faker.person.firstName()} ${faker.person.lastName()}`,
+	"$.customer.ktp.name": `${cleansedName(faker.person.firstName())} ${cleansedName(faker.person.lastName())}`,
 	"$.customer.ktp.nik": "3603281212930010",
 	"$.customer.ktp.province": "Jawa Barat",
 	"$.customer.ktp.street_address": "JALAN JALAN",
@@ -75,7 +60,7 @@ const payload = {
 	"$.process.user_consent_timestamp": "2025-08-15T08:51:13.50673499Z"
 }
 
-export const Ndf2w = async () => {
+export const Ndf2w = async (actor) => {
   const { workflowId, start } = await StartApplication();
   try {
     await start;
@@ -96,9 +81,10 @@ export const Ndf2w = async () => {
     console.log(`✔ Video URL: ${videoUrl.url}`);
     console.log(`✔ Task generated with workflowId: ${workflowId}`);
     console.log(`✔ License plate: ${payload["$.asset.license_plate"]}`);
+    console.log(`✔ Actor: ${actor}`);
     console.log(`✔ Customer name: ${payload["$.customer.ktp.name"]}`);
     await new Promise((resolve) => setTimeout(resolve, 30000));
-    await sendMq(workflowId, videoUrl.url);
+    await sendMq(workflowId, videoUrl.url, actor);
   } catch (error) {
     console.error(error);
   }
