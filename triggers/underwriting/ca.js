@@ -51,9 +51,7 @@ const payload = {
     "7119ccfd-d256-4c8e-9ad5-c18387ac42e4",
   "$.documents.spouse_signature.document_id":
     "31156555-2489-4708-bf19-e8f57e4fb390",
-  "$.loan_structure.purpose.finance_purpose": "3",
-  "$.loan_structure.purpose.finance_purpose_details":
-    "Detail Kendaraan untuk Usaha",
+  "$.loan_structure.purpose.finance_purpose_id": "3",
   "$.loan_structure.purpose_of_financing": "PRODUCTIVE_LONG",
   "$.process.returning.customer_type": "RO_EXP",
   "$.loan_structure.monthly_installment": 2900000,
