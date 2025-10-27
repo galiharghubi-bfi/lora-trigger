@@ -224,7 +224,7 @@ const payload = {
   "$.documents.tax_notice.document_id": "ed668a54-93ec-4f36-a888-f84007baf190",
   "$.documents.release_letter.document_id":
     "ed668a54-93ec-4f36-a888-f84007baf190",
-  "$.channel.marketing_id": "2403NC0005",
+  "$.channel.marketing_id": "2311NC0006",
   "$.customer.emergency_contact.rt": "001",
   "$.customer.emergency_contact.rw": "002",
   "$.asset.bpkb_status": "on_hand",

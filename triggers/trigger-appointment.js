@@ -6,7 +6,7 @@ const password = baseConfig.mq_password;
 
 const queue = "q.lgs.scheduling.appointments.work";
 const start = new Date();
-start.setHours(23, 30, 0, 0);
+start.setHours(18, 0, 0, 0);
 
 const end = new Date(start.getTime() + 30 * 60 * 1000);
 // const end = new Date(start.getTime() + 24 * 60 * 60 * 1000);
