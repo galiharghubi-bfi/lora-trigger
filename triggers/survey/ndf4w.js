@@ -1,6 +1,6 @@
-import { StartApplication } from "../start-application.js";
-import baseConfig from "../../config.js";
 import { faker } from "@faker-js/faker";
+import baseConfig from "../../config.js";
+import { StartApplication } from "../start-application.js";
 import { sendMq } from "../trigger-appointment.js";
 import { generateLicensePlate } from "../utils/license_plate.js";
 
@@ -19,8 +19,8 @@ const payload = {
   "$.channel.ktp_forgery_authority": "bfi",
   "$.channel.ktp_ocr_required": false,
   "$.channel.marketing_id": "2403NC0006",
-  "$.channel.partner_id": "907d075e-5cef-4179-940e-794946b6eb33",
-  "$.channel.partner_internal_name": "partner-gopay-customer",
+  "$.channel.partner_id": "15871124-0258-4e3f-9f31-bc995e348a8d",
+  "$.channel.partner_internal_name": "partner-goto",
   "$.channel.soa_id": "28",
   "$.customer.bank_information.account_name": "MULTIFINANCE ANAK BANGSA GOTO",
   "$.customer.bank_information.account_number": "0010988888",
@@ -94,7 +94,7 @@ export const Ndf4w = async (actor) => {
     console.log(`✔ License plate: ${payload["$.asset.license_plate"]}`);
     console.log(`✔ Actor: ${actor}`);
     console.log(`✔ Customer name: ${payload["$.customer.ktp.name"]}`);
-    await new Promise((resolve) => setTimeout(resolve, 30000));
+    await new Promise((resolve) => setTimeout(resolve, 15000));
     await sendMq(workflowId, videoUrl.url, actor);
   } catch (error) {
     console.error(error);
