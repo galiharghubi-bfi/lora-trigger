@@ -1,0 +1,170 @@
+[
+  {
+    "user_id": "000000",
+    "realm": "bfi_employees",
+    "name": "admin_survey",
+    "branch_id": "463",
+    "branch_pos_id": "4630000",
+    "partnership": {
+      "dp_role": "admin_survey",
+      "dp_supervisor_id": "000002",
+      "active": true
+    }
+  },
+  {
+    "user_id": "000001",
+    "realm": "bfi_employees",
+    "name": "ops_level_1",
+    "branch_id": "463",
+    "branch_pos_id": "4630000",
+    "partnership": {
+      "dp_role": "ops_level_1",
+      "dp_supervisor_id": "111111",
+      "active": true
+    }
+  },
+  {
+    "user_id": "000002",
+    "realm": "bfi_employees",
+    "name": "head_vd",
+    "branch_id": "463",
+    "branch_pos_id": "4630000",
+    "partnership": {
+      "dp_role": "head_vd",
+      "dp_supervisor_id": "111111",
+      "active": true
+    }
+  },
+  {
+    "user_id": "000003",
+    "realm": "bfi_employees",
+    "name": "credit_analyst",
+    "branch_id": "463",
+    "branch_pos_id": "4630000",
+    "partnership": {
+      "dp_role": "credit_analyst",
+      "dp_supervisor_id": "111111",
+      "active": true
+    }
+  },
+  {
+    "user_id": "000004",
+    "realm": "bfi_employees",
+    "name": "vd",
+    "branch_id": "463",
+    "branch_pos_id": "4630000",
+    "partnership": {
+      "dp_role": "vd",
+      "dp_supervisor_id": "000002",
+      "active": true
+    }
+  },
+  {
+    "user_id": "000005",
+    "realm": "bfi_employees",
+    "name": "ops_level_2",
+    "branch_id": "463",
+    "branch_pos_id": "4630000",
+    "partnership": {
+      "dp_role": "ops_level_2",
+      "dp_supervisor_id": "111111",
+      "active": true
+    }
+  },
+  {
+    "user_id": "000006",
+    "realm": "bfi_employees",
+    "name": "network_management_head",
+    "branch_id": "463",
+    "branch_pos_id": "4630000",
+    "partnership": {
+      "dp_role": "network_management_head",
+      "dp_supervisor_id": "111111",
+      "active": true
+    }
+  },
+  {
+    "user_id": "000007",
+    "realm": "bfi_employees",
+    "name": "network_management_head",
+    "branch_id": "463",
+    "branch_pos_id": "4630000",
+    "partnership": {
+      "dp_role": "network_management_head",
+      "dp_supervisor_id": "111111",
+      "active": true
+    }
+  },
+  {
+    "user_id": "000008",
+    "realm": "bfi_employees",
+    "name": "marketing_deputy_director",
+    "branch_id": "463",
+    "branch_pos_id": "4630000",
+    "partnership": {
+      "dp_role": "marketing_deputy_director",
+      "dp_supervisor_id": "111111",
+      "active": true
+    }
+  },
+  {
+    "user_id": "000009",
+    "realm": "bfi_employees",
+    "name": "marketing_deputy_director",
+    "branch_id": "463",
+    "branch_pos_id": "4630000",
+    "partnership": {
+      "dp_role": "marketing_deputy_director",
+      "dp_supervisor_id": "111111",
+      "active": true
+    }
+  },
+  {
+    "user_id": "000010",
+    "realm": "bfi_employees",
+    "name": "network_management_sales_head",
+    "branch_id": "463",
+    "branch_pos_id": "4630000",
+    "partnership": {
+      "dp_role": "network_management_sales_head",
+      "dp_supervisor_id": "111111",
+      "active": true
+    }
+  },
+  {
+    "user_id": "000011",
+    "realm": "bfi_employees",
+    "name": "network_management_sales_head",
+    "branch_id": "463",
+    "branch_pos_id": "4630000",
+    "partnership": {
+      "dp_role": "network_management_sales_head",
+      "dp_supervisor_id": "111111",
+      "active": true
+    }
+  },
+  {
+    "user_id": "999006",
+    "realm": "bfi_employees",
+    "name": "vd 999006",
+    "branch_id": "463",
+    "branch_pos_id": "4630000",
+    "partnership": {
+      "dp_role": "vd",
+      "dp_supervisor_id": "000002",
+      "active": true
+    }
+  },
+  {
+    "user_id": "999005",
+    "realm": "bfi_employees",
+    "name": "vd 999005",
+    "branch_id": "463",
+    "branch_pos_id": "4630000",
+    "partnership": {
+      "dp_role": "vd",
+      "dp_supervisor_id": "000002",
+      "active": true
+    }
+  }
+]

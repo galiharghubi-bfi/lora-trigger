@@ -14,27 +14,24 @@ const end = new Date(start.getTime() + 30 * 60 * 1000);
 const appointment_time_target_start = start.toISOString();
 const appointment_time_target_end = end.toISOString();
 
-export const sendMq = async (workflowId, videoUrl, actor) => {
-  const defaultActor = {
-    resource_identifiers: "000000",
-    resource_type_code: "ADMIN_SURVEY",
-  };
-
-  if (actor === "vd") {
-    (defaultActor.resource_identifiers = "000004"),
-      (defaultActor.resource_type_code = "VERIFICATOR_DIGITAL");
-  }
+export const sendMq = async (workflowId, videoUrl, opts = {}) => {
+  const {
+    activity_type_code = "2W_VIRTUAL_SURVEY",
+    appointment_uuid = crypto.randomUUID(),
+    resource_identifiers,
+    resource_type_code,
+  } = opts
 
   const payload = {
     appointment_full_detail: {
-      appointment_uuid: crypto.randomUUID(),
+      appointment_uuid,
       appointment_number: `2025${Math.random()
         .toString(36)
         .substring(2, 10)
         .toUpperCase()}`,
       created_at: new Date().toISOString(),
       updated_at: new Date().toISOString(),
-      activity_type_code: "2W_VIRTUAL_SURVEY",
+      activity_type_code,
       appointment_reference: workflowId,
       location_type_code: "CUSTOMER_HOME",
       location_descriptor: "400",
@@ -58,7 +55,8 @@ export const sendMq = async (workflowId, videoUrl, actor) => {
       rescheduled_to_appointment_uuid: "908275be-048a-4872-84e7-f7590b60e85a",
       resources: [
         {
-          ...defaultActor,
+          resource_identifiers,
+          resource_type_code,
           resource_uuid: "3a794b35-6d6a-459b-89fa-b96fa589fd1a",
           pre_travel_duration_minutes: 30,
           post_travel_duration_minutes: 30,
