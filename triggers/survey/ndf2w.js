@@ -1,9 +1,9 @@
-import { faker } from "@faker-js/faker";
+import {faker} from "@faker-js/faker";
 import baseConfig from "../../config.js";
-import { StartApplication } from "../start-application.js";
-import { sendMq } from "../trigger-appointment.js";
-import { cleansedName } from "../utils/cleanse.js";
-import { generateLicensePlate } from "../utils/license_plate.js";
+import {StartApplication} from "../start-application.js";
+import {sendMq} from "../trigger-appointment.js";
+import {cleansedName} from "../utils/cleanse.js";
+import {generateLicensePlate} from "../utils/license_plate.js";
 
 const licensePlate = generateLicensePlate();
 
@@ -60,8 +60,23 @@ const payload = {
   "$.process.user_consent_timestamp": "2025-08-15T08:51:13.50673499Z"
 }
 
+export const mapActor = {
+  admin: {
+    resource_identifiers: "000000",
+    resource_type_code: "ADMIN_SURVEY",
+  },
+  vd: {
+    resource_identifiers: "000004",
+    resource_type_code: "VERIFICATOR_DIGITAL",
+  },
+  vd_custom: {
+    resource_identifiers: "999006",
+    resource_type_code: "VERIFICATOR_DIGITAL",
+  }
+}
+
 export const Ndf2w = async (actor) => {
-  const { workflowId, start } = await StartApplication();
+  const {workflowId, start} = await StartApplication();
   try {
     await start;
     await fetch(`${baseConfig.lgs_base_url}/application/${workflowId}/data`, {
@@ -84,7 +99,11 @@ export const Ndf2w = async (actor) => {
     console.log(`✔ Actor: ${actor}`);
     console.log(`✔ Customer name: ${payload["$.customer.ktp.name"]}`);
     await new Promise((resolve) => setTimeout(resolve, 15000));
-    await sendMq(workflowId, videoUrl.url, actor);
+    await sendMq(workflowId, videoUrl.url, {
+      activity_type_code: "2W_REGULAR_SURVEY",
+      appointment_uuid: crypto.randomUUID(),
+      ...(mapActor[actor] ?? mapActor['admin']),
+    });
   } catch (error) {
     console.error(error);
   }

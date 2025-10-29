@@ -3,6 +3,7 @@ import baseConfig from "../../config.js";
 import { StartApplication } from "../start-application.js";
 import { sendMq } from "../trigger-appointment.js";
 import { generateLicensePlate } from "../utils/license_plate.js";
+import { mapActor } from "./ndf2w.js";
 
 const licensePlate = generateLicensePlate();
 // const licensePlate = "LZ5835AZZ";
@@ -95,7 +96,11 @@ export const Ndf4w = async (actor) => {
     console.log(`✔ Actor: ${actor}`);
     console.log(`✔ Customer name: ${payload["$.customer.ktp.name"]}`);
     await new Promise((resolve) => setTimeout(resolve, 15000));
-    await sendMq(workflowId, videoUrl.url, actor);
+    await sendMq(workflowId, videoUrl.url, {
+      activity_type_code: "4W_REGULAR_SURVEY",
+      appointment_uuid: crypto.randomUUID(),
+      ...(mapActor[actor] ?? mapActor['admin']),
+    });
   } catch (error) {
     console.error(error);
   }
