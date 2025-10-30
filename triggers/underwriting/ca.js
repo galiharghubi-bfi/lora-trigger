@@ -352,6 +352,8 @@ const payload = {
   "$.guarantor.type": "PERORANGAN",
   "$.guarantor_2.type": "PERORANGAN",
   "$.guarantor_3.type": "PERORANGAN",
+  "$.customer.bank_information.account_name":"John Doe",
+  "$.customer.bank_information.account_number":"4563901239"  
 };
 
 export const Ca = async () => {
