@@ -34,7 +34,7 @@ export const sendMq = async (workflowId, videoUrl, opts = {}) => {
       activity_type_code,
       appointment_reference: workflowId,
       location_type_code: "CUSTOMER_HOME",
-      location_descriptor: "400",
+      location_descriptor: "463",
       description: "",
       appointment_date_target: "2025-12-31",
       appointment_time_target_start,

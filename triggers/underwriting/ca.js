@@ -1,4 +1,4 @@
-import { faker } from "@faker-js/faker";
+import { faker } from "@faker-js/faker/locale/id_ID";
 import baseConfig from "../../config.js";
 import { StartApplication } from "../start-application.js";
 import { cleansedName } from "../utils/cleanse.js";
@@ -352,6 +352,10 @@ const payload = {
   "$.guarantor.type": "PERORANGAN",
   "$.guarantor_2.type": "PERORANGAN",
   "$.guarantor_3.type": "PERORANGAN",
+
+  "$.customer.bank_information.account_name": "MULTIFINANCE ANAK BANGSA GOTO",
+  "$.customer.bank_information.account_number": "0010988888",
+  "$.customer.bank_information.bank_id": 47,
 };
 
 export const Ca = async () => {
