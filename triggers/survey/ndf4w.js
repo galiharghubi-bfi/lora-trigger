@@ -1,4 +1,4 @@
-import { faker } from "@faker-js/faker";
+import { faker } from "@faker-js/faker/locale/id_ID";
 import baseConfig from "../../config.js";
 import { StartApplication } from "../start-application.js";
 import { sendMq } from "../trigger-appointment.js";
@@ -36,7 +36,7 @@ const payload = {
   "$.customer.ktp.city": "Bandung",
   "$.customer.ktp.district": "Gedebage",
   "$.customer.ktp.gender": "M",
-  "$.customer.ktp.name": `${faker.name.firstName('male')} ${faker.name.lastName('male')}`,
+  "$.customer.ktp.name": `${faker.person.firstName("female")} ${faker.person.lastName("female")}`.toUpperCase(),
   "$.customer.ktp.nik": "3603281212930007",
   "$.customer.ktp.province": "Jawa Barat",
   "$.customer.ktp.street_address": "JALAN JALAN",
@@ -103,5 +103,4 @@ export const Ndf4w = async (actor) => {
     });
   } catch (error) {
     console.error(error);
-  }
-};
+  }};
