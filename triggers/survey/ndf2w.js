@@ -64,14 +64,22 @@ export const mapActor = {
   admin: {
     resource_identifiers: "000000",
     resource_type_code: "ADMIN_SURVEY",
+    location_type_code: "VIRTUAL"
   },
   vd: {
     resource_identifiers: "000004",
     resource_type_code: "VERIFICATOR_DIGITAL",
+    location_type_code: "CUSTOMER_HOME"
+  },
+  vd_branch_visit: {
+    resource_identifiers: "999005",
+    resource_type_code: "VERIFICATOR_DIGITAL",
+    location_type_code: "BFI_OFFICE"
   },
   vd_custom: {
     resource_identifiers: "999006",
     resource_type_code: "VERIFICATOR_DIGITAL",
+    location_type_code: "BFI_OFFICE"
   }
 }
 

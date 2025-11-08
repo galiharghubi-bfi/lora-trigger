@@ -20,6 +20,7 @@ export const sendMq = async (workflowId, videoUrl, opts = {}) => {
     appointment_uuid = crypto.randomUUID(),
     resource_identifiers,
     resource_type_code,
+    location_type_code,
   } = opts
 
   const payload = {
@@ -33,8 +34,8 @@ export const sendMq = async (workflowId, videoUrl, opts = {}) => {
       updated_at: new Date().toISOString(),
       activity_type_code,
       appointment_reference: workflowId,
-      location_type_code: "CUSTOMER_HOME",
-      location_descriptor: "463",
+      location_type_code: location_type_code ?? "CUSTOMER_HOME",
+      location_descriptor: "4630000",
       description: "",
       appointment_date_target: "2025-12-31",
       appointment_time_target_start,
