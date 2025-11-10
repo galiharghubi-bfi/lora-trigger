@@ -1,6 +1,6 @@
 import { Database } from "arangojs";
 import baseConfig from "../../config.js";
-import { DEFAULT_FORM_SEQUENCE } from "./form-payloads.js";
+import { DEFAULT_FORM_SEQUENCE, LOW_RISK_FORM_SEQUENCE } from "./pages/index.js";
 
 /**
  * Utility function to wait/sleep for a specified duration
@@ -271,8 +271,10 @@ export const executeFormSequence = async (
  * Main automation entry point
  * Waits for task creation, then executes the full form sequence
  * @param {string} workflowId - Workflow ID from application creation
+ * @param {string} userId - User ID for x-user-id header
  * @param {string} licensePlate - License plate for the vehicle
  * @param {string} customerName - Customer name (for logging)
+ * @param {string} riskLevel - Risk level: "high" or "low" (default: "high")
  * @param {Array<Function>} customSequence - Optional custom form sequence
  * @returns {Promise<void>}
  */
@@ -281,11 +283,12 @@ export const Ndf4wFormAutomation = async (
   userId,
   licensePlate,
   customerName,
+  riskLevel = "high",
   customSequence = null
 ) => {
   try {
     console.log(`\n${"=".repeat(60)}`);
-    console.log(`Starting 4W High Risk Form Automation`);
+    console.log(`Starting 4W ${riskLevel.toUpperCase()} Risk Form Automation`);
     console.log(`Workflow ID: ${workflowId}`);
     console.log(`License Plate: ${licensePlate}`);
     console.log(`Customer Name: ${customerName}`);
@@ -294,8 +297,9 @@ export const Ndf4wFormAutomation = async (
     // Poll for task to be created in database (3s interval, 2min timeout)
     const taskId = await waitForTask(workflowId);
 
-    // Execute form sequence
-    const sequence = customSequence || DEFAULT_FORM_SEQUENCE;
+    // Execute form sequence based on risk level
+    const sequence = customSequence ||
+      (riskLevel === "low" ? LOW_RISK_FORM_SEQUENCE : DEFAULT_FORM_SEQUENCE);
     await executeFormSequence(taskId, userId, sequence, { licensePlate });
 
     // Get final task state
