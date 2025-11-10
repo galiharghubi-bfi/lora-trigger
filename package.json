@@ -12,6 +12,8 @@
     "survey": "node triggers/trigger-survey.js",
     "start": "bun index.js",
     "ca": "bun start underwriting ca",
+    "survey-ndf2w": "bun start survey ndf2w",
+    "survey-ndf2w-vd": "bun start survey ndf2w actor=vd",
     "survey-ndf4w": "bun start survey ndf4w",
     "survey-ndf4w-vd": "bun start survey ndf4w actor=vd",
     "automation-low": "bun start automation ndf4w-full riskLevel=low",
