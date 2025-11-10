@@ -1,7 +1,8 @@
 import { Ndf4w, Ndf2w } from "./triggers/survey/index.js";
 import { Ca } from "./triggers/underwriting/index.js";
 import { Ops } from "./triggers/bpkbreview/index.js";
-import {Ndf4wMq} from "./triggers/survey/ndf4w-mq.js";
+import { Ndf4wMq } from "./triggers/survey/ndf4w-mq.js";
+import { Ndf4wWithAutomation } from "./triggers/survey/ndf4w-with-automation.js";
 
 function parseArgs() {
   const [, , taskType, triggerType, ...rest] = process.argv;
@@ -70,6 +71,17 @@ function parseArgs() {
         case "ops":
           console.log("✔ Triggering operation, trigger type: ops");
           await Ops();
+          break;
+        default:
+          console.log("Invalid trigger type");
+          break;
+      }
+      break;
+    case "automation":
+      switch (triggerType) {
+        case "ndf4w-full":
+          console.log("✔ Triggering 4W automation with full form submission");
+          await Ndf4wWithAutomation(actor.toLowerCase());
           break;
         default:
           console.log("Invalid trigger type");
