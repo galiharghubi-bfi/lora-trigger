@@ -13,15 +13,15 @@ const baseConfig = {
   // Automation configuration
   automation: {
     // Task polling settings (waitForTask)
-    task_poll_interval_ms: 3000,        // Poll every 3 seconds
-    task_poll_timeout_ms: 120000,       // 2 minutes total timeout
+    task_poll_interval_ms: 3000,
+    task_poll_timeout_ms: 120000,
 
     // Form state change retry settings (waitForFormChange)
-    form_change_max_retries: 3,         // Max retry attempts
-    form_change_retry_delay_ms: 10000,  // 10 seconds between retries
+    form_change_max_retries: 3,
+    form_change_retry_delay_ms: 5000,
 
     // Form submission delay (executeFormSequence)
-    form_submission_delay_ms: 5000,     // 5 seconds between pages
+    form_submission_delay_ms: 2000,
   },
 };
 
