@@ -119,7 +119,7 @@ import {
   Page1PIN,
   Page2Verification,
   Page7Financing
-} from "./form-payloads.js";
+} from "./pages/index.js";
 
 // Custom sequence (only PIN + Verification + Financing)
 const customSequence = [
@@ -135,10 +135,11 @@ await executeFormSequence(taskId, customSequence, { licensePlate });
 
 ### Files
 
-- **`form-payloads.js`** - Page payload templates
+- **`pages/`** - Individual page payload template files
   - Each page exports a function: `PageXName(taskId, params)`
   - Returns `{ formName, payload }`
   - Easy to modify or add new pages
+  - Exported via `pages/index.js`
 
 - **`ndf4w-form-submission.js`** - Core automation logic
   - `waitForTask(workflowId)` - Query ArangoDB
@@ -195,7 +196,7 @@ await executeFormSequence(taskId, customSequence, { licensePlate });
 ✖ Error submitting form: HTTP 400: Bad Request
 ```
 **Solution**:
-- Check payload format in `form-payloads.js`
+- Check payload format in `pages/` files
 - Compare with successful Insomnia requests
 - Verify document IDs are valid UUIDs
 
@@ -205,7 +206,7 @@ You can test single pages without running the full sequence:
 
 ```javascript
 import { submitForm } from "./ndf4w-form-submission.js";
-import { Page2Verification } from "./form-payloads.js";
+import { Page2Verification } from "./pages/index.js";
 
 const taskId = "your-task-id-here";
 const { payload } = Page2Verification(taskId, {

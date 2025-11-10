@@ -36,7 +36,7 @@ lora-trigger/
 │   │   └── ops.js              # Operations trigger
 │   ├── automation/             # Form automation framework
 │   │   ├── ndf4w-form-submission.js  # Core automation logic
-│   │   ├── form-payloads.js    # Page payload templates
+│   │   ├── pages/              # Individual page payload files
 │   │   ├── index.js            # Re-exports
 │   │   └── README.md           # Detailed automation docs
 │   ├── utils/                  # Shared utilities
@@ -87,10 +87,11 @@ Single source of truth for all settings:
   - `executeFormSequence()` - Run page sequence with delays
   - `Ndf4wFormAutomation()` - Main entry point
 
-- **form-payloads.js** - Page templates
+- **pages/** - Individual page template files
   - 10 page payload functions (Page1PIN → Page10FinancingFinal)
   - Parameterized with license plate substitution
   - Easy to reorder or create custom sequences
+  - Exported via pages/index.js
 
 **Features:**
 - ✅ Composable page sequences
@@ -226,8 +227,9 @@ automation: {
 
 ### Adding a New Form Page
 
-1. **Add payload function** to [triggers/automation/form-payloads.js](triggers/automation/form-payloads.js)
+1. **Add payload function** to a new file in [triggers/automation/pages/](triggers/automation/pages/)
    ```javascript
+   // triggers/automation/pages/page-11-my-new-page.js
    export const Page11MyNewPage = (taskId, params) => ({
      formName: "form_my_new_page_show",
      payload: {
@@ -237,7 +239,12 @@ automation: {
    });
    ```
 
-2. **Add to sequence**
+2. **Export from pages/index.js**
+   ```javascript
+   export { Page11MyNewPage } from "./page-11-my-new-page.js";
+   ```
+
+3. **Add to sequence**
    ```javascript
    export const DEFAULT_FORM_SEQUENCE = [
      Page1PIN,
@@ -254,7 +261,7 @@ import {
   Page1PIN,
   Page2Verification,
   Page7Financing,
-} from "./form-payloads.js";
+} from "./pages/index.js";
 
 // Skip intermediate pages for faster testing
 const quickSequence = [
@@ -292,7 +299,7 @@ await Ndf4wFormAutomation(workflowId, userId, licensePlate, customerName, quickS
 ```
 ✖ Error submitting form: HTTP 400: Bad Request
 ```
-**Solution:** Check payload format in form-payloads.js, verify field paths and document IDs are valid
+**Solution:** Check payload format in pages/ files, verify field paths and document IDs are valid
 
 ### Resilience Features
 
@@ -308,7 +315,7 @@ await Ndf4wFormAutomation(workflowId, userId, licensePlate, customerName, quickS
 # Test individual page submission
 node -e "
 import { submitForm } from './triggers/automation/ndf4w-form-submission.js';
-import { Page2Verification } from './triggers/automation/form-payloads.js';
+import { Page2Verification } from './triggers/automation/pages/index.js';
 
 const taskId = 'your-task-id';
 const userId = 'user-id';
@@ -374,7 +381,7 @@ node index.js automation ndf4w-full actor=admin
 ## Related Files
 
 - **Automation README**: [triggers/automation/README.md](triggers/automation/README.md) - Detailed automation documentation
-- **Form Payloads**: [triggers/automation/form-payloads.js](triggers/automation/form-payloads.js) - All 10 page payload templates
+- **Form Payloads**: [triggers/automation/pages/](triggers/automation/pages/) - All 10 page payload templates
 - **Parent CLAUDE.md**: [../CLAUDE.md](../CLAUDE.md) - Monorepo-level documentation
 
 ## Future Enhancements

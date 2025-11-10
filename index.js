@@ -19,11 +19,12 @@ function parseArgs() {
     actor: namedArgs.actor || "admin",
     workflowId: namedArgs.workflow,
     appointmentId: namedArgs.appointment,
+    riskLevel: namedArgs.riskLevel || "high",
   };
 }
 
 (async () => {
-  const { taskType, triggerType, actor, workflowId, appointmentId } = parseArgs();
+  const { taskType, triggerType, actor, workflowId, appointmentId, riskLevel } = parseArgs();
 
   if (!taskType || (taskType === "survey" && !triggerType)) {
     console.error("❌ Invalid task type or missing trigger type");
@@ -39,7 +40,7 @@ function parseArgs() {
           break;
         case "ndf4w":
           console.log("✔ Triggering survey, product type: ndf4w");
-          await Ndf4w(actor.toLowerCase());
+          await Ndf4w(actor.toLowerCase(), riskLevel);
           break;
         case "ndf4w-mq":
           if (!workflowId || !appointmentId) {
@@ -81,7 +82,7 @@ function parseArgs() {
       switch (triggerType) {
         case "ndf4w-full":
           console.log("✔ Triggering 4W automation with full form submission");
-          await Ndf4wWithAutomation(actor.toLowerCase());
+          await Ndf4wWithAutomation(actor.toLowerCase(), riskLevel);
           break;
         default:
           console.log("Invalid trigger type");
