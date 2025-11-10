@@ -11,6 +11,13 @@
   "scripts": {
     "survey": "node triggers/trigger-survey.js",
     "start": "bun index.js",
+    "ca": "bun start underwriting ca",
+    "survey-ndf4w": "bun start survey ndf4w",
+    "survey-ndf4w-vd": "bun start survey ndf4w actor=vd",
+    "automation-low": "bun start automation ndf4w-full riskLevel=low",
+    "automation-low-vd": "bun start automation ndf4w-full riskLevel=low actor=vd",
+    "automation-high": "bun start automation ndf4w-full riskLevel=high",
+    "automation-high-vd": "bun start automation ndf4w-full riskLevel=high actor=vd",
     "build": "bun build --compile --target=bun-darwin-arm64 ./index.js --minify --outfile lora-trigger"
   },
   "author": "",
