@@ -302,12 +302,22 @@ export const Ndf4wFormAutomation = async (
       (riskLevel === "low" ? LOW_RISK_FORM_SEQUENCE : DEFAULT_FORM_SEQUENCE);
     await executeFormSequence(taskId, userId, sequence, { licensePlate });
 
-    // Get final task state
-    const finalTaskDetail = await getTaskDetail(taskId, userId);
-    console.log(
-      `\n✔ Final task state: ${finalTaskDetail.form_name || finalTaskDetail.formName}`
-    );
+    // Get final task state (skip for completion pages as task may be removed)
+    const lastPage = sequence[sequence.length - 1];
+    const lastPageInfo = lastPage(taskId, { licensePlate });
+    const isCompletionPage = lastPageInfo.formName === "form_success_show";
+
+    if (!isCompletionPage) {
+      const finalTaskDetail = await getTaskDetail(taskId, userId);
+      console.log(
+        `\n✔ Final task state: ${finalTaskDetail.form_name || finalTaskDetail.formName}`
+      );
+    } else {
+      console.log(`\n✔ Task completed successfully (completion page submitted)`);
+    }
     console.log(`✔ Automation completed successfully!\n`);
+    console.log(`✔ Workflow ID: ${workflowId}`);
+    console.log(`✔ Customer Name: ${customerName}`);
   } catch (error) {
     console.error(`\n✖ Automation failed:`, error.message);
     throw error;
