@@ -106,7 +106,6 @@ export const Ndf2w = async (actor) => {
     console.log(`✔ License plate: ${payload["$.asset.license_plate"]}`);
     console.log(`✔ Actor: ${actor}`);
     console.log(`✔ Customer name: ${payload["$.customer.ktp.name"]}`);
-    await new Promise((resolve) => setTimeout(resolve, 15000));
     await sendMq(workflowId, videoUrl.url, {
       activity_type_code: "2W_REGULAR_SURVEY",
       appointment_uuid: crypto.randomUUID(),

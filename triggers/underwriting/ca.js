@@ -51,7 +51,7 @@ const payload = {
     "$.customer.personal.number_dependents": 1,
     "$.customer.professional.business_since_year": 2020,
     "$.customer.professional.business_suitability": true,
-    "$.customer.professional.company_address": "Pasaraya Blok M Jl. Iskandarsyah II No.2, RT.3/RW.1, Melawai, Kec. Kby. Baru, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12160",
+    "$.customer.professional.company_address": "Pasaraya Blok M Jl. Iskandarsyah II No.2, RT.3/RW.1",
     "$.customer.professional.company_name": "PT Goto Gojek Indonesia Tbk",
     "$.customer.professional.company_phone": "+622129101072",
     "$.customer.professional.company_sub_district_code": "36.74.01.1005",
