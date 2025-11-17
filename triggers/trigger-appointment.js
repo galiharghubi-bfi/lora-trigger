@@ -1,4 +1,5 @@
 import baseConfig from "../config.js";
+import { Database } from "arangojs";
 
 const url = baseConfig.mq_publish_url;
 const username = baseConfig.mq_user;
@@ -14,7 +15,78 @@ const end = new Date(start.getTime() + 30 * 60 * 1000);
 const appointment_time_target_start = start.toISOString();
 const appointment_time_target_end = end.toISOString();
 
+/**
+ * Query ArangoDB for UNSCHEDULED_SURVEY task by workflow ID
+ * @param {string} workflowId - The workflow/document ID
+ * @returns {Promise<string|null>} Task ID if found, null otherwise
+ */
+const queryUnscheduledTask = async (workflowId) => {
+  const db = new Database({
+    url: baseConfig.arango_url,
+    auth: {
+      username: baseConfig.arango_user,
+      password: baseConfig.arango_password,
+    },
+    databaseName: baseConfig.arango_db,
+  });
+
+  const query = `
+    FOR task IN task
+      FILTER task.document_id == @workflowId
+      FILTER task.type == "UNSCHEDULED_SURVEY"
+      LIMIT 1
+      RETURN task.id
+  `;
+
+  try {
+    const cursor = await db.query(query, { workflowId });
+    const results = await cursor.all();
+    return results.length > 0 ? results[0] : null;
+  } catch (error) {
+    console.error(`✖ Error querying ArangoDB for UNSCHEDULED_SURVEY task:`, error.message);
+    return null;
+  }
+};
+
+/**
+ * Wait for UNSCHEDULED_SURVEY task to be created
+ * Polls ArangoDB until task is found or timeout is reached
+ * @param {string} workflowId - The workflow/document ID
+ * @returns {Promise<string>} Task ID when found
+ * @throws {Error} If task not found after timeout
+ */
+const waitForUnscheduledTask = async (workflowId) => {
+  const interval = baseConfig.automation.task_poll_interval_ms;
+  const timeout = baseConfig.automation.task_poll_timeout_ms;
+  const startTime = Date.now();
+
+  console.log(`⏳ Waiting for UNSCHEDULED_SURVEY task (workflow: ${workflowId})...`);
+  console.log(`   Polling every ${interval}ms, timeout after ${timeout}ms`);
+
+  while (Date.now() - startTime < timeout) {
+    const taskId = await queryUnscheduledTask(workflowId);
+
+    if (taskId) {
+      const elapsed = Date.now() - startTime;
+      console.log(`✔ UNSCHEDULED_SURVEY task found: ${taskId} (took ${elapsed}ms)`);
+      return taskId;
+    }
+
+    const elapsed = Date.now() - startTime;
+    console.log(`   Task not found yet, retrying... (${elapsed}ms elapsed)`);
+    await new Promise((resolve) => setTimeout(resolve, interval));
+  }
+
+  throw new Error(
+    `✖ UNSCHEDULED_SURVEY task not found for workflow ${workflowId} after ${timeout}ms timeout`
+  );
+};
+
 export const sendMq = async (workflowId, videoUrl, opts = {}) => {
+  // Wait for UNSCHEDULED_SURVEY task to be created before sending appointment
+  await waitForUnscheduledTask(workflowId);
+  console.log(`✔ Proceeding to send appointment message to RabbitMQ`);
+
   const {
     activity_type_code = "2W_VIRTUAL_SURVEY",
     appointment_uuid = crypto.randomUUID(),

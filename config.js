@@ -20,6 +20,9 @@ const baseConfig = {
     form_change_max_retries: 3,
     form_change_retry_delay_ms: 5000,
 
+    // Form resubmission settings (when form is stuck)
+    form_resubmit_enabled: true,
+
     // Form submission delay (executeFormSequence)
     form_submission_delay_ms: 2000,
   },

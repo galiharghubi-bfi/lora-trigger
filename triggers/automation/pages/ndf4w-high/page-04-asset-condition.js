@@ -15,15 +15,15 @@ export const Page4AssetCondition = (taskId, params = {}) => ({
     "$.asset.whole_interior_condition": "GOOD",
     "$.asset.asset_usage": "NON_COMMERCIAL",
     "ltw.loan_structure.finance_purpose_type": "P",
-    "$.loan_structure.purpose.finance_purpose_id": "12",
+    "$.loan_structure.purpose.finance_purpose_id": "5",
     "$.customer.personal.monthly_installment_outside_bfi": "0",
     "$.customer.personal.funds_other_than_purchase": "false",
     "$.customer.personal.installment_helper_than_spouse": "false",
     "ltw.custom_customer_professional_occupation_code": "DRIVER TAXI ONLINE / OJEK ONLINE",
     "ltw.custom_customer_professional_occupation_type_code": "Employee",
-    "$.customer.professional.proof_monthly_income": "30000000",
+    "$.customer.professional.proof_monthly_income": "20000000",
     "$.customer.professional.proof_variable_income": "0",
     "$.customer.professional.is_profession_valid": "true",
-    action: "submit",
+    "action": "submit"
   },
 });
