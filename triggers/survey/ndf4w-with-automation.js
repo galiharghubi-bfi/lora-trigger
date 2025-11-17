@@ -63,10 +63,6 @@ export const Ndf4wWithAutomation = async (actor, riskLevel = "high") => {
     console.log(`✔ Risk level: ${riskLevel}`);
     console.log(`✔ Customer name: ${customerName}`);
 
-    // Wait before sending MQ message
-    console.log(`\nWaiting 15 seconds before sending appointment...`);
-    await new Promise((resolve) => setTimeout(resolve, 15000));
-
     const selectedActor = mapActor[actor] ?? mapActor["admin"]
 
     // Send appointment MQ message

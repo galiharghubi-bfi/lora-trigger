@@ -170,20 +170,26 @@ export const submitForm = async (taskId, userId, payload) => {
 
 /**
  * Wait for form state to change after submission with retry logic
+ * If form is stuck, resubmits the payload automatically
  * @param {string} taskId - The task ID
  * @param {string} userId - The user ID for x-user-id header
  * @param {string} currentFormName - Current form name to check against
+ * @param {Object} payload - Form payload to resubmit if stuck (optional)
  * @param {number} maxRetries - Maximum retry attempts (default: from config)
  * @param {number} retryDelay - Delay between retries in ms (default: from config)
  * @returns {Promise<Object>} - New task detail
+ * @throws {Error} If form is still stuck after all retry attempts
  */
 export const waitForFormChange = async (
   taskId,
   userId,
   currentFormName,
+  payload = null,
   maxRetries = baseConfig.automation.form_change_max_retries,
   retryDelay = baseConfig.automation.form_change_retry_delay_ms
 ) => {
+  const resubmitEnabled = baseConfig.automation.form_resubmit_enabled;
+
   for (let attempt = 1; attempt <= maxRetries; attempt++) {
     await sleep(retryDelay);
 
@@ -198,14 +204,49 @@ export const waitForFormChange = async (
     }
 
     console.log(
-      `⚠ Form still "${currentFormName}" after attempt ${attempt}/${maxRetries}, retrying...`
+      `⚠ Form still "${currentFormName}" after attempt ${attempt}/${maxRetries}`
     );
+
+    // Resubmit payload if form is stuck and resubmission is enabled
+    if (resubmitEnabled && payload && attempt < maxRetries) {
+      console.log(`↻ Resubmitting form payload...`);
+      try {
+        await submitForm(taskId, userId, payload);
+        console.log(`✔ Payload resubmitted successfully`);
+      } catch (error) {
+        console.error(`✖ Error resubmitting payload:`, error.message);
+        // Continue to next attempt even if resubmission fails
+      }
+    }
   }
 
-  console.log(
-    `⚠ Form did not change after ${maxRetries} retries, continuing anyway...`
+  // Throw error instead of continuing - fail fast on stuck forms
+  throw new Error(
+    `✖ Form stuck on "${currentFormName}" after ${maxRetries} attempts. Stopping automation.`
   );
-  return await getTaskDetail(taskId, userId);
+};
+
+/**
+ * Find the index of a form in the sequence by form name
+ * @param {string} formName - The form name to search for
+ * @param {Array<Function>} formSequence - Array of form page functions
+ * @param {string} taskId - Task ID to pass to form functions
+ * @param {Object} params - Parameters to pass to form functions
+ * @returns {number} Index of form in sequence, or -1 if not found
+ */
+const findFormInSequence = (formName, formSequence, taskId, params) => {
+  for (let i = 0; i < formSequence.length; i++) {
+    try {
+      const { formName: sequenceFormName } = formSequence[i](taskId, params);
+      if (sequenceFormName === formName) {
+        return i;
+      }
+    } catch (error) {
+      // Skip forms that can't be generated
+      continue;
+    }
+  }
+  return -1;
 };
 
 /**
@@ -240,25 +281,64 @@ export const executeFormSequence = async (
       const currentFormName = taskDetail.form_name || taskDetail.formName;
       console.log(`Current form: ${currentFormName}`);
 
-      // Generate form payload
+      // Generate expected form payload for current loop iteration
       const { formName: expectedFormName, payload } = pageFunction(
         taskId,
         params
       );
+
+      // VALIDATION: Check if current form matches expected form
+      if (currentFormName !== expectedFormName) {
+        console.log(
+          `⚠ Form mismatch: expected "${expectedFormName}", but workflow is on "${currentFormName}"`
+        );
+
+        // Find actual position of current form in sequence
+        const actualIndex = findFormInSequence(
+          currentFormName,
+          formSequence,
+          taskId,
+          params
+        );
+
+        if (actualIndex > i) {
+          // Workflow is AHEAD - skip to actual position
+          console.log(
+            `↻ Workflow is ahead! Syncing from page ${pageNumber} to page ${actualIndex + 1}`
+          );
+          i = actualIndex - 1; // -1 because loop will increment
+          continue; // Skip to next iteration at new position
+        } else if (actualIndex < i && actualIndex !== -1) {
+          // Workflow is BEHIND (shouldn't happen normally)
+          console.log(
+            `⚠ Workflow is behind (expected page ${pageNumber}, but on page ${actualIndex + 1}). Submitting expected form anyway.`
+          );
+          // Continue with expected submission as fallback
+        } else if (actualIndex === -1) {
+          // Current form not found in sequence
+          console.log(
+            `⚠ Current form "${currentFormName}" not found in sequence. Submitting expected form anyway.`
+          );
+          // Continue with expected submission as fallback
+        }
+      } else {
+        console.log(`✔ Form state validated: "${currentFormName}"`);
+      }
 
       // Submit form
       console.log(`Submitting form: ${expectedFormName}...`);
       await submitForm(taskId, userId, payload);
       console.log(`✔ Page ${pageNumber} submitted successfully`);
 
-      // Wait for form to change (with retry logic)
+      // Wait for form to change (with retry logic and automatic resubmission)
       if (i < formSequence.length - 1) {
         await sleep(delayBetweenPages);
-        await waitForFormChange(taskId, userId, currentFormName);
+        await waitForFormChange(taskId, userId, currentFormName, payload);
       }
     } catch (error) {
       console.error(`✖ Error on Page ${pageNumber}:`, error.message);
-      console.log(`Continuing to next page despite error...`);
+      // Re-throw error to stop automation (fail fast)
+      throw error;
     }
   }
 

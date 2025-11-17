@@ -46,7 +46,6 @@ export const Ndf4w = async (actor, riskLevel = "high") => {
     console.log(`✔ Actor: ${actor}`);
     console.log(`✔ Risk level: ${riskLevel}`);
     console.log(`✔ Customer name: ${payload["$.customer.ktp.name"]}`);
-    await new Promise((resolve) => setTimeout(resolve, 30000));
     await sendMq(workflowId, videoUrl.url, {
       activity_type_code: "4W_REGULAR_SURVEY",
       appointment_uuid: crypto.randomUUID(),

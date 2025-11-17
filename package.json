@@ -1,6 +1,7 @@
 {
   "dependencies": {
-    "arangojs": "^10.1.2"
+    "arangojs": "^10.1.2",
+    "dayjs": "^1.11.19"
   },
   "devDependencies": {
     "@faker-js/faker": "^9.9.0"
