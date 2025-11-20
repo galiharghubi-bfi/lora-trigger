@@ -2,10 +2,10 @@ import dayjs from 'dayjs'
 
 /**
  * Page 8: Penyerahan BPKB (BPKB Submission)
- * Form: form_penyerahan_bpkb_show
+ * Form: form_bpkb_submission_show
  */
 export const Page8PenyerahanBPKB = (taskId, params = {}) => ({
-  formName: "form_penyerahan_bpkb_show",
+  formName: "form_bpkb_submission_show",
   payload: {
     "$.process.survey_task.bpkb_submission.submission_method": "BRANCH_DROPOFF",
     "$.ltw.custom_branch_pos_id": "5670000",
