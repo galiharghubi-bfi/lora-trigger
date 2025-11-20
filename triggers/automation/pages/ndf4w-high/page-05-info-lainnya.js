@@ -1,9 +1,9 @@
 /**
  * Page 5: Info Lainnya (Additional Information)
- * Form: form_info_lainnya_show
+ * Form: form_personal_information_show
  */
 export const Page5InfoLainnya = (taskId, params = {}) => ({
-  formName: "form_info_lainnya_show",
+  formName: "form_personal_information_show",
   payload: {
     "$.customer.personal.mother_maiden_name": "TEST TEST TEST",
     "$.customer.contact.email": "LULLABYANGEL22@GMAIL.COM",

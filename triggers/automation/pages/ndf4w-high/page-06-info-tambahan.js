@@ -1,9 +1,9 @@
 /**
  * Page 6: Info Tambahan (Extended Information)
- * Form: form_info_tambahan_show
+ * Form: form_additional_data_show
  */
 export const Page6InfoTambahan = (taskId, params = {}) => ({
-  formName: "form_info_tambahan_show",
+  formName: "form_additional_data_show",
   payload: {
     "ltw.custom_customer_personal_character_4w": "NO_NEGATIVE_INFO",
     "$.asset.bpkb_owner_name": "TEST TEST TEST",

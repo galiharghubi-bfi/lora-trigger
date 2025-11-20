@@ -1,11 +1,9 @@
-import dayjs from 'dayjs'
-
 /**
  * Page 10: Financing Page (Final Verification)
- * Form: form_financing_final_show
+ * Form: form_financing_stage_2_show
  */
 export const Page10FinancingFinal = (taskId, params = {}) => ({
-  formName: "form_financing_final_show",
+  formName: "form_financing_stage_2_show",
   payload: {
     "$.process.asset_pricing.price": "103000000",
     "$.loan_structure.ltv": "0.749034",

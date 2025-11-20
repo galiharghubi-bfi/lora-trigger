@@ -19,8 +19,10 @@
     "survey-ndf4w-vd": "bun start survey ndf4w actor=vd",
     "automation-low": "bun start automation ndf4w-full riskLevel=low",
     "automation-low-vd": "bun start automation ndf4w-full riskLevel=low actor=vd",
+    "automation-low-vd-bv": "bun start automation ndf4w-full riskLevel=low actor=vd_branch_visit",
     "automation-high": "bun start automation ndf4w-full riskLevel=high",
     "automation-high-vd": "bun start automation ndf4w-full riskLevel=high actor=vd",
+    "automation-high-vd-bv": "bun start automation ndf4w-full riskLevel=high actor=vd_branch_visit",
     "build": "bun build --compile --target=bun-darwin-arm64 ./index.js --minify --outfile lora-trigger"
   },
   "author": "",

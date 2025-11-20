@@ -1,9 +1,9 @@
 /**
  * Page 9: Asset & Dokumen (Comprehensive Document Upload)
- * Form: form_asset_dokumen_show
+ * Form: form_asset_document_mandatory_show
  */
 export const Page9AssetDokumen = (taskId, params = {}) => ({
-  formName: "form_asset_dokumen_show",
+  formName: "form_asset_document_mandatory_show",
   payload: {
     "$.documents.asset.asset_front.document_id": "dc8ebcbb-8ae3-4e09-8fa5-d9c2cc2b8bfe",
     "$.documents.asset.asset_rear.document_id": "89d92827-4463-4f12-85a8-8dcdc39a5cd2",
