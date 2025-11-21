@@ -32,5 +32,13 @@ export {
   LOW_RISK_FORM_SEQUENCE,
 } from "./ndf4w-low/index.js";
 
+export {
+  Page1SelfAssign,
+  Page2Profile,
+  Page3Purpose,
+  Page4Character,
+  CA_FORM_SEQUENCE,
+} from "./ca/index.js";
+
 // Export DEFAULT_FORM_SEQUENCE as alias for HIGH_RISK_FORM_SEQUENCE (backward compatibility)
 export { HIGH_RISK_FORM_SEQUENCE as DEFAULT_FORM_SEQUENCE } from "./ndf4w-high/index.js";

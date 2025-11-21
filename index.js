@@ -3,6 +3,7 @@ import { Ca } from "./triggers/underwriting/index.js";
 import { Ops } from "./triggers/bpkbreview/index.js";
 import { Ndf4wMq } from "./triggers/survey/ndf4w-mq.js";
 import { Ndf4wWithAutomation } from "./triggers/survey/ndf4w-with-automation.js";
+import { CaWithAutomation } from "./triggers/underwriting/ca-with-automation.js";
 
 function parseArgs() {
   const [, , taskType, triggerType, ...rest] = process.argv;
@@ -24,7 +25,8 @@ function parseArgs() {
 }
 
 (async () => {
-  const { taskType, triggerType, actor, workflowId, appointmentId, riskLevel } = parseArgs();
+  const { taskType, triggerType, actor, workflowId, appointmentId, riskLevel } =
+    parseArgs();
 
   if (!taskType || (taskType === "survey" && !triggerType)) {
     console.error("❌ Invalid task type or missing trigger type");
@@ -44,7 +46,9 @@ function parseArgs() {
           break;
         case "ndf4w-mq":
           if (!workflowId || !appointmentId) {
-            console.error("❌ Missing workflow or appointment for ndf4w-mq trigger");
+            console.error(
+              "❌ Missing workflow or appointment for ndf4w-mq trigger"
+            );
             return;
           }
 
@@ -83,6 +87,10 @@ function parseArgs() {
         case "ndf4w-full":
           console.log("✔ Triggering 4W automation with full form submission");
           await Ndf4wWithAutomation(actor.toLowerCase(), riskLevel);
+          break;
+        case "ca-full":
+          console.log("✔ Triggering CA automation with full form submission");
+          await CaWithAutomation(actor.toLowerCase(), riskLevel);
           break;
         default:
           console.log("Invalid trigger type");

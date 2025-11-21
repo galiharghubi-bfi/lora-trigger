@@ -23,6 +23,7 @@
     "automation-high": "bun start automation ndf4w-full riskLevel=high",
     "automation-high-vd": "bun start automation ndf4w-full riskLevel=high actor=vd",
     "automation-high-vd-bv": "bun start automation ndf4w-full riskLevel=high actor=vd_branch_visit",
+    "automation-ca-no-revision": "bun start automation ca-full",
     "build": "bun build --compile --target=bun-darwin-arm64 ./index.js --minify --outfile lora-trigger"
   },
   "author": "",
