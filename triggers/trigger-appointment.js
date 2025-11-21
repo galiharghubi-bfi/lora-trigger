@@ -43,7 +43,10 @@ const queryUnscheduledTask = async (workflowId) => {
     const results = await cursor.all();
     return results.length > 0 ? results[0] : null;
   } catch (error) {
-    console.error(`✖ Error querying ArangoDB for UNSCHEDULED_SURVEY task:`, error.message);
+    console.error(
+      `✖ Error querying ArangoDB for UNSCHEDULED_SURVEY task:`,
+      error.message
+    );
     return null;
   }
 };
@@ -60,7 +63,9 @@ const waitForUnscheduledTask = async (workflowId) => {
   const timeout = baseConfig.automation.task_poll_timeout_ms;
   const startTime = Date.now();
 
-  console.log(`⏳ Waiting for UNSCHEDULED_SURVEY task (workflow: ${workflowId})...`);
+  console.log(
+    `⏳ Waiting for UNSCHEDULED_SURVEY task (workflow: ${workflowId})...`
+  );
   console.log(`   Polling every ${interval}ms, timeout after ${timeout}ms`);
 
   while (Date.now() - startTime < timeout) {
@@ -68,7 +73,9 @@ const waitForUnscheduledTask = async (workflowId) => {
 
     if (taskId) {
       const elapsed = Date.now() - startTime;
-      console.log(`✔ UNSCHEDULED_SURVEY task found: ${taskId} (took ${elapsed}ms)`);
+      console.log(
+        `✔ UNSCHEDULED_SURVEY task found: ${taskId} (took ${elapsed}ms)`
+      );
       return taskId;
     }
 
@@ -93,7 +100,7 @@ export const sendMq = async (workflowId, videoUrl, opts = {}) => {
     resource_identifiers,
     resource_type_code,
     location_type_code,
-  } = opts
+  } = opts;
 
   const payload = {
     appointment_full_detail: {

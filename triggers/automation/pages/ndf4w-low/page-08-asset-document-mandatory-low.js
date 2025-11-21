@@ -42,9 +42,11 @@ export const Page8AssetDocumentMandatoryLow = (taskId, params = {}) => ({
       "4a8c9d10-5cd6-4472-8f75-c1f21e6a58aa",
     "$.documents.bpkb_page_4.document_id":
       "bea78741-167d-4390-8eff-6e46a20b0460",
-    "$.documents.bpkb_page_5.document_id": "",
+    "$.documents.bpkb_page_5.document_id":
+      "bea78741-167d-4390-8eff-6e46a20b0460",
     "$.documents.stnk.document_id": "173c8fa6-89ed-4f65-b807-f9281528b92e",
-    "$.documents.tax_notice.document_id": "3ea93a56-df3f-445a-b6f3-b4741e442e74",
+    "$.documents.tax_notice.document_id":
+      "3ea93a56-df3f-445a-b6f3-b4741e442e74",
     "$.documents.chassis_number.document_id":
       "3c89f85d-4a02-4c8b-accf-a52bb2df693a",
     "$.documents.bpkb_invoice.document_id": "",
