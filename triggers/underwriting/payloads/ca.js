@@ -3,6 +3,9 @@ import { faker } from "@faker-js/faker/locale/id_ID";
 export const generatePayloadCa = (licensePlate) => {
   return {
     "$.asset.asset_code": "DAIHATSU.AYLA.D10AT",
+    "$.process.survey_task.environment_check_branch_id": "567",
+    "$.process.survey_task.environment_check_pos_id": "6666",
+    "$.process.survey_task.environment_check_branch_name": "CABANG GOTO",
     "$.asset.asset_usage": "COMMERCIAL",
     "$.asset.bpkb_address": "PERUM TAMAN BOJONGSARI NO . 58 RW.009 REL",
     "$.asset.bpkb_invoice_number": "19069692-004319012-027",
