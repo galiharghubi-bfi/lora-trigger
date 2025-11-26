@@ -267,7 +267,8 @@ export const generatePayloadCa = (licensePlate) => {
     "$.process.credit_checking.neighborhood.source_1.occupation_code": "DPRRI",
     "$.process.credit_checking.neighborhood.source_1.other_information":
       "Jualan bakso di siang hari, jualan ketoprak di malam hari. hatiku riang sekali, melihat lora keren sekali.",
-    "$.process.credit_checking.neighborhood.source_1.unit_seen_at_residence_more_than_once": false,
+    "$.process.credit_checking.neighborhood.source_1.unit_seen_at_residence_more_than_once": true,
+    "$.process.credit_checking.neighborhood.source_1.unit_left_residence_more_than_once": true,
     "$.process.credit_checking.neighborhood.source_2.business_suitability": true,
     "$.process.credit_checking.neighborhood.source_2.consumer_affiliate_with_organization": false,
     "$.process.credit_checking.neighborhood.source_2.consumer_often_at_home": true,
@@ -286,6 +287,7 @@ export const generatePayloadCa = (licensePlate) => {
     "$.process.credit_checking.neighborhood.source_2.other_information":
       "Jualan bakso di siang hari, jualan ketoprak di malam hari. hatiku riang sekali, melihat lora keren sekali.",
     "$.process.credit_checking.neighborhood.source_2.unit_seen_at_residence_more_than_once": true,
+    "$.process.credit_checking.neighborhood.source_2.unit_left_residence_more_than_once": true,
     "$.process.credit_checking.neighborhood.source_3.business_suitability": true,
     "$.process.credit_checking.neighborhood.source_3.consumer_affiliate_with_organization": false,
     "$.process.credit_checking.neighborhood.source_3.consumer_often_at_home": true,
@@ -304,6 +306,7 @@ export const generatePayloadCa = (licensePlate) => {
     "$.process.credit_checking.neighborhood.source_3.other_information":
       "Jualan bakso di siang hari, jualan ketoprak di malam hari. hatiku riang sekali, melihat lora keren sekali.",
     "$.process.credit_checking.neighborhood.source_3.unit_seen_at_residence_more_than_once": true,
+    "$.process.credit_checking.neighborhood.source_3.unit_left_residence_more_than_once": true,
     "$.process.loan_estimation.max_funding_ratio": 0.85,
     "$.process.operations_task.processing_branch_id": "567",
     "$.process.pd_model_overlay.s1.max_funding_ratio": 0.76,
