@@ -5,28 +5,49 @@
 export const Page9AssetDokumen = (taskId, params = {}) => ({
   formName: "form_asset_document_mandatory_show",
   payload: {
-    "$.documents.asset.asset_front.document_id": "dc8ebcbb-8ae3-4e09-8fa5-d9c2cc2b8bfe",
-    "$.documents.asset.asset_rear.document_id": "89d92827-4463-4f12-85a8-8dcdc39a5cd2",
-    "$.documents.asset.asset_left_side.document_id": "a80a4a12-ff22-467a-bba7-16e49f55a70c",
-    "$.documents.asset.asset_right_side.document_id": "f475c1c1-9b20-4e9c-9fd2-e8a53622d7f0",
-    "$.documents.asset.asset_front_left_side.document_id": "bee20de9-2691-4da8-9487-df8fcb86e8a8",
-    "$.documents.asset.asset_front_right_side.document_id": "30aa1273-e4f8-46bb-bb08-d46d784664fb",
-    "$.documents.asset.asset_rear_left_side.document_id": "7e83439c-efb8-4f84-9e76-e1293d8d8323",
-    "$.documents.asset.asset_rear_right_side.document_id": "7d93d4e1-5573-447e-855f-39ec766748e1",
-    "$.documents.asset.asset_interior_front_side.document_id": "d71353d3-7546-4724-9a11-2786788c32d7",
-    "$.documents.asset.asset_interior_rear_side.document_id": "321b6743-fe89-4beb-b1cd-7fed250a3320",
-    "$.documents.asset.asset_interior_center_sid.document_id": "05d101b9-b2e1-4e19-a34b-a3cef9e9299c",
-    "$.documents.asset.speedometer.document_id": "0631e9da-0911-431a-95a5-1c72dbdbe84a",
-    "$.documents.asset.engine_number.document_id": "bdb8bbbe-7396-44bb-9c7f-905fe1b41f60",
-    "$.documents.asset.selfie_with_vehicle.document_id": "d5fab956-9333-4099-a1f5-7f36c821943d",
-    "$.documents.bpkb_page_1.document_id": "286ba8ab-5c1d-459b-bcef-caf4c88e31b8",
-    "$.documents.bpkb_page_2.document_id": "314d4051-f869-4543-a126-752476db4c94",
-    "$.documents.bpkb_page_3.document_id": "5abf9832-db42-410d-b35e-f230d5bd6e92",
-    "$.documents.bpkb_page_4.document_id": "fea8b19c-8ec3-4599-a251-6347043e5aaf",
-    "$.documents.bpkb_page_5.document_id": "",
+    "$.documents.asset.asset_front.document_id":
+      "dc8ebcbb-8ae3-4e09-8fa5-d9c2cc2b8bfe",
+    "$.documents.asset.asset_rear.document_id":
+      "89d92827-4463-4f12-85a8-8dcdc39a5cd2",
+    "$.documents.asset.asset_left_side.document_id":
+      "a80a4a12-ff22-467a-bba7-16e49f55a70c",
+    "$.documents.asset.asset_right_side.document_id":
+      "f475c1c1-9b20-4e9c-9fd2-e8a53622d7f0",
+    "$.documents.asset.asset_front_left_side.document_id":
+      "bee20de9-2691-4da8-9487-df8fcb86e8a8",
+    "$.documents.asset.asset_front_right_side.document_id":
+      "30aa1273-e4f8-46bb-bb08-d46d784664fb",
+    "$.documents.asset.asset_rear_left_side.document_id":
+      "7e83439c-efb8-4f84-9e76-e1293d8d8323",
+    "$.documents.asset.asset_rear_right_side.document_id":
+      "7d93d4e1-5573-447e-855f-39ec766748e1",
+    "$.documents.asset.asset_interior_front_side.document_id":
+      "d71353d3-7546-4724-9a11-2786788c32d7",
+    "$.documents.asset.asset_interior_rear_side.document_id":
+      "321b6743-fe89-4beb-b1cd-7fed250a3320",
+    "$.documents.asset.asset_interior_center_sid.document_id":
+      "05d101b9-b2e1-4e19-a34b-a3cef9e9299c",
+    "$.documents.asset.speedometer.document_id":
+      "0631e9da-0911-431a-95a5-1c72dbdbe84a",
+    "$.documents.asset.engine_number.document_id":
+      "bdb8bbbe-7396-44bb-9c7f-905fe1b41f60",
+    "$.documents.asset.selfie_with_vehicle.document_id":
+      "d5fab956-9333-4099-a1f5-7f36c821943d",
+    "$.documents.bpkb_page_1.document_id":
+      "286ba8ab-5c1d-459b-bcef-caf4c88e31b8",
+    "$.documents.bpkb_page_2.document_id":
+      "314d4051-f869-4543-a126-752476db4c94",
+    "$.documents.bpkb_page_3.document_id":
+      "5abf9832-db42-410d-b35e-f230d5bd6e92",
+    "$.documents.bpkb_page_4.document_id":
+      "fea8b19c-8ec3-4599-a251-6347043e5aaf",
+    "$.documents.bpkb_page_5.document_id":
+      "bea78741-167d-4390-8eff-6e46a20b0460",
     "$.documents.stnk.document_id": "fa5fd92c-12f2-4b3e-84e5-1f6ff188dbee",
-    "$.documents.tax_notice.document_id": "0bb277f7-416d-48ca-95d1-3d9c516db3d5",
-    "$.documents.chassis_number.document_id": "050757da-8fe6-4726-ba98-937a3bd98128",
+    "$.documents.tax_notice.document_id":
+      "0bb277f7-416d-48ca-95d1-3d9c516db3d5",
+    "$.documents.chassis_number.document_id":
+      "050757da-8fe6-4726-ba98-937a3bd98128",
     "$.documents.bpkb_invoice.document_id": "",
     "$.documents.vehicle_inspection.document_id": "",
     "$.documents.release_letter.document_id": "",
@@ -57,14 +78,16 @@ export const Page9AssetDokumen = (taskId, params = {}) => ({
     "$.documents.selfie.document_id": "4302d3e5-e9ce-4643-9463-2496317f886a",
     "$.documents.employment_evidence.document_id": "",
     "$.documents.npwp.document_id": "bc91ec74-d25b-4680-a13b-89e56fe6dd5b",
-    "$.documents.income_proof.document_id": "6d3fb762-0b91-474f-a1ba-f35a79147a6e",
+    "$.documents.income_proof.document_id":
+      "6d3fb762-0b91-474f-a1ba-f35a79147a6e",
     "$.documents.kk.document_id": "8849772c-64b0-4501-a638-465195b01733",
     "$.documents.alternate_identity_document.document_id": "",
     "$.documents.marriage_certificate.document_id": "",
     "$.documents.divorce_certificate.document_id": "",
     "$.documents.death_certificate.document_id": "",
     "$.documents.house.document_id": "f31c8eb9-ddb0-44c5-85ce-e4f8c588416c",
-    "$.documents.house_ownership.document_id": "ceb54b1d-ab78-46c9-9198-a542eec0f2a3",
+    "$.documents.house_ownership.document_id":
+      "ceb54b1d-ab78-46c9-9198-a542eec0f2a3",
     "$.documents.debtor_signature.document_id": "",
     "$.documents.bpkb_receipt_2.document_id": "",
     "$.documents.customer_receipt_2.document_id": "",
