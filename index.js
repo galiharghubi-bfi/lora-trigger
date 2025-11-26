@@ -21,12 +21,22 @@ function parseArgs() {
     workflowId: namedArgs.workflow,
     appointmentId: namedArgs.appointment,
     riskLevel: namedArgs.riskLevel || "high",
+    continuationId: namedArgs.continuationId || null,
+    customerName: namedArgs.customerName || "",
   };
 }
 
 (async () => {
-  const { taskType, triggerType, actor, workflowId, appointmentId, riskLevel } =
-    parseArgs();
+  const {
+    taskType,
+    triggerType,
+    actor,
+    workflowId,
+    appointmentId,
+    riskLevel,
+    continuationId,
+    customerName,
+  } = parseArgs();
 
   if (!taskType || (taskType === "survey" && !triggerType)) {
     console.error("❌ Invalid task type or missing trigger type");
@@ -90,7 +100,7 @@ function parseArgs() {
           break;
         case "ca-full":
           console.log("✔ Triggering CA automation with full form submission");
-          await CaWithAutomation(actor.toLowerCase(), riskLevel);
+          await CaWithAutomation({ continuationId, customerName });
           break;
         default:
           console.log("Invalid trigger type");

@@ -242,7 +242,7 @@ export const generatePayloadCa = (licensePlate) => {
     "$.loan_structure.product_id": 1,
     "$.loan_structure.product_offering": 1,
     "$.loan_structure.provision_fee": 315000,
-    "$.loan_structure.provisional_amount": 18000000,
+    "$.loan_structure.provisional_amount": 45000000,
     "$.loan_structure.purpose.finance_purpose_id": "3",
     "$.loan_structure.purpose.finance_purpose_details":
       "Detail Kendaraan untuk Usaha",
@@ -312,6 +312,7 @@ export const generatePayloadCa = (licensePlate) => {
     "$.process.survey_task.bpkb_submission.verificator_notes": "oke",
     "$.process.survey_task.survey_branch_id": "999",
     "$.process.survey_task.surveyor_employee_id": "000004",
+    "$.process.survey_task.environment_check_surveyor_employee_id": "000004",
     "$.process.vehicle_verification_score.s1.max_funding_ratio": 0.8,
     "$.spouse.ktp.name":
       faker.person.firstName() + " " + faker.person.lastName(),

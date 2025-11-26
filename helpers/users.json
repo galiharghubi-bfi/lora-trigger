@@ -166,5 +166,29 @@
       "dp_supervisor_id": "000002",
       "active": true
     }
+  },
+  {
+    "user_id": "000012",
+    "realm": "bfi_employees",
+    "name": "pmr",
+    "branch_id": "567",
+    "branch_pos_id": "5670000",
+    "partnership": {
+      "dp_role": "product_manager_retail",
+      "dp_supervisor_id": "000002",
+      "active": true
+    }
+  },
+  {
+    "user_id": "000013",
+    "realm": "bfi_employees",
+    "name": "pmr",
+    "branch_id": "463",
+    "branch_pos_id": "4630000",
+    "partnership": {
+      "dp_role": "product_manager_retail",
+      "dp_supervisor_id": "000002",
+      "active": true
+    }
   }
 ]

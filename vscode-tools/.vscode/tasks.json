@@ -144,11 +144,11 @@
     {
       "label": "Run Backoffice FE",
       "type": "shell",
-      "command": "bash",
+      "command": "zsh",
       "options": {
-        "cwd": "${workspaceFolder}/lora-backoffice-fe"
+        "cwd": "${workspaceFolder}/lora-backoffice-fe",
       },
-      "args": ["-c", "pnpm i && pnpm start"],
+      "args": ["-c", "bun i && bun run build && bun serve"],
       "isBackground": true,
       "problemMatcher": {
         "pattern": [
@@ -175,7 +175,7 @@
       },
       "args": [
         "-c",
-        "lora-schemagen -d -s \"http://localhost:8080/json-schema/business/document/dp-ndf-v0_0_1.schema.json?bundled=1\" -t \"${workspaceFolder}/lora-partnership-ndf/internal/process/document\""
+        "lora-schemagen -d -s \"http://localhost:8080/json-schema/business/document/dp-ndf-v0_5_0.schema.json?bundled=1\" -t \"${workspaceFolder}/lora-partnership-ndf/internal/process/document\""
       ],
       "isBackground": true
     },
@@ -188,7 +188,7 @@
       },
       "args": [
         "-c",
-        "lora-schemagen -d -s \"http://localhost:8080/json-schema/business/document/dp-ndf-v0_0_1.schema.json?bundled=1\" -t \"${workspaceFolder}/lora-partnership-task-ndf/internal/process/common\""
+        "lora-schemagen -d -s \"http://localhost:8080/json-schema/business/document/dp-ndf-v0_5_0.schema.json?bundled=1\" -t \"${workspaceFolder}/lora-partnership-task-ndf/internal/process/common\""
       ],
       "isBackground": true
     },
