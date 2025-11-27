@@ -6,88 +6,89 @@ export const Page9AssetDokumen = (taskId, params = {}) => ({
   formName: "form_asset_document_mandatory_show",
   payload: {
     "$.documents.asset.asset_front.document_id":
-      "dc8ebcbb-8ae3-4e09-8fa5-d9c2cc2b8bfe",
+      "04d5b354-5669-4bf8-b677-d35c8d7eb0ea",
     "$.documents.asset.asset_rear.document_id":
-      "89d92827-4463-4f12-85a8-8dcdc39a5cd2",
+      "b30276ea-5f77-4387-9dd8-e049382c9248",
     "$.documents.asset.asset_left_side.document_id":
-      "a80a4a12-ff22-467a-bba7-16e49f55a70c",
+      "b1726c1d-3c15-4d0a-bd5d-1ea4ae9c2fcb",
     "$.documents.asset.asset_right_side.document_id":
-      "f475c1c1-9b20-4e9c-9fd2-e8a53622d7f0",
+      "d56b9793-1e08-498e-bbf4-cd8447bd6036",
     "$.documents.asset.asset_front_left_side.document_id":
-      "bee20de9-2691-4da8-9487-df8fcb86e8a8",
+      "30784900-9c80-46b5-8d05-8b17eb82f023",
     "$.documents.asset.asset_front_right_side.document_id":
-      "30aa1273-e4f8-46bb-bb08-d46d784664fb",
+      "c34a67d4-4499-48b0-b857-8187582145fa",
     "$.documents.asset.asset_rear_left_side.document_id":
-      "7e83439c-efb8-4f84-9e76-e1293d8d8323",
+      "3708e17b-c62e-4a33-a6d1-d63a0a4c1dec",
     "$.documents.asset.asset_rear_right_side.document_id":
-      "7d93d4e1-5573-447e-855f-39ec766748e1",
+      "e221aae2-c91e-4b86-a241-b4988ff5846d",
     "$.documents.asset.asset_interior_front_side.document_id":
-      "d71353d3-7546-4724-9a11-2786788c32d7",
+      "16ec0ba5-e927-4a45-aed9-7b49b5400f32",
     "$.documents.asset.asset_interior_rear_side.document_id":
-      "321b6743-fe89-4beb-b1cd-7fed250a3320",
+      "796fa4e8-2b5b-4ca2-abaf-6fea911ba626",
     "$.documents.asset.asset_interior_center_sid.document_id":
-      "05d101b9-b2e1-4e19-a34b-a3cef9e9299c",
+      "82b75277-cd5d-45cd-a805-0e00a1bb6a44",
     "$.documents.asset.speedometer.document_id":
-      "0631e9da-0911-431a-95a5-1c72dbdbe84a",
+      "b6fce304-49c4-4059-9b7f-ccc42ffedd4c",
     "$.documents.asset.engine_number.document_id":
-      "bdb8bbbe-7396-44bb-9c7f-905fe1b41f60",
+      "5ebf0c42-786a-4d34-8e0b-edcd4d61a169",
     "$.documents.asset.selfie_with_vehicle.document_id":
-      "d5fab956-9333-4099-a1f5-7f36c821943d",
+      "91d8fbac-ab85-4632-97e8-d4e192f75266",
     "$.documents.bpkb_page_1.document_id":
-      "286ba8ab-5c1d-459b-bcef-caf4c88e31b8",
+      "d7112b25-94f8-4ec3-9016-245e0de54351",
     "$.documents.bpkb_page_2.document_id":
-      "314d4051-f869-4543-a126-752476db4c94",
+      "e01342f2-c211-4101-95fd-40b4444c9241",
     "$.documents.bpkb_page_3.document_id":
-      "5abf9832-db42-410d-b35e-f230d5bd6e92",
+      "8156dc97-5439-4bfa-bdd3-842d14b06d93",
     "$.documents.bpkb_page_4.document_id":
-      "fea8b19c-8ec3-4599-a251-6347043e5aaf",
+      "6dad153f-e7eb-426c-b02d-6a71f02afb16",
     "$.documents.bpkb_page_5.document_id":
-      "bea78741-167d-4390-8eff-6e46a20b0460",
-    "$.documents.stnk.document_id": "fa5fd92c-12f2-4b3e-84e5-1f6ff188dbee",
+      "8eb1236f-af29-4270-a359-72e7304f2173",
+    "$.documents.stnk.document_id": "7f742913-02b3-4db7-94c3-99e2599c63ee",
     "$.documents.tax_notice.document_id":
-      "0bb277f7-416d-48ca-95d1-3d9c516db3d5",
+      "fdf308d5-541d-4c5d-872b-99766f6ab97f",
     "$.documents.chassis_number.document_id":
-      "050757da-8fe6-4726-ba98-937a3bd98128",
+      "3f19ec71-e712-4a72-9a0d-b1cb4e87c539",
     "$.documents.bpkb_invoice.document_id": "",
     "$.documents.vehicle_inspection.document_id": "",
     "$.documents.release_letter.document_id": "",
     "ltw.is_bpkb_duplicate": "false",
-    "ocr-suggestion--$.asset.unit_color": "PUTIH",
-    "$.asset.unit_color": "PUTIH",
-    "ocr-suggestion--$.asset.chassis_number": "PASSE8820DJD1977D",
+    "ocr-suggestion--$.asset.unit_color": "HITAM METALIK",
+    "$.asset.unit_color": "HITAM METALIK",
     "$.asset.chassis_number": "PASSE8820DJD1977D",
-    "ocr-suggestion--$.asset.engine_number": "2NRF833408",
-    "$.asset.engine_number": "2NRF833408",
-    "$.asset.bpkb_number": "TESTTESTTE",
-    "$.asset.bpkb_invoice_number": "TESTTESTTSET",
+    "ocr-suggestion--$.asset.engine_number": "2NDS903234",
+    "$.asset.engine_number": "2NDS903234",
+    "$.asset.bpkb_number": "P-06637346",
+    "$.asset.bpkb_invoice_number": "W4102663",
     "$.asset.bpkb_ownership_proof": "1",
-    "$.asset.bpkb_owner_name": params.customerName,
-    "$.process.bpkb_ocr_result.vehicle_brand": "TOYOTA",
-    "$.process.bpkb_ocr_result.chassis_number": "MH1JF7111BK160084",
-    "$.process.bpkb_ocr_result.engine_number": "2NRF833408",
+    "$.asset.bpkb_owner_name": "PUTRI FEBRIANTI",
+    "$.process.bpkb_ocr_result.vehicle_brand": "SUZUKI",
+    "$.process.bpkb_ocr_result.chassis_number": "PASSE8820DJD1977D",
+    "$.process.bpkb_ocr_result.engine_number": "K15871110940",
     "$.process.bpkb_ocr_result.manufacturing_year": "2019",
     "$.process.bpkb_ocr_result.license_plate": params.licensePlate,
-    "$.process.bpkb_ocr_result.bpkb_owner_nik": "",
-    "$.process.bpkb_ocr_result.bpkb_owner_name": params.customerName,
-    "$.process.bpkb_ocr_result.bpkb_address": "",
-    "$.process.bpkb_ocr_result.bpkb_number": "",
-    "$.process.bpkb_ocr_result.bpkb_invoice_number": "",
-    "$.process.bpkb_ocr_result.unit_color": "VIOLET SILVER",
-    "$.asset.bpkb_address": "",
-    "$.documents.ktp.document_id": "3a501dfb-fcc1-40a1-a8b3-9e27e6fdae21",
-    "$.documents.selfie.document_id": "4302d3e5-e9ce-4643-9463-2496317f886a",
+    "$.process.bpkb_ocr_result.bpkb_owner_nik": "3209310510810011",
+    "$.process.bpkb_ocr_result.bpkb_owner_name": "ADE KARNI SADELI",
+    "$.process.bpkb_ocr_result.bpkb_address":
+      "KP . GEBANG RT 003 RW 003 KEL . SATRIA JAJA KEC . TAMBUN UTARA KABUPATEN BEKASI",
+    "$.process.bpkb_ocr_result.bpkb_number": "P-06637346",
+    "$.process.bpkb_ocr_result.bpkb_invoice_number": "W4102663",
+    "$.process.bpkb_ocr_result.unit_color": "HITAM",
+    "$.asset.bpkb_address":
+      "KP . GEBANG RT 003 RW 003 KEL . SATRIA JAJA KEC . TAMBUN UTARA KABUPATEN BEKASI",
+    "$.documents.ktp.document_id": "c05d040e-1c2c-44d3-841a-e62ee27e6a92",
+    "$.documents.selfie.document_id": "6f7ec688-6050-4d9b-a3e3-3f4f951e6b7f",
     "$.documents.employment_evidence.document_id": "",
-    "$.documents.npwp.document_id": "bc91ec74-d25b-4680-a13b-89e56fe6dd5b",
+    "$.documents.npwp.document_id": "51b0b10b-1494-46d3-9bad-a0b1b6a7d61e",
     "$.documents.income_proof.document_id":
-      "6d3fb762-0b91-474f-a1ba-f35a79147a6e",
-    "$.documents.kk.document_id": "8849772c-64b0-4501-a638-465195b01733",
+      "9965b427-1692-4429-b2a1-3c4c761c00f0",
+    "$.documents.kk.document_id": "ca459718-81aa-4409-b2f2-ea7bc7f2bd70",
     "$.documents.alternate_identity_document.document_id": "",
     "$.documents.marriage_certificate.document_id": "",
     "$.documents.divorce_certificate.document_id": "",
     "$.documents.death_certificate.document_id": "",
-    "$.documents.house.document_id": "f31c8eb9-ddb0-44c5-85ce-e4f8c588416c",
+    "$.documents.house.document_id": "0c6f5216-1fa1-45a1-bb73-df5d0e0f2cc5",
     "$.documents.house_ownership.document_id":
-      "ceb54b1d-ab78-46c9-9198-a542eec0f2a3",
+      "b1f216fd-9509-4f55-8cc1-7664479bc64c",
     "$.documents.debtor_signature.document_id": "",
     "$.documents.bpkb_receipt_2.document_id": "",
     "$.documents.customer_receipt_2.document_id": "",

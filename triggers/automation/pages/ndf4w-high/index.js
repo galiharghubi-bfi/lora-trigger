@@ -37,7 +37,7 @@ export const HIGH_RISK_FORM_SEQUENCE = [
   Page3AssetDocument,
   Page4AssetCondition,
   Page5InfoLainnya,
-  Page6InfoTambahan,
+  // Page6InfoTambahan,
   Page7Financing,
   Page8PenyerahanBPKB,
   Page9AssetDokumen,
