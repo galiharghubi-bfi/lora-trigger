@@ -25,7 +25,8 @@ export const Page3AssetDocument = (taskId, params = {}) => ({
     "$.documents.bpkb_page_4.document_id": "",
     "$.documents.bpkb_page_5.document_id": "",
     "$.documents.stnk.document_id": "db0572b5-1182-46e8-82a3-3260d0d53b97",
-    "$.documents.tax_notice.document_id": "eb72132b-ac95-487f-8c13-0062b5a7a8ac",
+    "$.documents.tax_notice.document_id":
+      "eb72132b-ac95-487f-8c13-0062b5a7a8ac",
     "$.documents.chassis_number.document_id": "",
     "$.documents.bpkb_invoice.document_id": "",
     "$.documents.vehicle_inspection.document_id": "",
@@ -48,13 +49,14 @@ export const Page3AssetDocument = (taskId, params = {}) => ({
     "$.process.bpkb_ocr_result.bpkb_invoice_number": "",
     "$.process.bpkb_ocr_result.unit_color": "",
     "$.asset.bpkb_address": "",
-    "$.documents.ktp.document_id": "d0153c48-2db1-4f7a-9809-70112718deb7",
+    "$.documents.ktp.document_id": "9c93b777-1a00-4def-9643-60cff93b75e4",
     "$.documents.selfie.document_id": "ce530850-aaad-4704-ad68-bc34a8a506f3",
     "$.documents.employment_evidence.document_id": "",
     "$.documents.income_proof.document_id": "",
     "$.documents.business_legality.document_id": "",
     "$.documents.kk.document_id": "",
-    "$.documents.alternate_identity_document.document_id": "bdc1d22e-ce53-44dc-9779-67700afe4cd0",
+    "$.documents.alternate_identity_document.document_id":
+      "bdc1d22e-ce53-44dc-9779-67700afe4cd0",
     "$.documents.marriage_certificate.document_id": "",
     "$.documents.divorce_certificate.document_id": "",
     "$.documents.death_certificate.document_id": "",
@@ -63,6 +65,6 @@ export const Page3AssetDocument = (taskId, params = {}) => ({
     "$.documents.bpkb_receipt_2.document_id": "",
     "$.documents.customer_receipt_2.document_id": "",
     "$.documents.payment_receipt.document_id": "",
-    "action": "submit"
+    action: "submit",
   },
 });

@@ -22,7 +22,7 @@ export const Page5InfoLainnya = (taskId, params = {}) => ({
     "$.customer.emergency_contact.sub_district_code": "61.01.16.2005",
     "$.customer.emergency_contact.rt": "012",
     "$.customer.emergency_contact.rw": "001",
-    "$.documents.ktp.document_id": "f694bc80-f56f-4d6c-ae8e-3a7bbefe701f",
+    "$.documents.ktp.document_id": "9c93b777-1a00-4def-9643-60cff93b75e4",
     "$.documents.employment_evidence.document_id":
       "ec928907-c1cf-4d88-8258-bb0530c3c48e",
     "$.documents.npwp.document_id": "a9c35f5c-bef1-4133-8b1f-3ffef5b0bf12",

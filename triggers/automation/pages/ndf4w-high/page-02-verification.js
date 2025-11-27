@@ -5,7 +5,7 @@
 export const Page2Verification = (taskId, params = {}) => ({
   formName: "form_verification_show",
   payload: {
-    "$.documents.ktp.document_id": "f694bc80-f56f-4d6c-ae8e-3a7bbefe701f",
+    "$.documents.ktp.document_id": "9c93b777-1a00-4def-9643-60cff93b75e4",
     "$.documents.selfie.document_id": "ada13a4c-706a-4682-b833-c3ff21043783",
     "$.documents.alternate_identity_document.document_id":
       "6c98268c-91cb-437b-96d9-deda6d382ccc",
