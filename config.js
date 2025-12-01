@@ -17,7 +17,7 @@ const baseConfig = {
     task_poll_timeout_ms: 120000,
 
     // Form state change retry settings (waitForFormChange)
-    form_change_max_retries: 5,
+    form_change_max_retries: 10,
     form_change_retry_delay_ms: 5000,
 
     // Form resubmission settings (when form is stuck)

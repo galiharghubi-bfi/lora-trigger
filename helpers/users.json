@@ -168,6 +168,18 @@
     }
   },
   {
+    "user_id": "999010",
+    "realm": "bfi_employees",
+    "name": "vd 999005",
+    "branch_id": "463",
+    "branch_pos_id": "4630000",
+    "partnership": {
+      "dp_role": "vd",
+      "dp_supervisor_id": "000002",
+      "active": true
+    }
+  },
+  {
     "user_id": "000012",
     "realm": "bfi_employees",
     "name": "pmr",

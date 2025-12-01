@@ -76,7 +76,7 @@ export const Page9AssetDokumen = (taskId, params = {}) => ({
     "$.asset.bpkb_address":
       "KP . GEBANG RT 003 RW 003 KEL . SATRIA JAJA KEC . TAMBUN UTARA KABUPATEN BEKASI",
     "$.documents.ktp.document_id": "9c93b777-1a00-4def-9643-60cff93b75e4",
-    "$.documents.selfie.document_id": "6f7ec688-6050-4d9b-a3e3-3f4f951e6b7f",
+    "$.documents.selfie.document_id": "ada13a4c-706a-4682-b833-c3ff21043783",
     "$.documents.employment_evidence.document_id": "",
     "$.documents.npwp.document_id": "51b0b10b-1494-46d3-9bad-a0b1b6a7d61e",
     "$.documents.income_proof.document_id":
@@ -85,7 +85,7 @@ export const Page9AssetDokumen = (taskId, params = {}) => ({
     "$.documents.alternate_identity_document.document_id": "",
     "$.documents.marriage_certificate.document_id": "",
     "$.documents.divorce_certificate.document_id": "",
-    "$.documents.death_certificate.document_id": "",
+    "$.documents.death_certificate.document_iad": "",
     "$.documents.house.document_id": "0c6f5216-1fa1-45a1-bb73-df5d0e0f2cc5",
     "$.documents.house_ownership.document_id":
       "b1f216fd-9509-4f55-8cc1-7664479bc64c",

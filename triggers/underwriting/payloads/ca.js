@@ -137,7 +137,7 @@ export const generatePayloadCa = (licensePlate) => {
       "4f7a5a7e-32f7-46a9-8c4e-f409bd7e0163",
     "$.documents.release_letter.document_id":
       "99a0c247-94c1-480e-adb3-6d4bc46b9a8e",
-    "$.documents.selfie.document_id": "1f0d0f0e-bb7a-4b49-9a06-bc889832e495",
+    "$.documents.selfie.document_id": "ada13a4c-706a-4682-b833-c3ff21043783",
     "$.documents.spouse_ktp.document_id":
       "1f0d0f0e-bb7a-4b49-9a06-bc889832e495",
     "$.documents.spouse_signature.document_id":
