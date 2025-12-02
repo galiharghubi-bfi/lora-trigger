@@ -1,9 +1,9 @@
-import {faker} from "@faker-js/faker";
+import { faker } from "@faker-js/faker";
 import baseConfig from "../../config.js";
-import {StartApplication} from "../start-application.js";
-import {sendMq} from "../trigger-appointment.js";
-import {cleansedName} from "../utils/cleanse.js";
-import {generateLicensePlate} from "../utils/license_plate.js";
+import { StartApplication } from "../start-application.js";
+import { sendMq } from "../trigger-appointment.js";
+import { cleansedName } from "../utils/cleanse.js";
+import { generateLicensePlate } from "../utils/license_plate.js";
 
 const licensePlate = generateLicensePlate();
 
@@ -36,7 +36,9 @@ const payload = {
   "$.customer.ktp.city": "Bandung",
   "$.customer.ktp.district": "Gedebage",
   "$.customer.ktp.gender": "F",
-  "$.customer.ktp.name": `${cleansedName(faker.person.firstName())} ${cleansedName(faker.person.lastName())}`,
+  "$.customer.ktp.name": `${cleansedName(
+    faker.person.firstName()
+  )} ${cleansedName(faker.person.lastName())}`,
   "$.customer.ktp.nik": "3603281212930010",
   "$.customer.ktp.province": "Jawa Barat",
   "$.customer.ktp.street_address": "JALAN JALAN",
@@ -57,34 +59,34 @@ const payload = {
   "$.loan_structure.product_id": 2,
   "$.loan_structure.product_offering": 35,
   "$.loan_structure.tenure": 12,
-  "$.process.user_consent_timestamp": "2025-08-15T08:51:13.50673499Z"
-}
+  // "$.process.user_consent_timestamp": "2025-08-15T08:51:13.50673499Z"
+};
 
 export const mapActor = {
   admin: {
     resource_identifiers: "000000",
     resource_type_code: "ADMIN_SURVEY",
-    location_type_code: "VIRTUAL"
+    location_type_code: "VIRTUAL",
   },
   vd: {
     resource_identifiers: "000004",
     resource_type_code: "VERIFICATOR_DIGITAL",
-    location_type_code: "CUSTOMER_HOME"
+    location_type_code: "CUSTOMER_HOME",
   },
   vd_branch_visit: {
     resource_identifiers: "999005",
     resource_type_code: "VERIFICATOR_DIGITAL",
-    location_type_code: "BFI_OFFICE"
+    location_type_code: "BFI_OFFICE",
   },
   vd_custom: {
     resource_identifiers: "999006",
     resource_type_code: "VERIFICATOR_DIGITAL",
-    location_type_code: "BFI_OFFICE"
-  }
-}
+    location_type_code: "BFI_OFFICE",
+  },
+};
 
 export const Ndf2w = async (actor) => {
-  const {workflowId, start} = await StartApplication();
+  const { workflowId, start } = await StartApplication();
   try {
     await start;
     await fetch(`${baseConfig.lgs_base_url}/application/${workflowId}/data`, {
@@ -109,7 +111,7 @@ export const Ndf2w = async (actor) => {
     await sendMq(workflowId, videoUrl.url, {
       activity_type_code: "2W_REGULAR_SURVEY",
       appointment_uuid: crypto.randomUUID(),
-      ...(mapActor[actor] ?? mapActor['admin']),
+      ...(mapActor[actor] ?? mapActor["admin"]),
     });
   } catch (error) {
     console.error(error);
