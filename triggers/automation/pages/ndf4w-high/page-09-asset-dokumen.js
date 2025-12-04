@@ -76,7 +76,7 @@ export const Page9AssetDokumen = (taskId, params = {}) => ({
     "$.asset.bpkb_address":
       "KP . GEBANG RT 003 RW 003 KEL . SATRIA JAJA KEC . TAMBUN UTARA KABUPATEN BEKASI",
     "$.documents.ktp.document_id": "9c93b777-1a00-4def-9643-60cff93b75e4",
-    "$.documents.selfie.document_id": "ada13a4c-706a-4682-b833-c3ff21043783",
+    "$.documents.selfie.document_id": "7fe1b2ac-6a02-42d0-b57c-ceb9a2bd5aa3",
     "$.documents.employment_evidence.document_id": "",
     "$.documents.npwp.document_id": "51b0b10b-1494-46d3-9bad-a0b1b6a7d61e",
     "$.documents.income_proof.document_id":

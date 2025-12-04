@@ -50,7 +50,7 @@ export const Page3AssetDocument = (taskId, params = {}) => ({
     "$.process.bpkb_ocr_result.unit_color": "",
     "$.asset.bpkb_address": "",
     "$.documents.ktp.document_id": "9c93b777-1a00-4def-9643-60cff93b75e4",
-    "$.documents.selfie.document_id": "ce530850-aaad-4704-ad68-bc34a8a506f3",
+    "$.documents.selfie.document_id": "7fe1b2ac-6a02-42d0-b57c-ceb9a2bd5aa3",
     "$.documents.employment_evidence.document_id": "",
     "$.documents.income_proof.document_id": "",
     "$.documents.business_legality.document_id": "",

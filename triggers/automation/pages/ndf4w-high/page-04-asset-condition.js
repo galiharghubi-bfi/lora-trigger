@@ -25,6 +25,7 @@ export const Page4AssetCondition = (taskId, params = {}) => ({
     "$.customer.professional.employment_status": "PERMANENT_EMPLOYEE",
     "$.customer.professional.business_since_year": "2020",
     "ltw.custom_customer_personal_character_4w": "NO_NEGATIVE_INFO",
+    "$.asset.debtor_spouse_can_identify_collateral": "true",
     action: "submit",
   },
 });

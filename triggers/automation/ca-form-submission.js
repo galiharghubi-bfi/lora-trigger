@@ -28,6 +28,7 @@ export const queryTask = async (workflowId) => {
       FOR task IN task
         FILTER task.document_id == @workflowId
         FILTER task.type == "CREDIT_ANALYSIS"
+        FILTER task.status IN ["assigned", "started", "new"]
         LIMIT 1
         RETURN task.id
     `;

@@ -6,21 +6,13 @@ export const Page2Verification = (taskId, params = {}) => ({
   formName: "form_verification_show",
   payload: {
     "$.documents.ktp.document_id": "9c93b777-1a00-4def-9643-60cff93b75e4",
-    "$.documents.selfie.document_id": "ada13a4c-706a-4682-b833-c3ff21043783",
+    "$.documents.selfie.document_id": "7fe1b2ac-6a02-42d0-b57c-ceb9a2bd5aa3",
     "$.documents.alternate_identity_document.document_id":
       "6c98268c-91cb-437b-96d9-deda6d382ccc",
     "$.customer.ktp.name": params.customerName,
     "$.customer.ktp.birth_place": "MANOKWARI",
-    "ltw.custom_marital_status": "Single",
     "$.customer.personal.number_dependents_children": "1",
     "$.customer.personal.number_dependents_other": "1",
-    "$.documents.spouse_ktp.document_id": "",
-    "$.spouse.ktp.name": "",
-    "$.spouse.ktp.nik": "",
-    "$.spouse.ktp.birth_place": "",
-    "$.spouse.ktp.birth_date": "",
-    "$.spouse.mobile_number": "",
-    "ltw.custom_spouse_occupation_code": "",
     "$.customer.domicile.address.street_address": "JL KEBAGUSAN AJA",
     "$.customer.domicile.address.sub_district_code": "32.73.27.1003",
     "$.customer.domicile.address.rt": "001",
@@ -69,5 +61,26 @@ export const Page2Verification = (taskId, params = {}) => ({
     "$.loan_structure.funding_ratio": "0.467742",
     "$.process.digital_ltv_max_ndf4w.s1.ltv_max_ratio": "0.85",
     action: "submit",
+
+    // for single
+    "ltw.custom_marital_status": "Single",
+    "$.spouse.ktp.name": "",
+    "$.spouse.ktp.nik": "",
+    "$.spouse.ktp.birth_place": "",
+    "$.spouse.ktp.birth_date": "",
+    "$.spouse.mobile_number": "",
+    "$.documents.spouse_ktp.document_id": "",
+    "ltw.custom_spouse_occupation_code": "",
+
+    // for married
+    // "ltw.custom_marital_status": "Married",
+    // "$.spouse.ktp.name": "Sinta",
+    // "$.spouse.ktp.nik": "3174092409580043",
+    // "$.spouse.ktp.birth_place": "Jakarta",
+    // "$.spouse.ktp.birth_date": "2009-12-02",
+    // "$.spouse.mobile_number": "+628131743692",
+    // "$.documents.spouse_ktp.document_id":
+    //   "58244ce3-f49b-43d7-9198-b559fc7bfff3",
+    // "ltw.custom_spouse_occupation_code": "Accounting/Finance Officer",
   },
 });

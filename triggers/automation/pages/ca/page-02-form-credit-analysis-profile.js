@@ -7,7 +7,7 @@ export const Page2Profile = () => ({
   formName: "form_credit_analysis_profile",
   payload: {
     "$.ltw.customer_ktp_nik_revision_checkbox": "false",
-    "$.ltw.customer_ktp_name_revision_checkbox": "false",
+    "$.ltw.customer_ktp_name_revision_checkbox": "true",
     "$.ltw.customer_ktp_birth_place_revision_checkbox": "false",
     "$.ltw.customer_ktp_birth_date_revision_checkbox": "false",
     "$.ltw.customer_ktp_gender_revision_checkbox": "false",
