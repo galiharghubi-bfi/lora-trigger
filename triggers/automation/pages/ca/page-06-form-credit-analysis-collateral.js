@@ -6,8 +6,8 @@
 export const Page6Collateral = () => ({
   formName: "form_credit_analysis_collateral",
   payload: {
-    "$.ltw.asset_vehicle_brand_revision_checkbox": "true",
-    "$.ltw.asset_vehicle_manufacturing_year_revision_checkbox": "true",
+    "$.ltw.asset_vehicle_brand_revision_checkbox": "false",
+    "$.ltw.asset_vehicle_manufacturing_year_revision_checkbox": "false",
     "$.ltw.asset_provisional_amount_revision_checkbox": "false",
     "$.ltw.asset_tenure_revision_checkbox": "false",
     "$.ltw.asset_vehicle_bpkb_ownership_revision_checkbox": "false",

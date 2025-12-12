@@ -202,5 +202,41 @@
       "dp_supervisor_id": "000002",
       "active": true
     }
+  },
+  {
+    "user_id": "000014",
+    "realm": "bfi_employees",
+    "name": "ca_factory_head",
+    "branch_id": "463",
+    "branch_pos_id": "4630000",
+    "partnership": {
+      "dp_role": "ca_factory_head",
+      "dp_supervisor_id": "000002",
+      "active": true
+    }
+  },
+  {
+    "user_id": "000015",
+    "realm": "bfi_employees",
+    "name": "ca_factory_head",
+    "branch_id": "567",
+    "branch_pos_id": "5670000",
+    "partnership": {
+      "dp_role": "ca_factory_head",
+      "dp_supervisor_id": "000002",
+      "active": true
+    }
+  },
+  {
+    "user_id": "000016",
+    "realm": "bfi_employees",
+    "name": "am_business",
+    "branch_id": "567",
+    "branch_pos_id": "5670000",
+    "partnership": {
+      "dp_role": "am_business",
+      "dp_supervisor_id": "000002",
+      "active": true
+    }
   }
 ]

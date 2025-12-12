@@ -2,7 +2,7 @@ import { faker } from "@faker-js/faker/locale/id_ID";
 
 export const generatePayloadCa = (licensePlate) => {
   return {
-    "$.asset.asset_code": "DAIHATSU.AYLA.D10AT",
+    "$.asset.asset_code": "DAIHATSU.ROCKY.M12AT",
     "$.process.survey_task.environment_check_branch_id": "567",
     "$.process.survey_task.environment_check_pos_id": "6666",
     "$.process.survey_task.environment_check_branch_name": "CABANG GOTO",

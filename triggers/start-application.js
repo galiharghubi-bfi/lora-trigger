@@ -5,7 +5,7 @@ export function StartApplication() {
 
   const payload = {
     id: workflowId,
-    name: "dp-ndf-v0_6_0",
+    name: "dp-ndf-v0_7_0",
   };
   const start = fetch(`${baseConfig.lgs_base_url}/application/start`, {
     method: "POST",
