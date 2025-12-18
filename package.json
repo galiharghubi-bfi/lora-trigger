@@ -20,6 +20,7 @@
     "survey-ndf4w-vd": "bun start survey ndf4w actor=vd",
     "survey-ndf4w-vd-bv": "bun start survey ndf4w actor=vd_branch_visit",
     "automation-low": "bun start automation ndf4w-full riskLevel=low",
+    "automation-ndf2w": "bun start automation ndf2w",
     "automation-low-vd": "bun start automation ndf4w-full riskLevel=low actor=vd",
     "automation-low-vd-bv": "bun start automation ndf4w-full riskLevel=low actor=vd_branch_visit",
     "automation-high": "bun start automation ndf4w-full riskLevel=high",
