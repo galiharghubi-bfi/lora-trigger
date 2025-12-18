@@ -40,5 +40,17 @@ export {
   CA_FORM_SEQUENCE,
 } from "./ca/index.js";
 
+export {
+  NDF2WPage1PIN,
+  NDF2WPage2Verification,
+  NDF2WPage3AssetDocument,
+  NDF2WPage4AssetCondition,
+  NDF2WPage5InfoLainnya,
+  NDF2WPage6InfoTambahan,
+  NDF2WPage7PenyerahanBPKB,
+  NDF2WPage8AssetDokumen,
+  NDF2W_FORM_SEQUENCE,
+} from "./ndf2w/index.js";
+
 // Export DEFAULT_FORM_SEQUENCE as alias for HIGH_RISK_FORM_SEQUENCE (backward compatibility)
 export { HIGH_RISK_FORM_SEQUENCE as DEFAULT_FORM_SEQUENCE } from "./ndf4w-high/index.js";

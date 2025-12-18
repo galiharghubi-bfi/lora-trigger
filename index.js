@@ -4,6 +4,7 @@ import { Ops } from "./triggers/bpkbreview/index.js";
 import { Ndf4wMq } from "./triggers/survey/ndf4w-mq.js";
 import { Ndf4wWithAutomation } from "./triggers/survey/ndf4w-with-automation.js";
 import { CaWithAutomation } from "./triggers/underwriting/ca-with-automation.js";
+import { Ndf2wWithAutomation } from "./triggers/survey/ndf2w-with-automation.js";
 
 function parseArgs() {
   const [, , taskType, triggerType, ...rest] = process.argv;
@@ -101,6 +102,10 @@ function parseArgs() {
         case "ca-full":
           console.log("✔ Triggering CA automation with full form submission");
           await CaWithAutomation({ continuationId, customerName });
+          break;
+        case "ndf2w":
+          console.log("✔ Triggering 2W automation with full form submission");
+          await Ndf2wWithAutomation({ continuationId, customerName });
           break;
         default:
           console.log("Invalid trigger type");
