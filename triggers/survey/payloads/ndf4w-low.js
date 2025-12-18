@@ -49,5 +49,5 @@ export const generateNdf4wLowRiskPayload = (params = {}) => ({
   "$.loan_structure.product_id": 1,
   "$.loan_structure.product_offering": 32,
   "$.loan_structure.tenure": 12,
-  // "$.process.user_consent_timestamp": "2025-11-10T03:47:38.475379835Z"
+  "$.customer.consent.third_party_data_access": "2025-08-15T08:51:13.50673499Z"
 });

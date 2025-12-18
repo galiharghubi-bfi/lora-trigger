@@ -50,5 +50,5 @@ export const generateNdf4wHighRiskPayload = (params = {}) => ({
   "$.loan_structure.product_id": 1,
   "$.loan_structure.product_offering": 37,
   "$.loan_structure.tenure": 12,
-  // "$.process.user_consent_timestamp": "2025-11-12T01:33:16.52178974Z",
+  "$.customer.consent.third_party_data_access": "2025-08-15T08:51:13.50673499Z"
 });
