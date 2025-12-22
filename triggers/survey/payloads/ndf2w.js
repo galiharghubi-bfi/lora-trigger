@@ -48,4 +48,5 @@ export const generateNdf2wPayload = (params = {}) => ({
   "$.loan_structure.product_id": 2,
   "$.loan_structure.product_offering": 35,
   "$.loan_structure.tenure": 12,
+  "$.customer.consent.third_party_data_access": "2025-08-15T08:51:13.50673499Z",
 });
