@@ -18,7 +18,7 @@ export const generateNdf2wPayload = (params = {}) => ({
   "$.customer.bank_information.account_number": "0010988888",
   "$.customer.bank_information.bank_id": 47,
   "$.customer.contact.email": "TESTSSS@GMAIL.COM",
-  "$.customer.contact.mobile_number": "+6282111112365",
+  "$.customer.contact.mobile_number": "+6281234567890",
   "$.customer.domicile.address.street_address": "JL KEBAGUSAN AJA",
   "$.customer.domicile.address.sub_district_code": "32.73.27.1003",
   "$.customer.domicile.ownership_code": "SD",
