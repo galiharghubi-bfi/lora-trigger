@@ -3,6 +3,7 @@ import baseConfig from "../../config.js";
 import { StartApplication } from "../start-application.js";
 import { sendMq } from "../trigger-appointment.js";
 import { generateLicensePlate } from "../utils/license_plate.js";
+import { generateNdf2wPayload } from "./payloads/ndf2w.js";
 
 export const mapActor = {
   admin: {

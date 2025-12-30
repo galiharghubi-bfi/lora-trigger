@@ -43,7 +43,7 @@ export const generateNdf2wPayload = (params = {}) => ({
   "$.customer.professional.npwp_matches_nik": false,
   "$.customer.professional.occupation_type_code": "M",
   "$.documents.ktp.document_id": "1a82f0ab-9369-4053-bd54-329736d5b072",
-  "$.documents.selfie.document_id": "b66028a9-78c9-4976-8784-990bd1636a9e",
+  "$.documents.selfie.document_id": "0b95be32-297e-4653-982a-f20ad21a5a5b",
   "$.loan_structure.original_amount": 13875000,
   "$.loan_structure.product_id": 2,
   "$.loan_structure.product_offering": 35,
