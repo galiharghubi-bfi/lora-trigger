@@ -238,5 +238,17 @@
       "dp_supervisor_id": "000002",
       "active": true
     }
+  },
+  {
+    "user_id": "000017",
+    "realm": "bfi_employees",
+    "name": "network_management_head",
+    "branch_id": "567",
+    "branch_pos_id": "5670000",
+    "partnership": {
+      "dp_role": "network_management_head",
+      "dp_supervisor_id": "111111",
+      "active": true
+    }
   }
 ]
