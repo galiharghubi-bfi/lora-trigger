@@ -1,10 +1,10 @@
-import { Ndf4w, Ndf2w } from "./triggers/survey/index.js";
-import { Ca } from "./triggers/underwriting/index.js";
 import { Ops } from "./triggers/bpkbreview/index.js";
+import { Ndf2w, Ndf2wRO, Ndf4w } from "./triggers/survey/index.js";
+import { Ndf2wWithAutomation } from "./triggers/survey/ndf2w-with-automation.js";
 import { Ndf4wMq } from "./triggers/survey/ndf4w-mq.js";
 import { Ndf4wWithAutomation } from "./triggers/survey/ndf4w-with-automation.js";
 import { CaWithAutomation } from "./triggers/underwriting/ca-with-automation.js";
-import { Ndf2wWithAutomation } from "./triggers/survey/ndf2w-with-automation.js";
+import { Ca } from "./triggers/underwriting/index.js";
 
 function parseArgs() {
   const [, , taskType, triggerType, ...rest] = process.argv;
@@ -50,6 +50,10 @@ function parseArgs() {
         case "ndf2w":
           console.log("✔ Triggering survey, product type: ndf2w");
           await Ndf2w(actor.toLowerCase());
+          break;
+        case "ndf2w-ro":
+          console.log("✔ Triggering survey, product type: ndf2w-ro");
+          await Ndf2wRO(actor.toLowerCase());
           break;
         case "ndf4w":
           console.log("✔ Triggering survey, product type: ndf4w");
