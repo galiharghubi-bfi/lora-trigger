@@ -1,4 +1,4 @@
-import { faker } from "@faker-js/faker";
+import { faker } from "@faker-js/faker/locale/id_ID";
 import baseConfig from "../../config.js";
 import { StartApplication } from "../start-application.js";
 import { sendMq } from "../trigger-appointment.js";
