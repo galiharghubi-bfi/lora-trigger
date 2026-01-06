@@ -14,6 +14,7 @@
     "start": "bun index.js",
     "ca": "bun start underwriting ca",
     "survey-ndf2w": "bun start survey ndf2w",
+    "survey-ndf2w-ro": "bun start survey ndf2w-ro",
     "survey-ndf2w-vd": "bun start survey ndf2w actor=vd",
     "survey-ndf2w-vd-bv": "bun start survey ndf2w actor=vd_branch_visit",
     "survey-ndf4w": "bun start survey ndf4w",
