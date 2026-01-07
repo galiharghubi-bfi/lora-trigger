@@ -250,5 +250,17 @@
       "dp_supervisor_id": "111111",
       "active": true
     }
+  },
+  {
+    "user_id": "000018",
+    "realm": "bfi_employees",
+    "name": "am_business",
+    "branch_id": "463",
+    "branch_pos_id": "4630000",
+    "partnership": {
+      "dp_role": "am_business",
+      "dp_supervisor_id": "000002",
+      "active": true
+    }
   }
 ]

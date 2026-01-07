@@ -65,7 +65,7 @@ export const Page2Verification = (taskId, params = {}) => ({
       "8a75ed58-37de-416a-9969-b2d029b3a4d3",
     "$.process.stnk_ocr_result.vehicle_model": "SCOOTER",
     "$.process.stnk_ocr_result.registration_year": "2023",
-    "$.loan_structure.provisional_amount": "72400000",
+    "$.loan_structure.provisional_amount": "60000000",
     "$.loan_structure.tenure": "12",
     "$.loan_structure.max_funding": "72400000",
     "$.loan_structure.monthly_installment": "7027500",
