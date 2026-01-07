@@ -46,9 +46,9 @@ export const generateNdf4wHighRiskPayload = (params = {}) => ({
   "$.customer.professional.occupation_type_code": "M",
   "$.documents.ktp.document_id": "9c93b777-1a00-4def-9643-60cff93b75e4",
   "$.documents.selfie.document_id": "7fe1b2ac-6a02-42d0-b57c-ceb9a2bd5aa3",
-  "$.loan_structure.original_amount": 85000000,
+  "$.loan_structure.original_amount": 60000000,
   "$.loan_structure.product_id": 1,
   "$.loan_structure.product_offering": 37,
   "$.loan_structure.tenure": 12,
-  "$.customer.consent.third_party_data_access": "2025-08-15T08:51:13.50673499Z"
+  "$.customer.consent.third_party_data_access": "2025-08-15T08:51:13.50673499Z",
 });
