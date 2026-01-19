@@ -262,5 +262,41 @@
       "dp_supervisor_id": "000002",
       "active": true
     }
+  },
+  {
+    "user_id": "000019",
+    "realm": "bfi_employees",
+    "name": "bm",
+    "branch_id": "482",
+    "branch_pos_id": "4820000",
+    "partnership": {
+      "dp_role": "bm",
+      "dp_supervisor_id": "",
+      "active": true
+    }
+  },
+  {
+    "user_id": "000020",
+    "realm": "bfi_employees",
+    "name": "ho",
+    "branch_id": "482",
+    "branch_pos_id": "4820000",
+    "partnership": {
+      "dp_role": "ho",
+      "dp_supervisor_id": "",
+      "active": true
+    }
+  },
+  {
+    "user_id": "000021",
+    "realm": "bfi_employees",
+    "name": "am",
+    "branch_id": "482",
+    "branch_pos_id": "4820000",
+    "partnership": {
+      "dp_role": "am",
+      "dp_supervisor_id": "",
+      "active": true
+    }
   }
 ]
