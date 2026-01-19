@@ -5,6 +5,7 @@ import { Ndf4wMq } from "./triggers/survey/ndf4w-mq.js";
 import { Ndf4wWithAutomation } from "./triggers/survey/ndf4w-with-automation.js";
 import { CaWithAutomation } from "./triggers/underwriting/ca-with-automation.js";
 import { Ca } from "./triggers/underwriting/index.js";
+import { MouSsf } from "./triggers/mou-ssf/index.js";
 
 function parseArgs() {
   const [, , taskType, triggerType, ...rest] = process.argv;
@@ -115,6 +116,10 @@ function parseArgs() {
           console.log("Invalid trigger type");
           break;
       }
+      break;
+    case "mou-ssf":
+      console.log("✔ Triggering MOU SSF task creation");
+      await MouSsf();
       break;
     default:
       console.log("Invalid task type");
